@@ -8,13 +8,13 @@ import java.util.Set;
 
 public class Hero {
     private String HeroName;
-    private Set<Card> specialCards;
+    private Set<String> specialCards;
 
-    public Set<Card> getSpecialCards() {
+    public Set<String> getSpecialCards() {
         return specialCards;
     }
 
-    public void setSpecialCards(Set<Card> specialCards) {
+    public void setSpecialCards(Set<String> specialCards) {
         this.specialCards = specialCards;
     }
 

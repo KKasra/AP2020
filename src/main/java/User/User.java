@@ -3,25 +3,29 @@ package User;
 import Game.Cards.Card;
 import Game.Heros.Hero;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userID;
+    @Column(name = "USERNAME")
     private String userName;
+    @Column(name = "PASSWORD")
     private String passWord;
+    @Column(name = "COINS")
     private int coins;
-    private ArrayList<Hero> heroes;
 
-    public int getIndexOfHero() {
-        return indexOfHero;
-    }
+    @ManyToMany
+    private Collection<Hero> heroes;
 
-    public void setIndexOfHero(int indexOfHero) {
-        this.indexOfHero = indexOfHero;
-    }
-
+    @Column(name = "MY_HERO")
     private int indexOfHero;
-    private ArrayList<Card> availableCards;
+    @Column(name = "AVAILABLE_CARDS")
+    private ArrayList<String> availableCards;
 
     public User(String userName, String passWord) {
         this.userName = userName;
@@ -32,27 +36,36 @@ public class User {
     }
 
     void createDefaultHeroSet() {
+        //TODO
         heroes = new ArrayList<>();
     }
 
     void createDefaultAvailableCardSet() {
+        //TODO
+    }
 
+    public int getIndexOfHero() {
+        return indexOfHero;
+    }
+
+    public void setIndexOfHero(int indexOfHero) {
+        this.indexOfHero = indexOfHero;
     }
 
     void addHero(Hero newHero) {
         heroes.add(newHero);
     }
 
-    void removeDeck(int indx) {
-        heroes.remove(indx);
+    void removeDeck(int index) {
+        heroes.remove(index);
     }
 
     public ArrayList<Hero> getHeroes() {
-        return (ArrayList<Hero>) heroes.clone();
+        return (ArrayList<Hero>) heroes;
     }
 
-    public ArrayList<Card> getAvailableCards() {
-        return (ArrayList<Card>)availableCards.clone();
+    public ArrayList<String> getAvailableCards() {
+        return availableCards;
     }
 
 
@@ -92,7 +105,7 @@ public class User {
         heroes = heroes;
     }
 
-    public void setAvailableCards(ArrayList<Card> availableCards) {
+    public void setAvailableCards(ArrayList<String> availableCards) {
         this.availableCards = availableCards;
     }
 }

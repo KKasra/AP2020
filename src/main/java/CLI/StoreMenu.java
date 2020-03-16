@@ -22,12 +22,18 @@ public class StoreMenu extends Menu {
             return "invalid Command!";
 
         if (in[0].equals("buy")) {
-            for (Card i : Market.getCardsForSale())
+            for (String i : Market.getCardsForSale())
                 if (i.toString().equals(in[1])) {
-                    if (i.getCoinCost() <= user.getCoins()) {
-                        user.setCoins(user.getCoins() - i.getCoinCost());
+                    Card now;
+                    try{
+                        now = CardFactory.build(i);
+                    } catch (Exception e) {
+                        continue;
+                    }
+                    if (now.getCoinCost() <= user.getCoins()) {
+                        user.setCoins(user.getCoins() - now.getCoinCost());
                         try {
-                            user.getAvailableCards().add(CardFactory.build(i.toString()));
+                            user.getAvailableCards().add(i);
                         } catch (Exception e) {}
                         return "";
                     }
@@ -45,13 +51,17 @@ public class StoreMenu extends Menu {
             }
 
             for (Hero i : user.getHeroes())
-                if (i.getDeck().countCard(card) > 0)
+                if (i.getDeck().countCard(card.toString()) > 0)
                     return "this card is in your hero's deck";
 
-            for (Card i : user.getAvailableCards())
+            for (String i : user.getAvailableCards())
                 if (i.toString().equals(in[1])) {
+                    Card now = null;
+                    try{
+                        now = CardFactory.build(i);
+                    }catch (Exception e) {System.err.println(e.fillInStackTrace());}
                     user.getAvailableCards().remove(i);
-                    user.setCoins(user.getCoins() + i.getCoinCost());
+                    user.setCoins(user.getCoins() + now.getCoinCost());
                     return "";
                 }
             return "this card is not in your collection";

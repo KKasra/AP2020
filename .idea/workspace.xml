@@ -1,27 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2319be2f-3e78-4628-a47a-f916d8317adb" name="Default Changelist" comment="" />
+    <list default="true" id="2319be2f-3e78-4628-a47a-f916d8317adb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_h2database_h2_1_4_191.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jakarta_xml_bind_jakarta_xml_bind_api_2_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_transaction_jta_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_glassfish_jaxb_jaxb_runtime_2_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/FastInfoset-1.2.16.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/h2-1.4.191.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/istack-commons-runtime-3.0.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jakarta.activation-api-1.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jakarta.xml.bind-api-2.3.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jaxb-runtime-2.3.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stax-ex-1.8.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/txw2-2.3.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/CollectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/CollectionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/StoreMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/StoreMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/MinionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/MinionCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Heros/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Heros/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Market/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Market/Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CLI/CollectionMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/CollectionMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CLI/StoreMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/StoreMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/MinionCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/MinionCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Heros/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Heros/Hero.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Market/Market.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Market/Market.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/User/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User/User.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Z9cUtD9kwQkBSPQryHrbXs83IM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kara\Desktop\AP2020\src\main\resources" />
       <recent name="C:\Java workspace\test3\src\main\java" />
     </key>
   </component>
@@ -58,30 +102,61 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584254850797">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1584254850797" />
-    <state width="1478" height="220" key="GridCell.Tab.0.bottom" timestamp="1584256859675">
+    <state x="627" y="122" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1584354394969">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1478" height="220" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1584256859675" />
-    <state width="1478" height="220" key="GridCell.Tab.0.center" timestamp="1584256859675">
+    <state x="627" y="122" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.864@0.0.1536.864" timestamp="1584354394969" />
+    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1584354404780">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1478" height="220" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1584256859675" />
-    <state width="1478" height="220" key="GridCell.Tab.0.left" timestamp="1584256859675">
+    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.864@0.0.1536.864" timestamp="1584354404780" />
+    <state x="424" y="26" key="CommitChangelistDialog2" timestamp="1584355899200">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1478" height="220" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1584256859675" />
-    <state width="1478" height="220" key="GridCell.Tab.0.right" timestamp="1584256859675">
+    <state x="424" y="26" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1584355899200" />
+    <state width="1493" height="108" key="GridCell.Tab.0.bottom" timestamp="1584275147470">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1478" height="220" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1584256859675" />
-    <state x="277" y="13" key="SettingsEditor" timestamp="1584255541082">
+    <state width="1493" height="108" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1584275147470" />
+    <state width="1493" height="108" key="GridCell.Tab.0.center" timestamp="1584275147470">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1584255541082" />
+    <state width="1493" height="108" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1584275147470" />
+    <state width="1493" height="108" key="GridCell.Tab.0.left" timestamp="1584275147470">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="108" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1584275147470" />
+    <state width="1493" height="108" key="GridCell.Tab.0.right" timestamp="1584275147470">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="108" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1584275147470" />
+    <state x="277" y="13" key="SettingsEditor" timestamp="1584354415964">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1584354415964" />
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1584265400228">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1584265400228" />
+    <state x="526" y="332" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1584354393172">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="526" y="332" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.864@0.0.1536.864" timestamp="1584354393172" />
+    <state x="209" y="127" key="new project wizard" timestamp="1584275139121">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="209" y="127" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1584275139121" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1584347466291">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1584347466291" />
   </component>
 </project>

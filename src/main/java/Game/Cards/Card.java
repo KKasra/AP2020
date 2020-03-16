@@ -5,9 +5,6 @@ import Game.Gamestructure.Player;
 import Game.Gamestructure.UserInterface;
 
 public abstract class Card {
-    private Rarity rarity;
-    private int manaCost;
-
     public Rarity getRarity() {
         return rarity;
     }
@@ -40,41 +37,14 @@ public abstract class Card {
         Description = description;
     }
 
-    public Board getBoard() {
-        return board;
-    }
 
-    public void setBoard(Board board) {
-        this.board = board;
-    }
 
-    public UserInterface getUserInterface() {
-        return userInterface;
-    }
-
-    public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
+    private Rarity rarity;
+    private int manaCost;
     private int coinCost;
     private String Description;
-    protected Board board;
-    protected UserInterface userInterface;
-    private Player player;
-    public Card(Player player) {
-        this.player = player;
-        this.board = player.getBoard();
-        this.userInterface = board.getUserInterface();
-    }
 
-    public abstract void play();
+    public Card(){}
+
 
 }

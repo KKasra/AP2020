@@ -31,7 +31,8 @@ public class CollectionMenu extends Menu{
 
         if (in[0].equals("add")) {
             try {
-                user.getHeroes().get(user.getIndexOfHero()).getDeck().addCard(CardFactory.build(in[1]));
+                Card now = CardFactory.build(in[1]);
+                user.getHeroes().get(user.getIndexOfHero()).getDeck().addCard(now.toString());
             } catch (Exception e) {
                 return e.toString();
             }
@@ -57,26 +58,26 @@ public class CollectionMenu extends Menu{
     }
     private String runCardsListCommand(String[] in) {
         if (in[1].equals("-m")) {
-            for (Card i : user.getHeroes().get(user.getIndexOfHero()).getDeck().getCards())
+            for (String i : user.getHeroes().get(user.getIndexOfHero()).getDeck().getCards())
                 System.out.print(i + " ");
             System.out.println();
             return "";
         }
         if (in[1].equals("-a")) {
-            for (Card i : user.getAvailableCards())
+            for (String i : user.getAvailableCards())
                 System.out.print(i + " ");
             System.out.println();
             System.out.print("Hero Cards :");
-            for (Card i : user.getHeroes().get(user.getIndexOfHero()).getSpecialCards())
+            for (String i : user.getHeroes().get(user.getIndexOfHero()).getSpecialCards())
                 System.out.print(i + " ");
             return "";
         }
         if (in[1].equals("-n")) {
-            Set<Card> res = (Set<Card>)user.getAvailableCards().clone();
+            Set<String> res = (Set<String>)user.getAvailableCards();
             res.addAll(user.getHeroes().get(user.getIndexOfHero()).getSpecialCards());
             while (true) {
                 boolean erased = false;
-                for (Card i : res)
+                for (String i : res)
                     if (user.getHeroes().get(user.getIndexOfHero()).getDeck().countCard(i) != 0) {
                         res.remove(i);
                         erased = true;
@@ -85,7 +86,7 @@ public class CollectionMenu extends Menu{
                 if (!erased)
                     break;
             }
-            for (Card i : res)
+            for (String i : res)
                 System.out.print(i + " ");
             return "";
 
