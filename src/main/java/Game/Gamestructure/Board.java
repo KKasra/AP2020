@@ -1,13 +1,11 @@
 package Game.Gamestructure;
 
+import Game.Cards.Card;
+
+import java.io.File;
 import java.util.ArrayList;
 
 public class Board {
-    private UserInterface userInterface;
-
-    public UserInterface getUserInterface() {
-        return userInterface;
-    }
 
     ArrayList<Player> players;
     void registerPlayer(Player player) {
@@ -17,4 +15,11 @@ public class Board {
         players.remove(player);
     }
 
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
+    }
 }

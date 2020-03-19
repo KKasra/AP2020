@@ -1,11 +1,12 @@
 package User;
 
-import Game.Cards.Card;
-import Game.Heros.Hero;
+import Game.Heroes.HeroData;
+import Game.Heroes.HeroDataFactory;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class User {
@@ -19,14 +20,41 @@ public class User {
     @Column(name = "COINS")
     private int coins;
 
-    @ManyToMany
-    private Collection<Hero> heroes;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @Column(name ="HEROES")
+    private List<HeroData> heroes;
+
+    private User() {
+
+    }
+    public int getIndexOfHero() {
+        return indexOfHero;
+    }
+
+    public void setIndexOfHero(int indexOfHero) {
+        this.indexOfHero = indexOfHero;
+
+    }
 
     @Column(name = "MY_HERO")
     private int indexOfHero;
     @Column(name = "AVAILABLE_CARDS")
-    private ArrayList<String> availableCards;
+    private ArrayList<String> availableCards = new ArrayList<>();
 
+    @Transient
+    private Log log;
+    void initLog(boolean append){
+        log = new Log("./Data/Logs/"
+                + getUserName()
+                + "-" + getUserID()
+                + ".log", append);
+    }
+    public Log getLog() {
+        return log;
+    }
+    public void delete(){
+
+    }
     public User(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
@@ -36,32 +64,49 @@ public class User {
     }
 
     void createDefaultHeroSet() {
-        //TODO
         heroes = new ArrayList<>();
+
+        HeroData hero = HeroDataFactory.build("Mage");
+        hero.getDeck().getCards().add("Goldshire Footman");
+        hero.getDeck().getCards().add("Murloc Raider");
+        hero.getDeck().getCards().add("Stonetusk Boar");
+        hero.getDeck().getCards().add("Starfire");
+        hero.getDeck().getCards().add("Gift of the Wild");
+        hero.getDeck().getCards().add("Arcane Explosion");
+        hero.getDeck().getCards().add("Hunter's mark");
+        hero.getDeck().getCards().add("Healing Touch");
+        hero.getDeck().getCards().add("Manic Soulcaster");
+        hero.getDeck().getCards().add("Arcane Amplifier");
+
+
+        heroes.add(hero);
     }
 
     void createDefaultAvailableCardSet() {
-        //TODO
+        getAvailableCards().add("Goldshire Footman");
+        getAvailableCards().add("Murloc Raider");
+        getAvailableCards().add("Stonetusk Boar");
+        getAvailableCards().add("Starfire");
+        getAvailableCards().add("Gift of the Wild");
+        getAvailableCards().add("Arcane Explosion");
+        getAvailableCards().add("Hunter's mark");
+        getAvailableCards().add("Healing Touch");
+        getAvailableCards().add("Manic Soulcaster");
+        getAvailableCards().add("Arcane Amplifier");
     }
 
-    public int getIndexOfHero() {
-        return indexOfHero;
+
+
+    void addHero(HeroData newHeroData) {
+        heroes.add(newHeroData);
     }
 
-    public void setIndexOfHero(int indexOfHero) {
-        this.indexOfHero = indexOfHero;
-    }
-
-    void addHero(Hero newHero) {
-        heroes.add(newHero);
-    }
-
-    void removeDeck(int index) {
+    void removeHero(int index) {
         heroes.remove(index);
     }
 
-    public ArrayList<Hero> getHeroes() {
-        return (ArrayList<Hero>) heroes;
+    public List<HeroData> getHeroes() {
+        return  heroes;
     }
 
     public ArrayList<String> getAvailableCards() {
@@ -101,8 +146,8 @@ public class User {
         this.coins = coins;
     }
 
-    public void setHeroes(ArrayList<Hero> heroes) {
-        heroes = heroes;
+    public void setHeroData(ArrayList<HeroData> heroData) {
+        heroData = heroData;
     }
 
     public void setAvailableCards(ArrayList<String> availableCards) {

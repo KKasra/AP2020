@@ -4,30 +4,63 @@ import Game.Cards.Card;
 import Game.Cards.Deck;
 import Game.Cards.MinionCard;
 import Game.Cards.WeaponCard;
-import Game.Heros.Hero;
+import Game.Heroes.HeroData;
 
 import java.util.ArrayList;
 
 public class Player {
 
+    private UserInterface userInterface;
     private Board board;
     private Hero myHero;
-    private Deck deck;
+    private int mana;
     private ArrayList<Card> hand;
-    private ArrayList<MinionCard> minions;
-    private WeaponCard weaponCard;
     public Board getBoard() {
         return board;
     }
-    public Player (Board board, Hero GameHero, Deck deck) {
+    public Player (Board board, HeroData GameHero, UserInterface userInterface) {
+        this.userInterface = userInterface;
         this.board = board;
-        myHero = GameHero;
-        this.deck = deck;
-        hand = new ArrayList<Card>();
-        minions = new ArrayList<MinionCard>();
-        weaponCard = null;
+        myHero = HeroFactory.build(GameHero);
+    }
+
+    public UserInterface getUserInterface() {
+        return userInterface;
     }
 
 
+    public void setUserInterface(UserInterface userInterface) {
+        this.userInterface = userInterface;
+    }
+
+    public Hero getMyHero() {
+        return myHero;
+    }
+
+    public void setMyHero(Hero myHero) {
+        this.myHero = myHero;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+    public void drawACard() {
+        //TODO
+    }
+
+    public boolean isMyEnemy(Player player) {
+        //TODO
+        if (player != this)
+            return true;
+        return false;
+    }
 
 }

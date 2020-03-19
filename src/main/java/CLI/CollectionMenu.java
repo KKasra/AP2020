@@ -2,9 +2,10 @@ package CLI;
 
 import Game.Cards.Card;
 import Game.Cards.CardFactory;
-import Game.Heros.Hero;
+import Game.Heroes.HeroData;
 import User.User;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class CollectionMenu extends Menu{
@@ -19,7 +20,7 @@ public class CollectionMenu extends Menu{
             if (in.length !=  3)
                 return "invalid Command!";
 
-            if (in[2].equals("heroes"))
+            if (in[2].equals("-heroes"))
                 return runHeroListCommand(in);
 
             if (in[2].equals("-cards"))
@@ -31,27 +32,48 @@ public class CollectionMenu extends Menu{
 
         if (in[0].equals("add")) {
             try {
-                Card now = CardFactory.build(in[1]);
-                user.getHeroes().get(user.getIndexOfHero()).getDeck().addCard(now.toString());
+                if (user.getAvailableCards().contains(command.substring("add ".length())))
+                    user.getHeroes().get(user.getIndexOfHero()).getDeck().addCard(command.substring("add ".length()));
+                else
+                    return "you don't own this card";
+                return "";
             } catch (Exception e) {
                 return e.toString();
             }
         }
-        if (in[0].equals("remove"))
-            user.getHeroes().get(user.getIndexOfHero()).getDeck().removeCard(in[1]);
-
+        if (in[0].equals("remove")) {
+            user.getHeroes().get(user.getIndexOfHero()).getDeck().removeCard(command.substring("remove ".length()));
+            return "";
+        }
         return "invalid Command!";
+    }
+
+    @Override
+    protected void showCommandList() {
+        System.out.println("\nCollection Menu :" +
+                           "\nls -a -heroes       | show open heroes" +
+                           "\nls -m -heroes       | show your chosen hero" +
+                           "\nselect hero         | select a hero" +
+                           "\nls -a -cards        | show all available cards" +
+                           "\nls -m -cards        | show cards in your hero's deck" +
+                           "\nls -n cards         | show available cards out of your deck" +
+                           "\nadd <card name>     | add a card to your deck -if possible-" +
+                           "\nremove <card name>  | remove a card from your deck");
     }
 
 
     private String runHeroListCommand(String[] in) {
         if (in[1].equals("-a")) {
-            for (Hero i : user.getHeroes())
+            for (HeroData i : user.getHeroes())
                 System.out.println(i);
+
+            user.getLog().writeEvent("List", "Heroes");
             return "";
         }
         if (in[1].equals("-m")) {
             System.out.println(user.getHeroes().get(user.getIndexOfHero()));
+
+            user.getLog().writeEvent("List", "chosen hero");
             return "";
         }
         return "invalid Command!";
@@ -59,22 +81,22 @@ public class CollectionMenu extends Menu{
     private String runCardsListCommand(String[] in) {
         if (in[1].equals("-m")) {
             for (String i : user.getHeroes().get(user.getIndexOfHero()).getDeck().getCards())
-                System.out.print(i + " ");
+                System.out.print(i + ",\n");
             System.out.println();
+
+            user.getLog().writeEvent("List", "cards in deck");
             return "";
         }
         if (in[1].equals("-a")) {
             for (String i : user.getAvailableCards())
-                System.out.print(i + " ");
+                System.out.print(i + ",\n");
             System.out.println();
-            System.out.print("Hero Cards :");
-            for (String i : user.getHeroes().get(user.getIndexOfHero()).getSpecialCards())
-                System.out.print(i + " ");
+
+            user.getLog().writeEvent("List", "cards in collection");
             return "";
         }
         if (in[1].equals("-n")) {
-            Set<String> res = (Set<String>)user.getAvailableCards();
-            res.addAll(user.getHeroes().get(user.getIndexOfHero()).getSpecialCards());
+            ArrayList<String> res = new ArrayList<>(user.getAvailableCards());
             while (true) {
                 boolean erased = false;
                 for (String i : res)
@@ -87,7 +109,9 @@ public class CollectionMenu extends Menu{
                     break;
             }
             for (String i : res)
-                System.out.print(i + " ");
+                System.out.print(i + ",\n");
+
+            user.getLog().writeEvent("List", "cards out of deck");
             return "";
 
         }

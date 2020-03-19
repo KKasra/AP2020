@@ -1,0 +1,21 @@
+USER: tester
+CREATED_AT: 2020-03-19 19:27:56.058
+PASSWORD: tester
+DELETED_AT: 2020-03-19 19:39:50.859
+
+sign_in 2020-03-19 19:27:56.058 
+Navigate 2020-03-19 19:28:02.541 store
+List 2020-03-19 19:28:05.71 cards in store
+List 2020-03-19 19:28:10.35 cards to sell
+Navigate 2020-03-19 19:28:24.855 Main Menu
+Navigate 2020-03-19 19:28:31.073 collections
+List 2020-03-19 19:28:37.784 cards in deck
+sign_out 2020-03-19 19:37:42.184 
+sign_in 2020-03-19 19:38:00.078 
+Navigate 2020-03-19 19:38:11.628 collections
+List 2020-03-19 19:38:15.193 cards in deck
+Navigate 2020-03-19 19:38:20.162 Main Menu
+Navigate 2020-03-19 19:38:22.747 store
+List 2020-03-19 19:38:26.721 cards to sell
+List 2020-03-19 19:39:20.982 cards in store
+Navigate 2020-03-19 19:39:45.166 Main Menu
