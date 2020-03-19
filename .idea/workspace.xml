@@ -2,64 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2319be2f-3e78-4628-a47a-f916d8317adb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/tester-4.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/tester-6.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/tables.mv.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/tables.trace.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/MinionType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Attackable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroPowerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Heroes/HeroDataBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Heroes/HeroDataFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/User/Log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/CollectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/CollectionMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CLI/StoreMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/StoreMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/CardFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/CardFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/HeroCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/HeroCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/MinionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/MinionCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/Rarity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/Rarity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/SpellCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/WeaponCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Cards/WeaponCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Heros/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Heroes/HeroData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Heros/HeroPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroPower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Market/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Market/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/UserDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/CollectionMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/CollectionMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/StoreMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/StoreMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/Deck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/HeroCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/HeroCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/MinionCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/MinionCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/Rarity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/Rarity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/SpellCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/SpellCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/WeaponCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/WeaponCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Heros/Hero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Heros/HeroPower.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Market/Market.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Market/Market.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/User/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/User/UserDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User/UserDB.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584355947601</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="phase 1">
+      <created>1584641746736</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1584641746736</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -162,7 +113,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="hibernate configuration addad,&#10;cards will be saved by their name value" />
-    <option name="LAST_COMMIT_MESSAGE" value="hibernate configuration addad,&#10;cards will be saved by their name value" />
+    <MESSAGE value="phase 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="phase 1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="90" key="#Project_Structure" timestamp="1584632231613">
@@ -201,10 +153,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="516" y="279" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864@0.0.1536.864" timestamp="1584524497350" />
-    <state x="424" y="26" key="CommitChangelistDialog2" timestamp="1584355944289">
+    <state x="424" y="26" key="CommitChangelistDialog2" timestamp="1584641739869">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="424" y="26" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1584355944289" />
+    <state x="424" y="26" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1584641739869" />
     <state width="1493" height="253" key="GridCell.Tab.0.bottom" timestamp="1584636055958">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -221,10 +173,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="253" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1584636055958" />
-    <state x="277" y="13" key="SettingsEditor" timestamp="1584354415964">
+    <state x="277" y="13" key="SettingsEditor" timestamp="1584648589918">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1584354415964" />
+    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1584648589918" />
     <state x="465" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1584601811167">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

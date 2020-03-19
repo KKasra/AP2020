@@ -56,7 +56,8 @@ public class StoreMenu extends Menu {
                                 isClassOpen = true;
                         if (isClassOpen == false)
                             return "this card is in a class which currently is not open!";
-
+                        if (user.getAvailableCards().contains(in[1]))
+                            return "you already have it!";
 
                         user.setCoins(user.getCoins() - Market.getCardCost().get(in[1]));
                         user.getAvailableCards().add(i);
