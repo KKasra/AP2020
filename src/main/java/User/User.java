@@ -1,15 +1,16 @@
 package User;
 
-import Game.Heroes.HeroData;
-import Game.Heroes.HeroDataFactory;
+import User.Heroes.HeroData;
+import User.Heroes.HeroDataFactory;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
 public class User {
+    @Transient
+    public static User user;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userID;
@@ -52,9 +53,7 @@ public class User {
     public Log getLog() {
         return log;
     }
-    public void delete(){
 
-    }
     public User(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;

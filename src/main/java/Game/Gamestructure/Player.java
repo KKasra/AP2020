@@ -1,10 +1,7 @@
 package Game.Gamestructure;
 
 import Game.Cards.Card;
-import Game.Cards.Deck;
-import Game.Cards.MinionCard;
-import Game.Cards.WeaponCard;
-import Game.Heroes.HeroData;
+import User.Heroes.HeroData;
 
 import java.util.ArrayList;
 

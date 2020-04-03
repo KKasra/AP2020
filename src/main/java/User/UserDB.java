@@ -1,6 +1,6 @@
 package User;
 
-import Game.Heroes.HeroData;
+import User.Heroes.HeroData;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,7 +8,6 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import javax.imageio.spi.ServiceRegistry;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 

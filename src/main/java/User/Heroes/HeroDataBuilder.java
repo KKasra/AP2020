@@ -1,8 +1,4 @@
-package Game.Heroes;
-
-import Game.Cards.Deck;
-
-import java.util.ArrayList;
+package User.Heroes;
 
 public class HeroDataBuilder {
     HeroData res = new HeroData();

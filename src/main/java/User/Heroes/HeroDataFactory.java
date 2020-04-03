@@ -1,9 +1,4 @@
-package Game.Heroes;
-
-import Game.Cards.Deck;
-
-import java.util.ArrayList;
-import java.util.HashSet;
+package User.Heroes;
 
 public class HeroDataFactory {
     public static HeroData build(String name) {

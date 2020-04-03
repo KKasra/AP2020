@@ -1,12 +1,9 @@
 package CLI;
 
-import Game.Cards.Card;
-import Game.Cards.CardFactory;
-import Game.Heroes.HeroData;
+import User.Heroes.HeroData;
 import User.User;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 public class CollectionMenu extends Menu{
     CollectionMenu(User user) {

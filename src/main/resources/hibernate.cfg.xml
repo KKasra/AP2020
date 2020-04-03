@@ -7,6 +7,6 @@
         <property name="hbm2ddl.auto">update</property>
 
         <mapping class = "User.User"/>
-        <mapping class = "Game.Heroes.HeroData"/>
+        <mapping class = "User.Heroes.HeroData"/>
     </session-factory>
 </hibernate-configuration>

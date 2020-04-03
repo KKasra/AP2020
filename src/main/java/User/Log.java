@@ -24,7 +24,7 @@ public class Log {
     }
 
     public void write(String string) {
-
+        System.out.println(string);
         try {
             writer.append(string + "\n");
         } catch (IOException e) {

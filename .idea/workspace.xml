@@ -2,8 +2,66 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2319be2f-3e78-4628-a47a-f916d8317adb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-8.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/tester-40.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Sounds/AntMarsh.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Sounds/Error.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/PhotoFrame.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/images/menu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/GameFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/MenuFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/WarningFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/CollectionPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/Loginpanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MainMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MenuPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StatusPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StorePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Sound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/tables.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data/tables.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/CollectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/CollectionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CLI/StoreMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CLI/StoreMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Heroes/HeroData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/Heroes/HeroData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Heroes/HeroDataBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/Heroes/HeroDataBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Heroes/HeroDataFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/Heroes/HeroDataFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/UserDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CLI/CollectionMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/CollectionMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CLI/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CLI/StoreMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CLI/StoreMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPowerFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPowerFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPowerFactory$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPowerFactory$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Heroes/HeroData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Heroes/HeroDataBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Heroes/HeroDataFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/User/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/User/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/User/UserDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User/UserDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +79,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1Z9cUtD9kwQkBSPQryHrbXs83IM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -43,18 +108,34 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="GUI" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kara\Desktop\AP2020\src\main\resources" />
       <recent name="C:\Java workspace\test3\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main (2)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AP2020" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.Main" />
+      <module name="AP2020" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -72,10 +153,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.Main" />
+      <module name="AP2020" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.MenuPanels.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -129,14 +224,18 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="519" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1584445893514" />
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1584618050148">
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1585902474166">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1584618050148" />
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1585902474166" />
     <state x="627" y="122" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1584354394969">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="627" y="122" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.864@0.0.1536.864" timestamp="1584354394969" />
+    <state x="464" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1585720840962">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="464" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1585720840962" />
     <state x="566" y="291" width="403" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1584622624354">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -145,10 +244,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="518" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1584367065382" />
-    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1584354404780">
+    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1585720523068">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.864@0.0.1536.864" timestamp="1584354404780" />
+    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.864@0.0.1536.864" timestamp="1585720523068" />
     <state x="516" y="279" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584524497350">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -157,30 +256,30 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="424" y="26" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1584641739869" />
-    <state width="1493" height="253" key="GridCell.Tab.0.bottom" timestamp="1584636055958">
+    <state width="1493" height="253" key="GridCell.Tab.0.bottom" timestamp="1585925840295">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1584636055958" />
-    <state width="1493" height="253" key="GridCell.Tab.0.center" timestamp="1584636055958">
+    <state width="1493" height="253" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1585925840295" />
+    <state width="1493" height="253" key="GridCell.Tab.0.center" timestamp="1585925840295">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1584636055958" />
-    <state width="1493" height="253" key="GridCell.Tab.0.left" timestamp="1584636055958">
+    <state width="1493" height="253" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1585925840295" />
+    <state width="1493" height="253" key="GridCell.Tab.0.left" timestamp="1585925840295">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1584636055958" />
-    <state width="1493" height="253" key="GridCell.Tab.0.right" timestamp="1584636055958">
+    <state width="1493" height="253" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1585925840295" />
+    <state width="1493" height="253" key="GridCell.Tab.0.right" timestamp="1585925840295">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1584636055958" />
-    <state x="277" y="13" key="SettingsEditor" timestamp="1584648589918">
+    <state width="1493" height="253" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1585925840295" />
+    <state x="277" y="13" key="SettingsEditor" timestamp="1585810231589">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1584648589918" />
-    <state x="465" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1584601811167">
+    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1585810231589" />
+    <state x="465" y="161" width="688" height="447" key="com.intellij.ide.util.TipDialog" timestamp="1585718921267">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="465" y="256" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1584601811167" />
+    <state x="465" y="161" width="688" height="447" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1585718921267" />
     <state x="526" y="332" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1584354393172">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -197,9 +296,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1584632690444" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1584347466291">
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1585896570057">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1584347466291" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1585896570057" />
   </component>
 </project>

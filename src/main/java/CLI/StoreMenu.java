@@ -1,8 +1,6 @@
 package CLI;
 
-import Game.Cards.Card;
-import Game.Cards.CardFactory;
-import Game.Heroes.HeroData;
+import User.Heroes.HeroData;
 import Market.Market;
 import User.User;
 

@@ -1,13 +1,8 @@
-package Game.Heroes;
+package User.Heroes;
 
-import Game.Cards.CardFactory;
 import Game.Cards.Deck;
-import Game.Cards.WeaponCard;
-import Game.Gamestructure.Hero;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Set;
 
 @Entity
 public class HeroData {

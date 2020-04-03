@@ -3,7 +3,7 @@ package Game.Gamestructure;
 import Game.Cards.Card;
 import Game.Cards.CardFactory;
 import Game.Cards.SpellCard;
-import Game.Heroes.HeroData;
+import User.Heroes.HeroData;
 
 import java.util.ArrayList;
 
