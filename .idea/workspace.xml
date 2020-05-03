@@ -2,199 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2319be2f-3e78-4628-a47a-f916d8317adb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_hibernate_hibernate_core_5_4_14_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-102.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-117.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-181.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-213.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-277.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-310.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-407.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-441.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-509.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-543.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/##Default-85.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/-1.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/-210.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/-211.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/-245.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/-507.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/-541.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/-575.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-212.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-213.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-277.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-309.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-342.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-376.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-408.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-410.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-505.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Sounds/Antiphon.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/coins.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/attack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/cardInHand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/cardOnBoard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/crystal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/health.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/minion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/paper.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/rarity.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/spell.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/weapon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/crystal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/deck.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/heroes/Hunter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/heroes/Mage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/heroes/Paladin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/heroes/Rogue.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/heroes/Warlock.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/passive/FreePower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/passive/ManaJump.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/passive/Nurse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/passive/OffCards.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/passive/TwiceDraw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/passive/wall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/weapon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/wall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/FastInfoset-1.2.15.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/byte-buddy-1.10.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/classmate-1.5.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dom4j-2.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/hibernate-commons-annotations-5.1.0.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/hibernate-core-5.4.14.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/istack-commons-runtime-3.0.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jandex-2.1.1.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javassist-3.24.0-GA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.activation-api-1.2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.persistence-api-2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jaxb-api-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jaxb-runtime-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jboss-logging-3.3.2.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stax-ex-1.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/txw2-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/HibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/Managment/CardManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/Managment/DefaultCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/Managment/HeroManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/Managment/Market.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/Deck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/DeckInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/MinionCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/MinionType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/Passive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/QuestAndRewardCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/SpellCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/WeaponCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/components/heroes/HeroPower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CardShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ChangingPageNotifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/FramePainter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/SummonFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ImageUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/CardDisplayPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/frame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Logs/kasra-8.log" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Logs/kasra-8.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/images/gameComponents/PhotoFrame.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Logs/-575.log" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Logs/-575.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/tables.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data/tables.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/tables.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data/tables.trace.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/CollectionMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/Login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/MainMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/StoreMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CLI/myScanner.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Frames/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/MenuFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Frames/WarningFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/WarningFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/CollectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/CollectionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/Loginpanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/Loginpanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MenuPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StatusPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StorePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StorePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Sound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/Card.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/CardFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/Deck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/HeroCard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/MinionCard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/MinionType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/Rarity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/Rarity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/SpellCard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cards/WeaponCard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Attackable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Board.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Hero.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroPower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroPowerFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/UserInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Market/Market.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User/Heroes/HeroData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/components/heroes/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User/Heroes/HeroDataBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User/Heroes/HeroDataFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/components/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/UserDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/CollectionMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/Login.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/MainMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/Menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/StoreMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CLI/myScanner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/Card.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$12.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$13.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/CardFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/Deck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/HeroCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/MinionCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/MinionType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/Rarity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/SpellCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cards/WeaponCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Attackable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Hero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPower.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPowerFactory$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPowerFactory$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPowerFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/UserInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Market/Market.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/User/Log.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/User/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/User/UserDB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -240,7 +54,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -367,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585926065056</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="phase 2">
+      <created>1588522752815</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588522752815</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -378,7 +199,8 @@
     <MESSAGE value="hibernate configuration addad,&#10;cards will be saved by their name value" />
     <MESSAGE value="phase 1" />
     <MESSAGE value="Menu structure &amp; Main Menu complete, sounds added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Menu structure &amp; Main Menu complete, sounds added" />
+    <MESSAGE value="phase 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="phase 2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="90" key="#Project_Structure" timestamp="1584632231613">
@@ -393,10 +215,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="519" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1584445893514" />
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1588522438820">
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1588527449907">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1588522438820" />
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1588527449907" />
     <state x="627" y="122" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1586784720343">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -413,38 +235,42 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="518" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1586240466167" />
-    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1586784721905">
+    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1588526344986">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.864@0.0.1536.864" timestamp="1586784721905" />
+    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.864@0.0.1536.864" timestamp="1588526344986" />
     <state x="516" y="279" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587379657713">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="516" y="279" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864@0.0.1536.864" timestamp="1587379657713" />
-    <state x="424" y="26" key="CommitChangelistDialog2" timestamp="1585926055462">
+    <state x="424" y="1" key="CommitChangelistDialog2" timestamp="1588529620566">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="424" y="26" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1585926055462" />
-    <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1587383191305">
+    <state x="424" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1588529620566" />
+    <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1588528518430">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1587383191305" />
-    <state width="1493" height="412" key="GridCell.Tab.0.bottom" timestamp="1588522554451">
+    <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1588528518430" />
+    <state x="647" y="330" key="Github.ShareDialog" timestamp="1588529119853">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="412" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588522554451" />
-    <state width="1493" height="412" key="GridCell.Tab.0.center" timestamp="1588522554451">
+    <state x="647" y="330" key="Github.ShareDialog/0.0.1536.864@0.0.1536.864" timestamp="1588529119853" />
+    <state width="1493" height="412" key="GridCell.Tab.0.bottom" timestamp="1588528067876">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="412" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588522554451" />
-    <state width="1493" height="412" key="GridCell.Tab.0.left" timestamp="1588522554451">
+    <state width="1493" height="412" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588528067876" />
+    <state width="1493" height="412" key="GridCell.Tab.0.center" timestamp="1588528067876">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="412" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588522554451" />
-    <state width="1493" height="412" key="GridCell.Tab.0.right" timestamp="1588522554451">
+    <state width="1493" height="412" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588528067876" />
+    <state width="1493" height="412" key="GridCell.Tab.0.left" timestamp="1588528067876">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="412" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588522554451" />
+    <state width="1493" height="412" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588528067876" />
+    <state width="1493" height="412" key="GridCell.Tab.0.right" timestamp="1588528067876">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="412" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588528067876" />
     <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1588464675283">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -461,10 +287,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1588464675283" />
-    <state x="277" y="13" key="SettingsEditor" timestamp="1587311003475">
+    <state x="277" y="13" key="SettingsEditor" timestamp="1588528539563">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1587311003475" />
+    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1588528539563" />
     <state x="465" y="161" width="688" height="447" key="com.intellij.ide.util.TipDialog" timestamp="1586239759497">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -477,10 +303,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="563" y="110" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.864@0.0.1536.864" timestamp="1588270427901" />
-    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587646126625">
+    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588528913974">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1587646126625" />
+    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1588528913974" />
     <state x="209" y="127" key="new project wizard" timestamp="1584275139121">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

@@ -1755,3 +1755,25 @@ Button_clicked 2020-05-03 20:45:59.924 Login
 Game 2020-05-03 20:46:00.744 launch
 Button_clicked 2020-05-03 20:46:02.876 Play
 sign_out 2020-05-03 20:46:40.668 
+sign_in 2020-05-03 22:03:32.213 
+Button_clicked 2020-05-03 22:03:32.302 Login
+Game 2020-05-03 22:03:34.342 launch
+Button_clicked 2020-05-03 22:03:37.542 Play
+Button_clicked 2020-05-03 22:04:32.776 end turn
+Button_clicked 2020-05-03 22:04:40.985 end turn
+Button_clicked 2020-05-03 22:04:41.379 end turn
+Button_clicked 2020-05-03 22:04:41.883 end turn
+Button_clicked 2020-05-03 22:04:42.459 end turn
+Button_clicked 2020-05-03 22:04:43.109 end turn
+Button_clicked 2020-05-03 22:04:43.896 end turn
+sign_out 2020-05-03 22:04:48.725 
+sign_in 2020-05-03 22:10:07.465 
+Button_clicked 2020-05-03 22:10:07.488 Login
+sign_out 2020-05-03 22:10:09.558 
+sign_in 2020-05-03 22:17:16.029 
+Button_clicked 2020-05-03 22:17:16.045 Login
+Game 2020-05-03 22:17:17.677 launch
+Button_clicked 2020-05-03 22:17:19.794 Play
+Warning popup 2020-05-03 22:17:29.844 insufficient mana
+Button_clicked 2020-05-03 22:17:37.284 end turn
+sign_out 2020-05-03 22:17:44.309 

@@ -46,11 +46,11 @@ public class Game {
 
         }
 
-        public Card drawFromDeck() throws Exception{
-            return deck.get(new Random().nextInt(deck.size()));
+        public Card drawFromDeck() throws Exception {
+            Card card = deck.get(new Random().nextInt(deck.size()));
+            deck.remove(card);
+            return card;
         }
-
-
 
         int turnCnt = 0;
         //TODO turnCnt should be managed by Game Object

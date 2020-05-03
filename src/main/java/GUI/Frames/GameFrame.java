@@ -495,7 +495,7 @@ public class GameFrame extends JFrame {
 
 
             count = new JLabel();
-            count.setFont(new Font("Arial", Font.BOLD, 30));
+            count.setFont(new Font("Arial", Font.BOLD, 25));
             count.setForeground(new Color(255, 160, 0));
             count.setBounds(WIDTH /2, HEIGHT / 2, 30, 30);
             add(count);
@@ -519,6 +519,7 @@ public class GameFrame extends JFrame {
                 }
             });
         }
+
     }
     private static class CardInfoPanel extends GameFramePanel{
         public void register(JComponent component, Card card) {
