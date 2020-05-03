@@ -18,7 +18,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -188,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588531297945</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="phase 2">
+      <created>1588531389449</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588531389449</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -243,10 +249,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="516" y="279" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864@0.0.1536.864" timestamp="1587379657713" />
-    <state x="424" y="1" key="CommitChangelistDialog2" timestamp="1588529620566">
+    <state x="424" y="1" key="CommitChangelistDialog2" timestamp="1588531388437">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="424" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1588529620566" />
+    <state x="424" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1588531388437" />
     <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1588528518430">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -303,10 +309,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="563" y="110" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.864@0.0.1536.864" timestamp="1588270427901" />
-    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588528913974">
+    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588531396461">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1588528913974" />
+    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1588531396461" />
     <state x="209" y="127" key="new project wizard" timestamp="1584275139121">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
