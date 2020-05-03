@@ -3,8 +3,8 @@ package GUI.MenuPanels;
 import GUI.*;
 import GUI.Frames.MenuFrame;
 import GUI.Frames.WarningFrame;
-import User.User;
-import User.UserDB;
+import DB.components.User;
+import DB.UserDB;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,51 +20,81 @@ public class Loginpanel extends MenuPanel {
         withQuitAndExit(false);
 
         //layout
-        setLayout(null);
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(0, 0, 0, 0);
 
         //Title
         JLabel title = new JLabel("Welcome to Heart Stroke!");
         title.setFont(titleFont);
         title.setForeground(Color.RED);
-        title.setBounds(MenuFrame.width / 6, 0,
-                MenuFrame.width * 2 / 3, MenuFrame.height / 3);
-        add(title);
+        title.setPreferredSize(new Dimension(MenuFrame.width * 2 / 3, MenuFrame.height / 4));
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 5;
+        gbc.gridheight = 1;
+        add(title, gbc);
 
         //textFields
         JLabel user = new JLabel("username");
-        user.setBounds(MenuFrame.width / 3, MenuFrame.height / 3,
-                MenuFrame.width / 12, MenuFrame.height / 12);
         user.setFont(labelFont);
         user.setForeground(Color.ORANGE);
+        user.setPreferredSize(new Dimension(MenuFrame.width / 12, MenuFrame.height / 9));
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        add(user, gbc);
+
         JTextField name = new JTextField();
-        name.setBounds(MenuFrame.width * 5 / 12, MenuFrame.height / 3,
-                MenuFrame.width * 3 / 12, MenuFrame.height / 12);
         name.setFont(labelFont);
-        add(user);
-        add(name);
+        name.setPreferredSize(new Dimension(MenuFrame.width * 3 / 12, MenuFrame.height / 9));
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2;
+        gbc.gridheight = 1;
+        add(name, gbc);
+
 
         JLabel pass = new JLabel("password");
-        pass.setBounds(MenuFrame.width / 3, MenuFrame.height * 5 / 12,
-                MenuFrame.width / 12, MenuFrame.height / 12);
         pass.setFont(labelFont);
         pass.setForeground(Color.ORANGE);
+        pass.setPreferredSize(new Dimension(MenuFrame.width / 12, MenuFrame.height / 9));
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        add(pass, gbc);
+
         JPasswordField word = new JPasswordField();
-        word.setBounds(MenuFrame.width * 5 / 12, MenuFrame.height * 5 / 12,
-                MenuFrame.width * 3 / 12, MenuFrame.height / 12);
         word.setFont(labelFont);
-        add(pass);
-        add(word);
+        word.setPreferredSize(new Dimension(MenuFrame.width * 3 / 12, MenuFrame.height / 9));
+        gbc.gridx = 2;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        gbc.gridheight = 1;
+        add(word, gbc);
+
+
+
+
 
         //buttons
-        MenuButton loginButton = new MenuButton("Login");
-        loginButton.setBounds(MenuFrame.width / 3, MenuFrame.height * 3/ 6,
-                MenuFrame.width / 6, MenuFrame.height / 12);
-        add(loginButton);
+        MenuButton loginButton = new MenuButton("Login", new Dimension(300, 100), 30);
+        loginButton.setPreferredSize(new Dimension(MenuFrame.width * 2 / 12, MenuFrame.height / 9));
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        gbc.gridheight = 1;
+        add(loginButton, gbc);
 
-        MenuButton RegisterButton = new MenuButton("Register");
-        RegisterButton.setBounds(MenuFrame.width * 3 / 6, MenuFrame.height * 3/ 6,
-                MenuFrame.width / 6, MenuFrame.height / 12);
-        add(RegisterButton);
+        MenuButton RegisterButton = new MenuButton("Register", new Dimension(300, 100), 30);
+        RegisterButton.setPreferredSize(new Dimension(MenuFrame.width * 2 / 12, MenuFrame.height / 9));
+        gbc.gridx = 3;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        add(RegisterButton, gbc);
 
 
         //actionListeners

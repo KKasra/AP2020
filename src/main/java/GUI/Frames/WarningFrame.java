@@ -1,5 +1,6 @@
 package GUI.Frames;
 
+import DB.components.User;
 import GUI.Sound;
 
 import javax.swing.*;
@@ -8,10 +9,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class WarningFrame extends JFrame {
+    private static final int delayMS = 750;
     private static WarningFrame instance;
     private JLabel label = new JLabel();
     private static Sound sound = new Sound("Error");
     public static void print(String massage) {
+        if (User.user != null)
+            User.user.getLog().writeEvent("Warning popup", massage);
         sound.clip.setMicrosecondPosition(0);
         sound.clip.start();
 
@@ -26,7 +30,7 @@ public class WarningFrame extends JFrame {
             public void run() {
                 instance.setVisible(false);
             }
-        }, 500);
+        }, delayMS);
     }
 
     private WarningFrame() {

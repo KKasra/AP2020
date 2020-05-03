@@ -1,0 +1,20 @@
+USER: kasra
+CREATED_AT: 2020-04-18 14:51:11.35
+PASSWORD: 101820620
+
+sign_in 2020-04-18 14:51:11.35 
+Button_clicked 2020-04-18 14:51:11.37 Register
+Navigate 2020-04-18 14:51:13.31 Store
+Button_clicked 2020-04-18 14:51:14.27 Store
+Warning popup 2020-04-18 14:51:27.19 null
+Button_clicked 2020-04-18 14:51:27.201 Buy it
+Warning popup 2020-04-18 14:51:28.55 null
+Button_clicked 2020-04-18 14:51:28.56 Buy it
+Warning popup 2020-04-18 14:51:31.975 null
+Button_clicked 2020-04-18 14:51:31.98 Buy it
+sign_out 2020-04-18 14:51:39.2 
+sign_in 2020-04-18 17:12:21.031 
+Button_clicked 2020-04-18 17:12:21.051 Login
+Navigate 2020-04-18 17:12:22.651 Store
+Navigate 2020-04-18 17:12:28.532 Store
+sign_out 2020-04-18 17:12:30.956 

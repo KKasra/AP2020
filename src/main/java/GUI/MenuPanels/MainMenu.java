@@ -3,8 +3,9 @@ package GUI.MenuPanels;
 import GUI.*;
 import GUI.Frames.GameFrame;
 import GUI.Frames.MenuFrame;
+import GUI.Frames.WarningFrame;
 import Game.Gamestructure.Game;
-import User.User;
+import DB.components.User;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -48,19 +49,25 @@ public class MainMenu extends MenuPanel {
 
     private MenuButton Play;
     private void initPlay() {
-        Play = new MenuButton("Play");
+        Play = new MenuButton("Play", new Dimension(300, 100), 30);
         Play.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 User.user.getLog().writeEvent("Game", "launch");
-                MenuFrame.getInstance().setVisible(false);
-                GameFrame.launch(new Game());
+                try {
+                    GameFrame.launch(new Game());
+                    MenuFrame.getTheme().clip.stop();
+                }catch (Exception exception) {
+                    exception.printStackTrace();
+                    WarningFrame.print(exception.getMessage());
+                    MenuFrame.getInstance().setPanel(CollectionPanel.getInstance());
+                }
             }
         });
     }
     private  MenuButton Store;
     private void initStore() {
-        Store = new MenuButton("Store");
+        Store = new MenuButton("Store", new Dimension(300, 100), 30);
         Store.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,7 +78,7 @@ public class MainMenu extends MenuPanel {
     }
     private MenuButton Status;
     private void initStatus() {
-        Status = new MenuButton("Status");
+        Status = new MenuButton("Status", new Dimension(300, 100), 30);
         Status.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,7 +89,7 @@ public class MainMenu extends MenuPanel {
     }
     private MenuButton Collection;
     private void initCollection() {
-        Collection = new MenuButton("Collection");
+        Collection = new MenuButton("Collection", new Dimension(300, 100), 30);
         Collection.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

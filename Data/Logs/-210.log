@@ -1,0 +1,283 @@
+USER: 
+CREATED_AT: 2020-04-18 11:27:41.806
+PASSWORD: 0
+
+sign_in 2020-04-18 11:27:41.806 
+Button_clicked 2020-04-18 11:27:41.988 Register
+Navigate 2020-04-18 11:27:44.417 Store
+Button_clicked 2020-04-18 11:27:45.546 Store
+sign_out 2020-04-18 11:27:51.277 
+sign_in 2020-04-18 11:30:02.896 
+Button_clicked 2020-04-18 11:30:02.906 Login
+Navigate 2020-04-18 11:30:05.587 Status
+Button_clicked 2020-04-18 11:30:05.587 Status
+Navigate 2020-04-18 11:30:08.716 MainMenu
+Navigate 2020-04-18 11:30:10.907 Store
+Button_clicked 2020-04-18 11:30:11.786 Store
+sign_out 2020-04-18 11:30:25.187 
+sign_in 2020-04-18 11:35:22.245 
+Button_clicked 2020-04-18 11:35:22.255 Login
+Navigate 2020-04-18 11:35:26.406 Store
+Button_clicked 2020-04-18 11:35:27.276 Store
+sign_out 2020-04-18 11:35:35.547 
+sign_in 2020-04-18 11:42:47.622 
+Button_clicked 2020-04-18 11:42:47.727 Login
+Navigate 2020-04-18 11:42:50.137 Store
+Button_clicked 2020-04-18 11:42:51.202 Store
+sign_out 2020-04-18 11:42:59.177 
+sign_in 2020-04-18 11:43:44.257 
+Button_clicked 2020-04-18 11:43:44.277 Login
+Navigate 2020-04-18 11:43:45.838 Store
+Button_clicked 2020-04-18 11:43:46.687 Store
+sign_out 2020-04-18 11:43:50.597 
+sign_in 2020-04-18 11:44:54.899 
+Button_clicked 2020-04-18 11:44:54.907 Login
+Navigate 2020-04-18 11:44:56.588 Store
+Button_clicked 2020-04-18 11:44:57.467 Store
+sign_out 2020-04-18 11:45:00.357 
+sign_in 2020-04-18 11:45:30.304 
+Button_clicked 2020-04-18 11:45:30.317 Login
+Navigate 2020-04-18 11:45:31.347 Store
+Button_clicked 2020-04-18 11:45:32.372 Store
+sign_out 2020-04-18 11:45:35.839 
+sign_in 2020-04-18 11:47:46.157 
+Button_clicked 2020-04-18 11:47:46.189 Login
+Navigate 2020-04-18 11:47:47.537 Store
+Button_clicked 2020-04-18 11:47:47.567 Store
+sign_out 2020-04-18 11:47:50.187 
+sign_in 2020-04-18 11:49:49.306 
+Button_clicked 2020-04-18 11:49:49.317 Login
+Navigate 2020-04-18 11:49:52.517 Store
+Button_clicked 2020-04-18 11:49:52.547 Store
+sign_out 2020-04-18 11:49:56.297 
+sign_in 2020-04-18 11:56:26.706 
+Button_clicked 2020-04-18 11:56:26.716 Login
+Navigate 2020-04-18 11:56:28.976 Store
+Button_clicked 2020-04-18 11:56:29.006 Store
+sign_out 2020-04-18 11:56:34.156 
+sign_in 2020-04-18 12:20:47.611 
+Button_clicked 2020-04-18 12:20:47.627 Login
+Navigate 2020-04-18 12:20:49.554 Store
+Navigate 2020-04-18 12:20:52.353 Store
+Navigate 2020-04-18 12:20:53.089 Store
+Navigate 2020-04-18 12:20:53.174 Store
+Navigate 2020-04-18 12:20:53.463 Store
+Navigate 2020-04-18 12:20:53.533 Store
+Navigate 2020-04-18 12:20:55.383 Store
+Navigate 2020-04-18 12:20:55.454 Store
+Navigate 2020-04-18 12:20:55.723 Store
+Navigate 2020-04-18 12:20:55.803 Store
+Navigate 2020-04-18 12:20:56.103 Store
+Navigate 2020-04-18 12:20:56.183 Store
+Navigate 2020-04-18 12:20:58.315 Store
+Navigate 2020-04-18 12:20:58.383 Store
+Navigate 2020-04-18 12:20:58.679 Store
+Navigate 2020-04-18 12:20:59.523 Status
+Button_clicked 2020-04-18 12:20:59.523 Status
+Navigate 2020-04-18 12:21:00.773 MainMenu
+sign_out 2020-04-18 12:21:02.279 
+sign_in 2020-04-18 12:21:29.548 
+Button_clicked 2020-04-18 12:21:29.553 Login
+Navigate 2020-04-18 12:21:30.563 Store
+Navigate 2020-04-18 12:21:31.324 Store
+Navigate 2020-04-18 12:21:31.543 Store
+Navigate 2020-04-18 12:21:31.623 Store
+Navigate 2020-04-18 12:21:31.903 Store
+sign_out 2020-04-18 12:21:33.454 
+sign_in 2020-04-18 12:23:32.043 
+Button_clicked 2020-04-18 12:23:32.053 Login
+Navigate 2020-04-18 12:23:33.804 Store
+Button_clicked 2020-04-18 12:23:33.833 Store
+sign_out 2020-04-18 12:23:46.568 
+sign_in 2020-04-18 12:24:20.728 
+Button_clicked 2020-04-18 12:24:20.743 Login
+Navigate 2020-04-18 12:24:22.013 Store
+Button_clicked 2020-04-18 12:24:22.913 Store
+sign_out 2020-04-18 12:24:39.783 
+sign_in 2020-04-18 12:25:25.773 
+Button_clicked 2020-04-18 12:25:25.783 Login
+Navigate 2020-04-18 12:25:26.973 Store
+Button_clicked 2020-04-18 12:25:27.873 Store
+sign_out 2020-04-18 12:25:35.633 
+sign_in 2020-04-18 12:26:49.503 
+Button_clicked 2020-04-18 12:26:49.522 Login
+Navigate 2020-04-18 12:26:50.535 Store
+Button_clicked 2020-04-18 12:26:51.548 Store
+sign_in 2020-04-18 12:31:53.712 
+Button_clicked 2020-04-18 12:31:53.722 Login
+Navigate 2020-04-18 12:31:54.802 Store
+Button_clicked 2020-04-18 12:31:55.702 Store
+sign_out 2020-04-18 12:32:29.227 
+sign_in 2020-04-18 12:36:40.567 
+Button_clicked 2020-04-18 12:36:40.587 Login
+Navigate 2020-04-18 12:36:41.557 Store
+Button_clicked 2020-04-18 12:36:42.552 Store
+sign_out 2020-04-18 12:37:06.722 
+sign_in 2020-04-18 12:37:47.122 
+Button_clicked 2020-04-18 12:37:47.136 Login
+Navigate 2020-04-18 12:37:48.537 Store
+Button_clicked 2020-04-18 12:37:49.441 Store
+sign_out 2020-04-18 12:37:53.222 
+sign_in 2020-04-18 12:38:50.491 
+Button_clicked 2020-04-18 12:38:50.501 Login
+Navigate 2020-04-18 12:38:51.692 Store
+Button_clicked 2020-04-18 12:38:52.606 Store
+sign_out 2020-04-18 12:39:10.722 
+sign_in 2020-04-18 12:40:37.641 
+Button_clicked 2020-04-18 12:40:37.651 Login
+Navigate 2020-04-18 12:40:38.674 Store
+Button_clicked 2020-04-18 12:40:39.591 Store
+sign_in 2020-04-18 12:41:05.272 
+Button_clicked 2020-04-18 12:41:05.284 Login
+Navigate 2020-04-18 12:41:06.266 Store
+Button_clicked 2020-04-18 12:41:07.191 Store
+sign_out 2020-04-18 12:41:15.262 
+sign_in 2020-04-18 12:42:26.511 
+Button_clicked 2020-04-18 12:42:26.526 Login
+Navigate 2020-04-18 12:42:28.023 Store
+Button_clicked 2020-04-18 12:42:28.921 Store
+sign_out 2020-04-18 12:42:32.647 
+sign_in 2020-04-18 12:50:50.36 
+Button_clicked 2020-04-18 12:50:50.37 Login
+Navigate 2020-04-18 12:50:51.421 Store
+Button_clicked 2020-04-18 12:50:52.33 Store
+Button_clicked 2020-04-18 12:52:09.23 Buy it
+Warning popup 2020-04-18 12:52:14.18 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 12:52:14.2 Buy it
+Warning popup 2020-04-18 12:52:16.94 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 12:52:16.95 Buy it
+Button_clicked 2020-04-18 12:52:29.791 Buy it
+Warning popup 2020-04-18 12:52:31.34 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 12:52:31.4 Buy it
+Warning popup 2020-04-18 12:52:36.46 java.lang.Exception: your coins are insufficient
+Button_clicked 2020-04-18 12:52:36.47 Buy it
+sign_out 2020-04-18 12:52:46.905 
+sign_in 2020-04-18 12:55:02.75 
+Button_clicked 2020-04-18 12:55:02.76 Login
+Navigate 2020-04-18 12:55:03.86 Store
+Button_clicked 2020-04-18 12:55:04.589 Store
+sign_out 2020-04-18 12:55:28.479 
+sign_in 2020-04-18 12:58:16.819 
+Button_clicked 2020-04-18 12:58:16.829 Login
+Navigate 2020-04-18 12:58:17.76 Store
+Button_clicked 2020-04-18 12:58:18.429 Store
+sign_out 2020-04-18 12:58:23.329 
+sign_in 2020-04-18 12:58:44.274 
+Button_clicked 2020-04-18 12:58:44.289 Login
+Navigate 2020-04-18 12:58:45.812 Store
+Button_clicked 2020-04-18 12:58:46.729 Store
+sign_out 2020-04-18 12:59:03.31 
+sign_in 2020-04-18 12:59:57.895 
+Button_clicked 2020-04-18 12:59:57.909 Login
+Navigate 2020-04-18 12:59:59.115 Store
+Button_clicked 2020-04-18 13:00:00.034 Store
+sign_out 2020-04-18 13:00:21.04 
+sign_in 2020-04-18 13:04:49.489 
+Button_clicked 2020-04-18 13:04:49.508 Login
+Navigate 2020-04-18 13:04:50.539 Store
+Button_clicked 2020-04-18 13:04:51.568 Store
+sign_out 2020-04-18 13:05:16.259 
+sign_in 2020-04-18 13:07:08.298 
+Button_clicked 2020-04-18 13:07:08.308 Login
+Navigate 2020-04-18 13:07:09.428 Store
+Button_clicked 2020-04-18 13:07:10.369 Store
+sign_out 2020-04-18 13:07:34.889 
+sign_in 2020-04-18 13:09:18.288 
+Button_clicked 2020-04-18 13:09:18.298 Login
+Navigate 2020-04-18 13:09:19.338 Store
+Button_clicked 2020-04-18 13:09:20.428 Store
+sign_out 2020-04-18 13:09:28.618 
+sign_in 2020-04-18 13:09:42.088 
+Button_clicked 2020-04-18 13:09:42.108 Login
+Navigate 2020-04-18 13:09:43.176 Store
+Button_clicked 2020-04-18 13:09:44.088 Store
+sign_out 2020-04-18 13:10:45.749 
+sign_in 2020-04-18 13:11:55.118 
+Button_clicked 2020-04-18 13:11:55.134 Login
+Navigate 2020-04-18 13:11:56.052 Store
+Button_clicked 2020-04-18 13:11:57.068 Store
+sign_out 2020-04-18 13:13:56.198 
+sign_in 2020-04-18 13:29:42.736 
+Button_clicked 2020-04-18 13:29:42.756 Login
+Navigate 2020-04-18 13:29:46.514 Store
+Button_clicked 2020-04-18 13:29:47.546 Store
+sign_out 2020-04-18 13:29:55.177 
+sign_in 2020-04-18 13:33:17.082 
+Button_clicked 2020-04-18 13:33:17.098 Login
+Navigate 2020-04-18 13:33:18.646 Store
+Button_clicked 2020-04-18 13:33:19.741 Store
+sign_out 2020-04-18 13:33:26.911 
+sign_in 2020-04-18 13:33:37.566 
+Button_clicked 2020-04-18 13:33:37.576 Login
+Navigate 2020-04-18 13:33:39.046 Status
+Button_clicked 2020-04-18 13:33:39.046 Status
+sign_out 2020-04-18 13:33:41.786 
+sign_in 2020-04-18 13:35:47.175 
+Button_clicked 2020-04-18 13:35:47.185 Login
+Navigate 2020-04-18 13:35:48.335 Status
+Button_clicked 2020-04-18 13:35:48.335 Status
+Navigate 2020-04-18 13:35:49.016 MainMenu
+Navigate 2020-04-18 13:35:50.605 Store
+Button_clicked 2020-04-18 13:35:51.49 Store
+Navigate 2020-04-18 13:35:52.635 MainMenu
+Navigate 2020-04-18 13:35:53.925 Store
+Button_clicked 2020-04-18 13:35:53.935 Store
+Navigate 2020-04-18 13:35:54.59 MainMenu
+Navigate 2020-04-18 13:35:55.435 Store
+Button_clicked 2020-04-18 13:35:55.435 Store
+Navigate 2020-04-18 13:35:57.335 MainMenu
+Navigate 2020-04-18 13:35:58.546 Store
+Button_clicked 2020-04-18 13:35:58.555 Store
+Button_clicked 2020-04-18 13:35:59.86 Buy it
+Warning popup 2020-04-18 13:36:02.915 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 13:36:02.94 Buy it
+Warning popup 2020-04-18 13:36:04.245 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 13:36:04.255 Buy it
+Warning popup 2020-04-18 13:36:06.275 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 13:36:06.285 Buy it
+Navigate 2020-04-18 13:36:08.735 MainMenu
+sign_out 2020-04-18 13:36:10.196 
+sign_in 2020-04-18 13:39:07.737 
+Button_clicked 2020-04-18 13:39:07.755 Login
+Navigate 2020-04-18 13:39:08.915 Store
+Button_clicked 2020-04-18 13:39:09.856 Store
+Button_clicked 2020-04-18 13:39:28.075 Buy it
+Warning popup 2020-04-18 13:39:30.005 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 13:39:30.075 Buy it
+Warning popup 2020-04-18 13:39:31.98 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 13:39:32.035 Buy it
+Warning popup 2020-04-18 13:39:32.955 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 13:39:32.965 Buy it
+Warning popup 2020-04-18 13:39:33.71 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 13:39:33.715 Buy it
+sign_out 2020-04-18 13:39:37.456 
+sign_in 2020-04-18 13:43:13.195 
+Button_clicked 2020-04-18 13:43:13.214 Login
+Navigate 2020-04-18 13:43:14.615 Store
+Button_clicked 2020-04-18 13:43:15.505 Store
+Button_clicked 2020-04-18 13:43:19.674 Buy it
+Warning popup 2020-04-18 13:43:21.455 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 13:43:21.479 Buy it
+Button_clicked 2020-04-18 13:43:25.175 Buy it
+Warning popup 2020-04-18 13:43:26.999 java.lang.Exception: card is already in your collection
+Button_clicked 2020-04-18 13:43:27.01 Buy it
+Navigate 2020-04-18 13:43:28.354 MainMenu
+sign_out 2020-04-18 13:43:38.855 
+sign_in 2020-04-18 13:45:12.754 
+Button_clicked 2020-04-18 13:45:12.765 Login
+Navigate 2020-04-18 13:45:14.095 Store
+Button_clicked 2020-04-18 13:45:15.059 Store
+Button_clicked 2020-04-18 13:45:18.049 Buy it
+Warning popup 2020-04-18 13:45:21.456 card is already in your collection
+Button_clicked 2020-04-18 13:45:21.474 Buy it
+Button_clicked 2020-04-18 13:45:26.864 Buy it
+Warning popup 2020-04-18 13:45:28.909 card is already in your collection
+Button_clicked 2020-04-18 13:45:28.914 Buy it
+Warning popup 2020-04-18 13:45:33.204 your coins are insufficient
+Button_clicked 2020-04-18 13:45:33.214 Buy it
+Warning popup 2020-04-18 13:45:37.244 your coins are insufficient
+Button_clicked 2020-04-18 13:45:37.254 Buy it
+sign_out 2020-04-18 13:45:50.975 
+sign_in 2020-04-18 13:56:10.534 
+Button_clicked 2020-04-18 13:56:10.543 Login
+sign_out 2020-04-18 13:56:20.744 

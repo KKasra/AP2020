@@ -17,7 +17,6 @@ public class Sound {
 
             clip = AudioSystem.getClip();
             clip.open(audioInputStream);
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,0 +1,21 @@
+USER: kasra
+CREATED_AT: 2020-04-20 01:16:50.213
+PASSWORD: 101820620
+
+sign_in 2020-04-20 01:16:50.214 
+Button_clicked 2020-04-20 01:16:50.317 Register
+Navigate 2020-04-20 01:16:51.589 Collection
+sign_out 2020-04-20 01:17:20.086 
+sign_in 2020-04-20 01:19:28.14 
+Button_clicked 2020-04-20 01:19:28.157 Login
+Navigate 2020-04-20 01:20:12.345 Collection
+sign_in 2020-04-20 01:21:52.553 
+Button_clicked 2020-04-20 01:21:52.569 Login
+Navigate 2020-04-20 01:21:53.917 Collection
+Button_clicked 2020-04-20 01:21:54.147 Collection
+sign_out 2020-04-20 01:22:37.81 
+sign_in 2020-04-20 01:26:30.988 
+Button_clicked 2020-04-20 01:26:31.005 Login
+Navigate 2020-04-20 01:26:32.529 Collection
+Button_clicked 2020-04-20 01:26:32.724 Collection
+sign_out 2020-04-20 01:26:48.365 

@@ -1,0 +1,15 @@
+USER: 
+CREATED_AT: 2020-04-20 14:52:22.931
+PASSWORD: 0
+
+sign_in 2020-04-20 14:52:22.931 
+Button_clicked 2020-04-20 14:52:22.941 Register
+Navigate 2020-04-20 14:52:24.371 Collection
+Button_clicked 2020-04-20 14:52:25.436 Collection
+Button_clicked 2020-04-20 14:52:29.741 store
+Warning popup 2020-04-20 14:52:32.691 your coins are insufficient
+Button_clicked 2020-04-20 14:52:32.711 Buy it
+sign_out 2020-04-20 14:52:37.672 
+sign_in 2020-04-20 14:54:29.363 
+Button_clicked 2020-04-20 14:54:29.383 Login
+sign_out 2020-04-20 14:54:31.213 

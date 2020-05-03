@@ -6,7 +6,16 @@
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class = "User.User"/>
-        <mapping class = "User.Heroes.HeroData"/>
+        <mapping class = "DB.components.User"/>
+
+        <mapping class = "DB.components.heroes.Hero"/>
+
+        <mapping class="DB.components.cards.Card"/>
+        <mapping class="DB.components.cards.WeaponCard"/>
+        <mapping class="DB.components.cards.SpellCard"/>
+        <mapping class="DB.components.cards.MinionCard"/>
+        <mapping class="DB.components.cards.QuestAndRewardCard"/>
+        <mapping class="DB.components.cards.Deck"/>
+
     </session-factory>
 </hibernate-configuration>

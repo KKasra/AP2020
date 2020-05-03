@@ -1,0 +1,46 @@
+USER: kasra
+CREATED_AT: 2020-04-19 17:47:48.507
+PASSWORD: 101820620
+
+sign_in 2020-04-19 17:47:48.507 
+Button_clicked 2020-04-19 17:47:48.608 Register
+Navigate 2020-04-19 17:47:50.128 Store
+Button_clicked 2020-04-19 17:47:50.333 Store
+sign_out 2020-04-19 17:47:57.993 
+sign_in 2020-04-19 17:48:47.323 
+Button_clicked 2020-04-19 17:48:47.338 Login
+Navigate 2020-04-19 17:48:48.838 Store
+Button_clicked 2020-04-19 17:48:50.253 Store
+sign_out 2020-04-19 17:49:09.148 
+sign_in 2020-04-19 17:51:14.787 
+Button_clicked 2020-04-19 17:51:14.798 Login
+Navigate 2020-04-19 17:51:16.317 Store
+Button_clicked 2020-04-19 17:51:17.637 Store
+sign_out 2020-04-19 17:51:50.357 
+sign_in 2020-04-19 17:53:14.56 
+Button_clicked 2020-04-19 17:53:14.567 Login
+Navigate 2020-04-19 17:53:16.05 Store
+Button_clicked 2020-04-19 17:53:17.237 Store
+sign_out 2020-04-19 17:53:55.637 
+sign_in 2020-04-19 17:55:45.829 
+Button_clicked 2020-04-19 17:55:45.844 Login
+Navigate 2020-04-19 17:55:46.927 Store
+Button_clicked 2020-04-19 17:55:48.152 Store
+sign_out 2020-04-19 17:56:16.607 
+sign_in 2020-04-20 00:13:06.22 
+Button_clicked 2020-04-20 00:13:06.283 Login
+Navigate 2020-04-20 00:13:09.01 Collection
+Navigate 2020-04-20 00:13:13.53 Collection
+Navigate 2020-04-20 00:13:14.68 Status
+Button_clicked 2020-04-20 00:13:14.686 Status
+Navigate 2020-04-20 00:13:16.059 MainMenu
+sign_in 2020-04-20 00:15:22.998 
+Button_clicked 2020-04-20 00:15:23.01 Login
+Navigate 2020-04-20 00:15:25.674 Collection
+sign_in 2020-04-20 00:20:01.986 
+Button_clicked 2020-04-20 00:20:01.999 Login
+Navigate 2020-04-20 00:20:03.756 Collection
+sign_out 2020-04-20 00:20:06.621 
+sign_in 2020-04-20 00:28:51.162 
+Button_clicked 2020-04-20 00:28:51.181 Login
+Navigate 2020-04-20 00:28:53.635 Collection

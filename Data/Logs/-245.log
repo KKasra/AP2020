@@ -1,0 +1,13 @@
+USER: 
+CREATED_AT: 2020-04-18 17:16:37.825
+PASSWORD: 0
+
+sign_in 2020-04-18 17:16:37.825 
+Button_clicked 2020-04-18 17:16:37.845 Register
+Navigate 2020-04-18 17:16:39.116 Store
+Button_clicked 2020-04-18 17:16:40.235 Store
+sign_in 2020-04-18 17:17:33.048 
+Button_clicked 2020-04-18 17:17:33.058 Login
+Navigate 2020-04-18 17:17:34.219 Store
+Button_clicked 2020-04-18 17:17:35.203 Store
+sign_out 2020-04-18 17:18:33.188 
