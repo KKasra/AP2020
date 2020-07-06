@@ -13,15 +13,15 @@ public class WarningFrame extends JFrame {
     private static WarningFrame instance;
     private JLabel label = new JLabel();
     private static Sound sound = new Sound("Error");
-    public static void print(String massage) {
+    public static void print(String message) {
         if (User.user != null)
-            User.user.getLog().writeEvent("Warning popup", massage);
+            User.user.getLog().writeEvent("Warning popup", message);
         sound.clip.setMicrosecondPosition(0);
         sound.clip.start();
 
         if (instance == null)
             instance = new WarningFrame();
-        instance.label.setText(massage);
+        instance.label.setText(message);
         instance.repaint();
         instance.setVisible(true);
 

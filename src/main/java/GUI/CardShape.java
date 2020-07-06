@@ -1,10 +1,9 @@
 package GUI;
 
-import DB.components.cards.Card;
-import DB.components.cards.MinionCard;
-import DB.components.cards.SpellCard;
-import DB.components.cards.WeaponCard;
+
+
 import DB.components.cards.Rarity;
+import Game.GameStructure.Cards.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -135,6 +134,32 @@ public class CardShape extends JPanel {
         add(BASE_LABEL());
 
     }
+    public CardShape(DB.components.cards.Card card) {
+        this.card = CardFactory.produce(null, card, null);
+        //layout
+        setPreferredSize(new Dimension(WIDTH + 10, HEIGHT + 10));
+        this.setLayout(null);
+        this.setOpaque(false);
+
+
+
+
+
+        //add components
+        addName(card.getName());
+        addRarity(card.getRarity());
+        addDescription(card.getDescription());
+        addCost(card.getManaCost());
+
+        if (this.card instanceof SpellCard)
+            initSpellCard((SpellCard) this.card);
+        if (this.card instanceof WeaponCard)
+            initWeaponCard((WeaponCard) this.card);
+        if (this.card instanceof MinionCard)
+            initMinionCard((MinionCard) this.card);
+        add(BASE_LABEL());
+
+    }
 
     private void initSpellCard(SpellCard card) {
         add(SPELL_LABEL());
@@ -142,7 +167,7 @@ public class CardShape extends JPanel {
     private void initWeaponCard(WeaponCard card) {
         add(WEAPON_LABEL());
         addAttack(card.getAttack());
-        addHealth(card.getHealth());
+        addHealth(card.getDurability());
     }
     private void initMinionCard(MinionCard card) {
         add(MINION_LABEL());

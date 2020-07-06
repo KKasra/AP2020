@@ -1,10 +1,13 @@
 package GUI.MenuPanels;
 
+import DB.Managment.HeroManager;
+import DB.components.cards.Deck;
 import GUI.*;
 import GUI.Frames.GameFrame;
 import GUI.Frames.MenuFrame;
 import GUI.Frames.WarningFrame;
-import Game.Gamestructure.Game;
+import Game.CommandAndResponse.GameProcessor;
+import Game.GameStructure.Game;
 import DB.components.User;
 
 import java.awt.*;
@@ -55,7 +58,7 @@ public class MainMenu extends MenuPanel {
             public void actionPerformed(ActionEvent e) {
                 User.user.getLog().writeEvent("Game", "launch");
                 try {
-                    GameFrame.launch(new Game());
+                    GameFrame.launch( new GameProcessor("config1"), 0);
                     MenuFrame.getTheme().clip.stop();
                 }catch (Exception exception) {
                     exception.printStackTrace();

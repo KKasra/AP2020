@@ -1,7 +1,5 @@
 package GUI.Frames;
 
-import DB.components.cards.Card;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-public class SummonFrame extends JFrame {
+public class DiscoverFrame extends JFrame {
 
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 500;
@@ -31,10 +29,10 @@ public class SummonFrame extends JFrame {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     super.mouseClicked(e);
-                    SummonFrame.getInstance().setVisible(false);
+                    DiscoverFrame.getInstance().setVisible(false);
                     chosenItem = component;
-                    synchronized (SummonFrame.getInstance()) {
-                        SummonFrame.getInstance().notify();
+                    synchronized (DiscoverFrame.getInstance()) {
+                        DiscoverFrame.getInstance().notify();
                     }
 
                 }
@@ -47,8 +45,8 @@ public class SummonFrame extends JFrame {
             @Override
             public void run() {
                     try {
-                        synchronized (SummonFrame.getInstance()) {
-                            SummonFrame.getInstance().wait();
+                        synchronized (DiscoverFrame.getInstance()) {
+                            DiscoverFrame.getInstance().wait();
                             listener.actionPerformed(
                                     new ActionEvent(chosenItem, 0, "item selected"));
                         }
@@ -63,17 +61,17 @@ public class SummonFrame extends JFrame {
 
     }
 
-    private SummonFrame() {
+    private DiscoverFrame() {
         setSize(WIDTH, HEIGHT);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setBackground(new Color(44, 62, 80));
     }
 
-    private static SummonFrame instance;
-    public static SummonFrame getInstance(){
+    private static DiscoverFrame instance;
+    public static DiscoverFrame getInstance(){
         if (instance == null)
-            instance = new SummonFrame();
+            instance = new DiscoverFrame();
         return instance;
     }
 }

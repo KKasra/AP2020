@@ -188,7 +188,7 @@ public class StorePanel extends MenuPanel {
         cardsPanel = new CardDisplayPanel(1000, 700, new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                setChosenCard(((CardShape)e.getSource()).card);
+                setChosenCard(((CardShape)e.getSource()).card.getCardData());
             }
         });
         initCardPanel(0);

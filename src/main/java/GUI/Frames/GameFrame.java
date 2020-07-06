@@ -1,53 +1,73 @@
 package GUI.Frames;
 
-import DB.components.cards.*;
-import DB.components.heroes.Hero;
+//import DB.components.cards.*;
+import DB.components.cards.Passive;
 import GUI.CardShape;
 import GUI.ImageUtil;
 import GUI.MenuButton;
 import GUI.Sound;
-import Game.Gamestructure.Game;
+import Game.CommandAndResponse.*;
+import Game.GameStructure.Attacker;
+import Game.GameStructure.CardModels.CardModel;
+import Game.GameStructure.CardModels.Loader;
+import Game.GameStructure.CardModels.MinionModel;
+import Game.GameStructure.Cards.Card;
+import Game.GameStructure.CardModels.HeroPower;
+import Game.GameStructure.Cards.MinionCard;
+import Game.GameStructure.Cards.WeaponCard;
+import Game.GameStructure.Game;
+import Game.GameStructure.Heroes.Hero;
+import Game.GameStructure.Player;
 
 
 import javax.sound.sampled.Clip;
 import javax.swing.*;
+import javax.swing.Timer;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.lang.reflect.Constructor;
 import java.util.*;
 import java.util.List;
 
 public class GameFrame extends JFrame {
 
+    private GameProcessor gameProcessor;
     private Game game;
 
-    private static final int periodTimeMS = 30;
     private static Sound theme = new Sound("Antiphon");
-
+    private static Sound wrongObject = new Sound("wrong");
 
 
 
 
     private List<Updatable> registeredUpdatables = new ArrayList<Updatable>();
     private void registerUpdatable(Updatable object) {
-        registeredUpdatables.add(object);
+        new Thread(){
+            @Override
+            public void run() {
+                synchronized (GameFrame.getInstance()) {
+                    super.run();
+                    registeredUpdatables.add(object);
+                }
+            }
+        }.start();
     }
     private void unregisterUpdatable(Updatable object) {
-        registeredUpdatables.remove(object);
+        new Thread(){
+            @Override
+            public void run() {
+                synchronized (GameFrame.getInstance()) {
+                    super.run();
+                    registeredUpdatables.remove(object);
+                }
+            }
+        }.start();
     }
-
     public synchronized void updateComponents() {
-        for (Updatable registeredUpdatable : registeredUpdatables) {
-            registeredUpdatable.update();
-        }
-
-    }
-
-    public static abstract class GameMouseAdapter extends MouseAdapter{
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            super.mouseClicked(e);
-            GameFrame.getInstance().updateComponents();
+        for (Updatable a : registeredUpdatables) {
+            a.update();
         }
     }
     public interface Updatable {
@@ -64,6 +84,167 @@ public class GameFrame extends JFrame {
             this.game = GameFrame.getInstance().game;
         }
     }
+    private static class CommandAndResponseHandler {
+        private Image pickedCard = null;
+        private Card pickedCardObject = null;
+        private String CardSide = null;
+        private static final Image selectionPointer = ImageUtil.getWhiteTransparent("selectionPointer.png").
+                getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+
+        private List<BoardPanel.Box> registeredBoxes;
+        public void registerBox(BoardPanel.Box box) {
+            registeredBoxes.add(box);
+        }
+
+        private boolean selectionMode = false;
+
+        private ObjectOutput commandOutput;
+        private ObjectInput responseInput;
+
+        private void writeCommand(Command command) {
+            commandOutput.write(command);
+        }
+
+        private Timer timer  = new Timer(10, a -> {
+            if (CommandAndResponseHandler.getInstance().pickedCard != null) {
+                GameFrame.getInstance().getContentPane().getGraphics().
+                        drawImage(CommandAndResponseHandler.getInstance().pickedCard,
+                                MouseInfo.getPointerInfo().getLocation().x - 50,
+                                MouseInfo.getPointerInfo().getLocation().y - 80, null);
+            }
+            if (CommandAndResponseHandler.getInstance().selectionMode) {
+                GameFrame.getInstance().getContentPane().getGraphics().
+                        drawImage(selectionPointer,
+                                MouseInfo.getPointerInfo().getLocation().x - 30,
+                                MouseInfo.getPointerInfo().getLocation().y - 50, null);
+            }
+        });
+        private Thread responseReader = new Thread() {
+            @Override
+            public void run(){
+                while (true) {
+                    Response response = (Response) responseInput.read();
+                    switch (response.getMessage()) {
+                        case reject:
+                            wrongObject.clip.setMicrosecondPosition(0);
+                            wrongObject.clip.start();
+                            break;
+                        case selectATarget:
+                            selectionMode = true;
+                            break;
+                        case endOfGame:
+                            //TODO show the winner
+                            GameFrame.getInstance().exitGame();
+                            break;
+                        case targetIsValid:
+                            selectionMode = false;
+                            break;
+
+                    }
+                    GameFrame.getInstance().updateComponents();
+                }
+            }
+        };
+        public static abstract class CardMouseAdapter extends MouseAdapter{
+            public abstract Card getCard();
+            public abstract String cardSide();
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mouseClicked(e);
+                if (CommandAndResponseHandler.getInstance().selectionMode)
+                    return;
+                CommandAndResponseHandler.getInstance().pickedCardObject = getCard();
+
+                BufferedImage bi = new BufferedImage(100, 160, BufferedImage.TYPE_INT_ARGB);
+                Graphics2D g = bi.createGraphics();
+                ((JComponent)e.getSource()).paint(g);
+                CommandAndResponseHandler.getInstance().pickedCard = bi;
+                CommandAndResponseHandler.getInstance().CardSide = cardSide();
+                ((JComponent)e.getSource()).setVisible(false);
+            }
+
+
+
+            @Override
+            public synchronized void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+                Card card = getCard();
+                int index = -1;
+                String boxSide = null;
+                for (BoardPanel.Box registeredBox : CommandAndResponseHandler.getInstance().registeredBoxes)
+                    if (registeredBox.contains(SwingUtilities
+                            .convertPoint(((JComponent)e.getSource()), e.getX(), e.getY(), registeredBox))){
+                        index = registeredBox.index;
+                        boxSide = registeredBox.playerName;
+                    }
+
+
+                CommandAndResponseHandler.getInstance().pickedCard = null;
+                CommandAndResponseHandler.getInstance().pickedCardObject = null;
+                if (index != -1)
+                    if (CommandAndResponseHandler.getInstance().CardSide.equals(boxSide))
+                        CommandAndResponseHandler.getInstance().commandOutput.
+                                write(new PlayCommand(CommandAndResponseHandler.getInstance().CardSide, card, index));
+
+                GameFrame.getInstance().updateComponents();
+            }
+        }
+        public static abstract class TargetMouseAdapter extends MouseAdapter{
+            public abstract Object getTarget();
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (CommandAndResponseHandler.getInstance().selectionMode)
+                    CommandAndResponseHandler.getInstance().writeCommand(new SelectionCommand(getTarget()));
+
+            }
+        }
+        public static abstract class AttackerMouseAdapter extends MouseAdapter{
+            public abstract Attacker getAttacker();
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (CommandAndResponseHandler.getInstance().selectionMode)
+                    return;
+                CommandAndResponseHandler.getInstance().commandOutput.write(new AttackCommand(getAttacker()));
+            }
+        }
+        public static abstract class heroPowerMouserAdapter extends MouseAdapter{
+            abstract HeroPower getHeroPower();
+            abstract Player getPlayer();
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                if (CommandAndResponseHandler.getInstance().selectionMode)
+                    return;
+
+                CommandAndResponseHandler.getInstance().writeCommand(new HeroPowerCommand(getHeroPower(), getPlayer()));
+            }
+        }
+
+
+
+        private CommandAndResponseHandler() {
+            registeredBoxes = new ArrayList<>();
+        }
+        private static CommandAndResponseHandler instance;
+        public static CommandAndResponseHandler getInstance() {
+            if (instance == null)
+                instance = new CommandAndResponseHandler();
+            return instance;
+        }
+        public void connectToProcessor(GameProcessor processor) {
+            commandOutput = processor.getCommandOutput();
+            responseInput = processor.getResponseInput();
+            timer.start();
+            responseReader.start();
+        }
+
+
+    }
+    private static Image WALL =ImageUtil.getImage("wall.png");
 
     private static class HandPanel extends JLayeredPane implements Updatable{
         private int width = 800;
@@ -71,21 +252,39 @@ public class GameFrame extends JFrame {
         private int cardsShift = width / 13;
 
         private List<Card> cards;
+        private String playerName;
 
         @Override
         public void update() {
             removeAll();
             for (Card card1 : cards) {
-                alignCard(new CardInHand(card1));
+                alignCard(new CardInHand(card1, playerName));
             }
         }
 
-        private static class CardInHand extends JPanel{
+        private static class CardInHand extends JPanel implements Updatable{
 
-            protected int width = 90;
-            protected int height = (int)Math.round(1.6 * width);
-            protected int lengthOfLabels = 20;
+            protected static final int width = 90;
+            protected static final int height = (int)Math.round(1.6 * width);
+            protected static final int lengthOfLabels = 20;
+            protected static final Image BACKGROUND = ImageUtil
+                    .getWhiteTransparent("gameComponents/cards/cardInHand.png")
+                    .getScaledInstance(width, height, Image.SCALE_SMOOTH);
 
+            protected static final Map<String, Image> CardImages;
+            static {
+                CardImages = new HashMap<>();
+                CardImages.put("minion", ImageUtil
+                        .getWhiteTransparent("gameComponents/cards/" + "minion" + ".png")
+                        .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH));
+                CardImages.put("weapon", ImageUtil
+                        .getWhiteTransparent("gameComponents/cards/" + "weapon" + ".png")
+                        .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH));
+                CardImages.put("spell", ImageUtil
+                        .getWhiteTransparent("gameComponents/cards/" + "spell" + ".png")
+                        .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH));
+
+            }
 
             private Card card;
             private JLabel background;
@@ -95,21 +294,8 @@ public class GameFrame extends JFrame {
             private JLabel manaCost;
 
 
-            public CardInHand(Card card) {
-
-
+            public CardInHand(Card card, String playerName) {
                 CardInfoPanel.getInstance().register(this, card);
-                this.addMouseListener(new GameMouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        try {
-                            GameFrame.getInstance().game.getPlayer().drawCard(card);
-                        } catch (Exception exception) {
-                            WarningFrame.print(exception.getMessage());
-                        }
-                        super.mouseClicked(e);
-                    }
-                });
 
                 this.card = card;
 
@@ -117,19 +303,38 @@ public class GameFrame extends JFrame {
 
                 initComponent();
                 alignComponents();
+
+                addMouseListener(new CommandAndResponseHandler.CardMouseAdapter() {
+                    @Override
+                    public Card getCard() {
+                        return card;
+                    }
+
+                    @Override
+                    public String cardSide() {
+                        return playerName;
+                    }
+                });
+                addMouseMotionListener(new CommandAndResponseHandler.CardMouseAdapter() {
+                    @Override
+                    public Card getCard() {
+                        return card;
+                    }
+
+                    @Override
+                    public String cardSide() {
+                        return playerName;
+                    }
+                });
             }
 
             private void initComponent() {
                 String cardType = card.getClass().getSimpleName()
                         .substring(0, card.getClass().getSimpleName().length() - 4)
                         .toLowerCase();
-                background = new JLabel(new ImageIcon(ImageUtil
-                        .getWhiteTransparent("gameComponents/cards/cardInHand.png")
-                        .getScaledInstance(width, height, Image.SCALE_SMOOTH)));
+                background = new JLabel(new ImageIcon(BACKGROUND));
 
-                picture = new JLabel(new ImageIcon(ImageUtil
-                        .getWhiteTransparent("gameComponents/cards/" + cardType + ".png")
-                        .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH)));
+                picture = new JLabel(new ImageIcon(CardImages.get(cardType)));
 
                 attack = new JLabel();
                 attack.setForeground(new Color(255, 50, 0));
@@ -139,16 +344,7 @@ public class GameFrame extends JFrame {
                 health.setHorizontalAlignment(JLabel.CENTER);
                 health.setForeground(new Color(0, 255, 200));
                 health.setOpaque(false);
-                if (card instanceof MinionCard) {
-                    attack.setText(((MinionCard) card).getAttack() + "");
-                    health.setText(((MinionCard) card).getHealth() + "");
-                }
-
-                if (card instanceof WeaponCard) {
-                    attack.setText(((WeaponCard) card).getAttack() + "");
-                    health.setText(((WeaponCard) card).getHealth() + "");
-                }
-                manaCost = new JLabel(card.getManaCost() + "");
+               update();
                 manaCost.setForeground(new Color(40, 53, 147));
             }
 
@@ -185,17 +381,23 @@ public class GameFrame extends JFrame {
                 return width;
             }
 
-            public void setWidth(int width) {
-                this.width = width;
-            }
-
             @Override
             public int getHeight() {
                 return height;
             }
 
-            public void setHeight(int height) {
-                this.height = height;
+            @Override
+            public void update() {
+                if (card instanceof MinionCard) {
+                    attack.setText(((MinionCard) card).getAttack() + "");
+                    health.setText(((MinionCard) card).getHealth() + "");
+                }
+
+                if (card instanceof WeaponCard) {
+                    attack.setText(((WeaponCard) card).getAttack() + "");
+                    health.setText(((WeaponCard) card).getDurability() + "");
+                }
+                manaCost = new JLabel(card.getManaCost() + "");
             }
         }
 
@@ -206,9 +408,10 @@ public class GameFrame extends JFrame {
             add(card, getComponentCount());
         }
 
-        public HandPanel(List<Card> cards) {
+        public HandPanel(List<Card> cards, String playerName) {
             setPreferredSize(new Dimension(width, height));
             this.cards = cards;
+            this.playerName = playerName;
             GameFrame.getInstance().registerUpdatable(this);
         }
 
@@ -219,96 +422,72 @@ public class GameFrame extends JFrame {
         private int cardsShift = width / 8;
 
         private List<Card> cards;
-
+        private List<Box> boxes;
+        private String playerName;
         @Override
         public void update() {
-            removeAll();
-            for (Card card1 : cards) {
-                alignCard(new CardOnBoard(card1));
-            }
-        }
-
-        private static class CardOnBoard extends JPanel{
-            protected int width = 100;
-            protected int height = (int)Math.round(1.6 * width);
-            protected int lengthOfLabels = 30;
-
-
-            private Card card;
-            private JLabel background;
-            private JLabel picture;
-            private JLabel attack;
-            private JLabel health;
-
-            public CardOnBoard(Card card) {
-                addMouseListener(new GameMouseAdapter(){});
-                CardInfoPanel.getInstance().register(this, card);
-                this.card = card;
-
-                setPreferredSize(new Dimension(width, height));
-
-                initComponent();
-                alignComponents();
-            }
-
-
-
-            private void initComponent() {
-                String cardType = card.getClass().getSimpleName().substring(0, card.getClass().getSimpleName().length() - 4);
-                background = new JLabel(new ImageIcon(ImageUtil
-                        .getWhiteTransparent("gameComponents/cards/cardOnBoard.png")
-                        .getScaledInstance(width, height, Image.SCALE_SMOOTH)));
-
-                picture = new JLabel(new ImageIcon(ImageUtil
-                        .getWhiteTransparent("gameComponents/cards/" + cardType + ".png")
-                        .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH)));
-
-                attack = new JLabel();
-                attack.setForeground(new Color(255, 50, 0));
-                health = new JLabel();
-                health.setForeground(new Color(0, 255, 200));
-                attack.setText(((MinionCard) card).getAttack() + "");
-                health.setText(((MinionCard) card).getHealth() + "");
-
-            }
-
-            private void alignComponents() {
-                setLayout(null);
-                JPanel panel = new JPanel();
-                panel.setLayout(new GridBagLayout());
-                background.setBounds(0, 0, width, height);
-                panel.setBounds(0, 0, width, height);
-                panel.setOpaque(false);
-                add(panel);
-                add(background);
-
-                GridBagConstraints gbc = new GridBagConstraints();
-
-                gbc.gridx = 0;
-                gbc.gridy = 0;
-                panel.add(attack, gbc);
-
-                ++gbc.gridx;
-                ++gbc.gridy;
-                panel.add(picture, gbc);
-
-                ++gbc.gridx;
-                ++gbc.gridy;
-                panel.add(health, gbc);
+            for (int i = 0; i < 7; ++i) {
+                if (cards.get(i) != null) {
+                    CardOnBoard card = new CardOnBoard(cards.get(i));
+                    boxes.get(i).setCard(card);
+                    GameFrame.getInstance().registerUpdatable(card);
+                }
+                else {
+                    GameFrame.getInstance().unregisterUpdatable(boxes.get(i).getCard());
+                    boxes.get(i).clear();
+                }
             }
         }
 
 
 
-        private void alignCard(CardOnBoard card) {
-            card.setBounds(0, getComponentCount() * cardsShift, card.getWidth(), card.getHeight());
-            add(card);
-        }
-
-        public BoardPanel(List<Card> cards) {
+        public BoardPanel(List<Card> cards, String playerName) {
             setPreferredSize(new Dimension(width, height));
             this.cards = cards;
+            this.playerName = playerName;
             GameFrame.getInstance().registerUpdatable(this);
+
+            boxes = new ArrayList();
+            for (int i = 0; i < 7; ++i) {
+                Box box = new Box(i, playerName);
+                box.setLocation(0, i * cardsShift);
+                boxes.add(box);
+                add(box);
+            }
+        }
+        public static class Box extends JPanel {
+            private static final Image BOX = ImageUtil.getWhiteTransparent("box.png").
+                    getScaledInstance(100, 160, Image.SCALE_SMOOTH);
+            public JLabel background;
+            private int index;
+            private String playerName;
+            private CardOnBoard card;
+
+            public void setCard(CardOnBoard card) {
+                this.card = card;
+                removeAll();
+                add(card);
+            }
+
+            public void clear() {
+                removeAll();
+                add(background);
+            }
+
+            public CardOnBoard getCard() {
+                return card;
+            }
+
+            public Box(int index, String playerName) {
+                this.index = index;
+                this.playerName = playerName;
+                setPreferredSize(new Dimension(100, 160));
+                setOpaque(false);
+                background = new JLabel(new ImageIcon(BOX));
+                background.setBounds(0, 0, 100, 160);
+
+                CommandAndResponseHandler.getInstance().registerBox(this);
+            }
         }
     }
     private static class HeroPanel extends GameFramePanel implements Updatable{
@@ -317,17 +496,45 @@ public class GameFrame extends JFrame {
         private JLabel heroImage;
         private JLabel heroPowerImage;
         private JLabel HP;
+        private WeaponImage weaponImage;
+
         @Override
         public void update() {
             HP.setText(hero.getHp() + "");
-        }
+            if (hero.getWeapon() != null)
+                weaponImage.addMouseListener(new CommandAndResponseHandler.AttackerMouseAdapter() {
+                    @Override
+                    public Attacker getAttacker() {
+                        return hero.getWeapon();
+                    }
+                });
+            else {
+                for (MouseListener a : Arrays.asList(weaponImage.getMouseListeners())) {
+                    weaponImage.removeMouseListener(a);
+                }
+            }
 
+            if (hero.getPower() instanceof Attacker)
+                weaponImage.addMouseListener(new CommandAndResponseHandler.AttackerMouseAdapter() {
+                    @Override
+                    public Attacker getAttacker() {
+                        return (Attacker)hero.getPower();
+                    }
+                });
+            else {
+                for (MouseListener a : Arrays.asList(heroPowerImage.getMouseListeners())) {
+                    heroPowerImage.removeMouseListener(a);
+                }
+            }
+
+        }
         private static class WeaponImage extends JPanel{
             private int width;
             private int height;
             private JLabel attack;
             private JLabel durability;
             private JLabel image;
+
 
             public WeaponImage(int width, int height) {
                 this.width = width;
@@ -336,7 +543,6 @@ public class GameFrame extends JFrame {
                 setOpaque(false);
                 setLayout(null);
 //                hideWeapon();
-                addMouseListener(new GameMouseAdapter() {});
 
                 initComponents();
                 alignComponents();
@@ -376,16 +582,14 @@ public class GameFrame extends JFrame {
 
             public void addWeapon(WeaponCard weaponCard) {
                 this.attack.setText(weaponCard.getAttack() + "");
-                this.durability.setText(weaponCard.getHealth() + "");
+                this.durability.setText(weaponCard.getDurability() + "");
                 setVisible(true);
             }
-
             public void hideWeapon() {
                 setVisible(false);
             }
-        }
 
-        private WeaponImage weaponImage;
+        }
 
 
         public HeroPanel(Hero hero) {
@@ -415,7 +619,18 @@ public class GameFrame extends JFrame {
                    .getWhiteTransparent("gameComponents/power.png")
                    .getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
 
+           heroPowerImage.addMouseListener(new CommandAndResponseHandler.heroPowerMouserAdapter() {
 
+               @Override
+               HeroPower getHeroPower() {
+                   return hero.getPower();
+               }
+
+               @Override
+               Player getPlayer() {
+                   return hero.getPlayer();
+               }
+           });
 
 
             GridBagConstraints gbc = new GridBagConstraints();
@@ -428,13 +643,19 @@ public class GameFrame extends JFrame {
              ++gbc.gridx;
              add(heroPowerImage, gbc);
 
-            update();
 
+            addMouseListener(new CommandAndResponseHandler.TargetMouseAdapter() {
+                @Override
+                public Object getTarget() {
+                    return hero;
+                }
+            });
+            GameFrame.getInstance().registerUpdatable(this);
         }
 
 
     }
-    private static class EventPanel extends GameFramePanel{
+    private static class EventPanel extends GameFramePanel implements Updatable{
         private int width = 150;
         private int height = 15 * 16;
         JTextArea logs;
@@ -442,23 +663,14 @@ public class GameFrame extends JFrame {
         private EventPanel(){
             //settings
 
-            logs = new JTextArea() {
-                @Override
-                protected void paintComponent(Graphics g) {
-                    super.paintComponent(g);
-                    logs.setText("");
-                    for (String log : game.getLogs()) {
-                        logs.append("\n" + log);
-                    }
-
-                }
-            };
+            logs = new JTextArea();
             logs.setBorder(new EtchedBorder(EtchedBorder.RAISED));
             logs.setForeground(Color.WHITE);
             logs.setOpaque(false);
 
             logs.setPreferredSize(new Dimension(width,  height));
             add(logs);
+            GameFrame.getInstance().registerUpdatable(this);
 
         }
 
@@ -469,11 +681,22 @@ public class GameFrame extends JFrame {
                 instance = new EventPanel();
             return instance;
         }
+
+        @Override
+        public void update() {
+            logs.setText("");
+            for (String log : game.getLogs()) {
+                logs.append("\n" + log);
+            }
+        }
     }
     private static class DeckPanel extends GameFramePanel{
 
         public static final int WIDTH = 150;
         public static final int HEIGHT = 240;
+        public static final Image PICTURE = ImageUtil
+                .getWhiteTransparent("gameComponents/deck.png")
+                .getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH);
 
         List<Card> deck;
         private JLabel image;
@@ -487,10 +710,7 @@ public class GameFrame extends JFrame {
             setPreferredSize(new Dimension(WIDTH, HEIGHT));
             setBorder(new EtchedBorder(EtchedBorder.RAISED));
 
-            image = new JLabel(new ImageIcon(ImageUtil
-                    .getWhiteTransparent("gameComponents/deck.png")
-                    .getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH)
-            ));
+            image = new JLabel(new ImageIcon(PICTURE));
 
 
 
@@ -503,27 +723,26 @@ public class GameFrame extends JFrame {
             image.setBounds(0, 0, WIDTH, HEIGHT);
             add(image);
 
-
-
-
-
-            addMouseListener(new GameMouseAdapter() {
+            addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent e) {
+                    super.mouseEntered(e);
                     count.setText(deck.size() + "");
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
+                    super.mouseExited(e);
                     count.setText("");
                 }
             });
+
         }
 
     }
     private static class CardInfoPanel extends GameFramePanel{
         public void register(JComponent component, Card card) {
-            component.addMouseListener(new GameMouseAdapter() {
+            component.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent e) {
                     CardInfoPanel.getInstance().showInfoOf(card);
@@ -556,11 +775,11 @@ public class GameFrame extends JFrame {
     private static class ManaLabel extends JPanel implements Updatable{
         private int width = 30;
         private int height = 30;
-        private Game.Player player;
+        private Player player;
         private JLabel image;
         private JLabel number;
 
-        public ManaLabel(Game.Player player) {
+        public ManaLabel(Player player) {
             GameFrame.getInstance().registerUpdatable(this);
             this.player = player;
 
@@ -590,7 +809,132 @@ public class GameFrame extends JFrame {
             number.setText(player.getMana() + "");
         }
     }
+    private static class CardOnBoard extends JPanel implements Updatable{
+        protected static final int width = 100;
+        protected static final int height = (int)Math.round(1.6 * width);
+        protected static final Image BACKGROUND = ImageUtil
+                .getWhiteTransparent("gameComponents/cards/cardOnBoard.png")
+                .getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        protected static final Map<String, Image> CardImages;
+        static {
+            CardImages = new HashMap<>();
+            CardImages.put("minion", ImageUtil
+                    .getWhiteTransparent("gameComponents/cards/" + "minion" + ".png")
+                    .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH));
+            CardImages.put("weapon", ImageUtil
+                    .getWhiteTransparent("gameComponents/cards/" + "weapon" + ".png")
+                    .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH));
+            CardImages.put("spell", ImageUtil
+                    .getWhiteTransparent("gameComponents/cards/" + "spell" + ".png")
+                    .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH));
 
+        }
+
+        protected int lengthOfLabels = 30;
+
+
+        private Card card;
+        private JLabel background;
+        private JLabel picture;
+        private JLabel attack;
+        private JLabel health;
+        private JLabel divineShield;
+        private JLabel tauntBackground;
+
+        public CardOnBoard(Card card) {
+
+            CardInfoPanel.getInstance().register(this, card);
+            this.card = card;
+
+            setPreferredSize(new Dimension(width, height));
+
+            initComponent();
+            alignComponents();
+
+        }
+
+
+
+        private void initComponent() {
+            String cardType = card.getClass().getSimpleName().substring(0, card.getClass().getSimpleName().length() - 4);
+            cardType = cardType.toLowerCase();
+            background = new JLabel(new ImageIcon(BACKGROUND));
+
+
+            picture = new JLabel(new ImageIcon(CardImages.get(cardType)));
+
+            tauntBackground = new JLabel(new ImageIcon(ImageUtil
+                    .getWhiteTransparent("gameComponents/cards/" + "taunt" + ".png")
+                    .getScaledInstance(width , height , Image.SCALE_SMOOTH)));
+            divineShield = new JLabel(new ImageIcon(ImageUtil
+                    .getWhiteTransparent("gameComponents/cards/" + "divineShield" + ".png")
+                    .getScaledInstance(width , height / 2, Image.SCALE_SMOOTH)));
+
+            attack = new JLabel();
+            attack.setForeground(new Color(255, 50, 0));
+            health = new JLabel();
+            health.setForeground(new Color(0, 255, 200));
+            update();
+            addMouseListener(new CommandAndResponseHandler.TargetMouseAdapter() {
+                @Override
+                public Object getTarget() {
+                    return card;
+                }
+            });
+            addMouseListener(new CommandAndResponseHandler.AttackerMouseAdapter() {
+                @Override
+                public Attacker getAttacker() {
+                    return (MinionCard)card;
+                }
+            });
+
+        }
+
+        private void alignComponents() {
+            setLayout(null);
+            JPanel panel = new JPanel();
+            panel.setLayout(new GridBagLayout());
+            background.setBounds(0, 0, width, height);
+            tauntBackground.setBounds(0, 0, width, height);
+            divineShield.setBounds(0, 0, width, height / 2);
+
+            panel.setBounds(0, 0, width, height);
+            panel.setOpaque(false);
+
+
+            if (card.getCardModel() instanceof MinionModel)
+                if (((MinionModel) card.getCardModel()).isDivineShield())
+                    add(divineShield);
+            add(panel);
+            if (card.getCardModel() instanceof MinionModel) {
+                if (((MinionModel) card.getCardModel()).isTaunt())
+                    add(tauntBackground);
+                else
+                    add(background);
+            }
+            GridBagConstraints gbc = new GridBagConstraints();
+
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            panel.add(attack, gbc);
+
+            ++gbc.gridx;
+            ++gbc.gridy;
+            panel.add(picture, gbc);
+
+            ++gbc.gridx;
+            ++gbc.gridy;
+            panel.add(health, gbc);
+        }
+
+        @Override
+        public void update() {
+            if (card instanceof MinionCard)
+                attack.setText(((MinionCard) card).getAttack() + "");
+            if (card instanceof MinionCard)
+                health.setText(((MinionCard) card).getHealth() + "");
+        }
+    }
 
     private MenuButton endTurnButton;
     private HandPanel playersHandPanel;
@@ -603,17 +947,21 @@ public class GameFrame extends JFrame {
     private DeckPanel opponentsDeckPanel;
     private ManaLabel playersManaLabel;
 
-    public static void launch(Game game) {
-        getInstance().game = game;
+    public static void launch(GameProcessor gameProcessor, int indexOfPlayer) {
+        getInstance().gameProcessor = gameProcessor;
+
+
+        getInstance().game = gameProcessor.getGame();
+
+
         getInstance().setVisible(true);
 
         theme.clip.loop(Clip.LOOP_CONTINUOUSLY);
 
-        getInstance().initComponent();
+        CommandAndResponseHandler.getInstance().registeredBoxes = new ArrayList<>();
+        getInstance().initComponent(indexOfPlayer);
         getInstance().alignComponents();
-
-        game.getPlayer().newTurn();
-        getInstance().updateComponents();
+        CommandAndResponseHandler.getInstance().connectToProcessor(gameProcessor);
         List<Container> passives = new ArrayList<>();
         List<Integer> indices = new ArrayList<>();
         for (int i = 0; i < 3; ++i) {
@@ -626,16 +974,38 @@ public class GameFrame extends JFrame {
             }
         }
         FramePainter.paint(getInstance());
-        SummonFrame.getInstance().chooseFrom(passives, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Passive.PassiveShape res = (Passive.PassiveShape)e.getSource();
-                game.getPlayer().setPassive(res.getPassive());
+        DiscoverFrame.getInstance().chooseFrom(passives, e -> {
+            Passive.PassiveShape res = (Passive.PassiveShape)e.getSource();
+            getInstance().game.getPlayers().get(indexOfPlayer).setPassive(res.getPassive());
+
+            try {
+
+                Player player = gameProcessor.getGame().getPlayers().get(0);
+                DB.components.cards.Card myPassive = new DB.components.cards.Card();
+                myPassive.setName(res.getPassive().name());
+                Card myPassiveCard = new Card(myPassive, player){};
+                Constructor passiveConstructor = Loader.getInstance()
+                        .getModel(myPassiveCard);
+
+                CardModel card = (CardModel)passiveConstructor
+                        .newInstance(gameProcessor, player, myPassiveCard);
+
+                card.play(new PlayCommand(player.getName(), null, 0));
+
+
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
             }
+
         });
 
 
+    }
 
+    private void exitGame() {
+        FramePainter.paint(MenuFrame.getInstance());
+        theme.clip.stop();
+        MenuFrame.getTheme().clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 
     private GameFrame() {
@@ -645,9 +1015,7 @@ public class GameFrame extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                FramePainter.paint(MenuFrame.getInstance());
-                theme.clip.stop();
-                MenuFrame.getTheme().clip.loop(Clip.LOOP_CONTINUOUSLY);
+                exitGame();
             }
         });
 
@@ -656,36 +1024,37 @@ public class GameFrame extends JFrame {
     }
 
 
-    private void initComponent() {
+    private void initComponent(int indexOfPlayer) {
 
         Container pane = new JPanel(){
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                g.drawImage(ImageUtil.getImage("wall.png"),0, 0, null);
+                g.drawImage(WALL,0, 0, null);
             }
         };
         setContentPane(pane);
         pane.setLayout(new GridBagLayout());
         endTurnButton = new MenuButton("end turn",new Dimension(160,100),20);
-        endTurnButton.addMouseListener(new GameMouseAdapter() {
+        endTurnButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                game.getPlayer().newTurn();
                 super.mouseClicked(e);
+                getInstance().gameProcessor.getCommandOutput().write(new EndTurnCommand(this));
             }
         });
 
-        playersBoardPanel = new BoardPanel(game.getPlayer().getCardsOnBoard());
-        opponentsBoardPanel = new BoardPanel(game.getOpponent().getCardsOnBoard());
-        playersDeckPanel = new DeckPanel(game.getPlayer().getDeck());
-        opponentsDeckPanel = new DeckPanel(game.getOpponent().getDeck());
-        playersHandPanel = new HandPanel(game.getPlayer().getHand());
-        opponentsHandPanel = new HandPanel(game.getOpponent().getHand());
-        playersHeroPanel = new HeroPanel(game.getPlayer().getHero());
-        opponentsHeroPanel = new HeroPanel(game.getOpponent().getHero());
-        playersManaLabel = new ManaLabel(game.getPlayer());
+        registeredUpdatables.clear();
+
+        playersBoardPanel = new BoardPanel(game.getPlayers().get(indexOfPlayer).getCardsOnBoard(),  game.getPlayers().get(indexOfPlayer).getName());
+        opponentsBoardPanel = new BoardPanel(game.getPlayers().get(1 - indexOfPlayer).getCardsOnBoard(), game.getPlayers().get(1 - indexOfPlayer).getName());
+        playersDeckPanel = new DeckPanel(game.getPlayers().get(indexOfPlayer).getDeck());
+        opponentsDeckPanel = new DeckPanel(game.getPlayers().get(1 - indexOfPlayer).getDeck());
+        playersHandPanel = new HandPanel(game.getPlayers().get(indexOfPlayer).getHand(), game.getPlayers().get(indexOfPlayer).getName());
+        opponentsHandPanel = new HandPanel(game.getPlayers().get(1 - indexOfPlayer).getHand(), game.getPlayers().get(1 - indexOfPlayer).getName());
+        playersHeroPanel = new HeroPanel(game.getPlayers().get(indexOfPlayer).getHero());
+        opponentsHeroPanel = new HeroPanel(game.getPlayers().get(1 - indexOfPlayer).getHero());
+        playersManaLabel = new ManaLabel(game.getPlayers().get(indexOfPlayer));
 
 
     }
@@ -767,5 +1136,6 @@ public class GameFrame extends JFrame {
             instance = new GameFrame();
         return instance;
     }
+
 
 }

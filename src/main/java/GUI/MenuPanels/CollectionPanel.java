@@ -29,7 +29,7 @@ public class CollectionPanel extends MenuPanel{
     private MouseAdapter pickACard = new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
-            CardInfo.getInstance().selectCard(((CardShape)e.getSource()).card);
+            CardInfo.getInstance().selectCard(((CardShape)e.getSource()).card.getCardData());
         }
     };
 

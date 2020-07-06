@@ -78,7 +78,6 @@ public class Card {
     public void setHero(Hero hero) {
         this.hero = hero;
     }
-    //TODO save the play method as a field
 
 
     @Override

@@ -16,37 +16,37 @@ public class HeroManager {
 
     public static void main(String[] args) throws Exception{
         HeroManager manager = getInstance();
-        Hero mage = new Hero();
-        mage.setHeroName("Mage");
-        mage.setHp(30);
-        mage.setPower(new HeroPower("FirstBlast"));
-
-        Hero Rogue = new Hero();
-        Rogue.setHeroName("Rogue");
-        Rogue.setHp(30);
-        Rogue.setPower(new HeroPower("Poisoned Daggers"));
-
-        Hero Warlock = new Hero();
-        Warlock.setHeroName("Warlock");
-        Warlock.setHp(35);
-        Warlock.setPower(new HeroPower("Life Tap"));
-
-
-        Hero Hunter = new Hero();
-        Hunter.setHeroName("Hunter");
-        Hunter.setHp(30);
-        Hunter.setPower(new HeroPower("Caltrops"));
-
-        Hero Paladin = new Hero();
-        Paladin.setHeroName("Paladin");
-        Paladin.setHp(30);
-        Paladin.setPower(new HeroPower("The silver Hand"));
-
-        manager.addHero(mage);
-        manager.addHero(Rogue);
-        manager.addHero(Warlock);
-        manager.addHero(Hunter);
-        manager.addHero(Paladin);
+//        Hero mage = new Hero();
+//        mage.setHeroName("Mage");
+//        mage.setHp(30);
+//        mage.setPower(new HeroPower("FirstBlast"));
+//
+//        Hero Rogue = new Hero();
+//        Rogue.setHeroName("Rogue");
+//        Rogue.setHp(30);
+//        Rogue.setPower(new HeroPower("Poisoned Daggers"));
+//
+//        Hero Warlock = new Hero();
+//        Warlock.setHeroName("Warlock");
+//        Warlock.setHp(35);
+//        Warlock.setPower(new HeroPower("Life Tap"));
+//
+//
+//        Hero Hunter = new Hero();
+//        Hunter.setHeroName("Hunter");
+//        Hunter.setHp(30);
+//        Hunter.setPower(new HeroPower("Caltrops"));
+//
+//        Hero Paladin = new Hero();
+//        Paladin.setHeroName("Paladin");
+//        Paladin.setHp(30);
+//        Paladin.setPower(new HeroPower("The silver Hand"));
+//
+//        manager.addHero(mage);
+//        manager.addHero(Rogue);
+//        manager.addHero(Warlock);
+//        manager.addHero(Hunter);
+//        manager.addHero(Paladin);
 
         System.out.println(manager.heroes);
 
