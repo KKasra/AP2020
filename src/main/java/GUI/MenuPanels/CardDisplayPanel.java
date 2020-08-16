@@ -39,7 +39,7 @@ public class CardDisplayPanel extends JScrollPane {
         cardDisplay.setLayout(new GridBagLayout());
         cardDisplay.setBackground(background);
         cardDisplay.setPreferredSize(new Dimension(1000,
-                Market.getInstance().getCardsForSale().size() / columns * (CardShape.HEIGHT + 200)));
+                40 / columns * (CardShape.HEIGHT + 200)));
 
         this.pickACard = pickACard;
 
@@ -57,51 +57,34 @@ public class CardDisplayPanel extends JScrollPane {
         //sorting
         switch (sortType) {
             case SORT_BY_CLASS:
-                Collections.sort(cards, new Comparator<Card>() {
-                    @Override
-                    public int compare(Card o1, Card o2) {
-                        return o1.getHero().toString().compareTo(o2.getHero().getHeroName());
-                    }
-                });
+                Collections.sort(cards, (o1, o2) -> o1.getHero().toString().compareTo(o2.getHero().getHeroName()));
                 break;
             case SORT_BY_COIN_COST:
-                Collections.sort(cards, new Comparator<Card>() {
-                    @Override
-                    public int compare(Card o1, Card o2) {
-                        Integer a = new Integer(o1.getCoinCost());
-                        Integer b = new Integer(o2.getCoinCost());
-                        return a.compareTo(b);
-                    }
+                Collections.sort(cards, (o1, o2) -> {
+                    Integer a = new Integer(o1.getCoinCost());
+                    Integer b = new Integer(o2.getCoinCost());
+                    return a.compareTo(b);
                 });
                 break;
             case SORT_BY_MANA_COST:
-                Collections.sort(cards, new Comparator<Card>() {
-                    @Override
-                    public int compare(Card o1, Card o2) {
-                        Integer a = new Integer(o1.getManaCost());
-                        Integer b = new Integer(o2.getManaCost());
-                        return a.compareTo(b);
-                    }
+                Collections.sort(cards, (o1, o2) -> {
+                    Integer a = new Integer(o1.getManaCost());
+                    Integer b = new Integer(o2.getManaCost());
+                    return a.compareTo(b);
                 });
                 break;
             case SORT_BY_NAME:
-                Collections.sort(cards, new Comparator<Card>() {
-                    @Override
-                    public int compare(Card o1, Card o2) {
-                        String a = o1.getName();
-                        String b = o2.getName();
-                        return a.compareTo(b);
-                    }
+                Collections.sort(cards, (o1, o2) -> {
+                    String a = o1.getName();
+                    String b = o2.getName();
+                    return a.compareTo(b);
                 });
                 break;
             case SORT_BY_TYPE:
-                Collections.sort(cards, new Comparator<Card>() {
-                    @Override
-                    public int compare(Card o1, Card o2) {
-                        String a = o1.getClass().getSimpleName();
-                        String b = o2.getClass().getSimpleName();
-                        return a.compareTo(b);
-                    }
+                Collections.sort(cards, (o1, o2) -> {
+                    String a = o1.getClass().getSimpleName();
+                    String b = o2.getClass().getSimpleName();
+                    return a.compareTo(b);
                 });
         }
 
@@ -124,4 +107,5 @@ public class CardDisplayPanel extends JScrollPane {
     public void setCards(List<Card> cards) {
         this.cards = cards;
     }
+
 }

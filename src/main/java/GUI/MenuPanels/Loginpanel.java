@@ -2,14 +2,10 @@ package GUI.MenuPanels;
 
 import GUI.*;
 import GUI.Frames.MenuFrame;
-import GUI.Frames.WarningFrame;
-import DB.components.User;
-import DB.UserDB;
+import Network.Client;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Loginpanel extends MenuPanel {
     private static final Font titleFont = new Font("Spicy Rice", Font.ITALIC, 70);
@@ -98,42 +94,17 @@ public class Loginpanel extends MenuPanel {
 
 
         //actionListeners
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                login(name.getText(), new String(word.getPassword()));
-            }
-        });
-        RegisterButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                register(name.getText(), new String(word.getPassword()));
-            }
-        });
+        loginButton.addActionListener(e -> login(name.getText(), new String(word.getPassword())));
+        RegisterButton.addActionListener(e -> register(name.getText(), new String(word.getPassword())));
     }
 
-    private void login(String userName, String passWord) {
-        try {
-            User.user = UserDB.getUser(userName, passWord);
-            User.user.getLog().writeEvent("sign_in", "");
-            MenuFrame.getInstance().setPanel(MainMenu.getInstance());
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            WarningFrame.print(e.getMessage());
-        }
+    private void login(String userName, String passWord) {
+        Client.getInstance().login(userName, passWord);
     }
 
     private void register(String userName, String password) {
-        try{
-            User.user = new User(userName, password);
-            UserDB.addUser(User.user);
-            User.user.getLog().writeEvent("sign_in", "");
-            MenuFrame.getInstance().setPanel(MainMenu.getInstance());
-        }catch (Exception e) {
-            e.printStackTrace();
-            WarningFrame.print(e.getMessage());
-        }
+        Client.getInstance().register(userName, password);
     }
 
 

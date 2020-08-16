@@ -1,6 +1,5 @@
 package GUI.Frames;
 
-import DB.components.User;
 import GUI.Sound;
 
 import javax.swing.*;
@@ -14,8 +13,6 @@ public class WarningFrame extends JFrame {
     private JLabel label = new JLabel();
     private static Sound sound = new Sound("Error");
     public static void print(String message) {
-        if (User.user != null)
-            User.user.getLog().writeEvent("Warning popup", message);
         sound.clip.setMicrosecondPosition(0);
         sound.clip.start();
 

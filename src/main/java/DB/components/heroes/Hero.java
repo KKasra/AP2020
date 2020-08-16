@@ -3,9 +3,10 @@ package DB.components.heroes;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Hero {
+public class Hero implements Serializable {
     public String getHeroName() {
         return HeroName;
     }

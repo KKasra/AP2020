@@ -37,7 +37,7 @@ public abstract class WeaponModel extends CardModel{
         }
 
         if (command instanceof AttackCommand) {
-            if (((AttackCommand) command).getAttacker() == card)
+            if (((AttackCommand) command).getAttacker(processor.getGame(), (AttackCommand) command) == card)
                 if (lastTurnAttacked == processor.getGame().getNumberOfTurns())
                     throw new Exception("not this turn");
         }

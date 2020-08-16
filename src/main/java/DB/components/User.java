@@ -6,19 +6,19 @@ import DB.UserDB;
 import DB.components.cards.Card;
 import DB.components.cards.Deck;
 import DB.components.heroes.Hero;
+import net.bytebuddy.implementation.bytecode.constant.DefaultValue;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class User {
-    @Transient
-    public static User user;
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -49,7 +49,7 @@ public class User {
     private int indexOfDeck;
 
     @Transient
-    private Log log;
+    private transient Log log;
     public void initLog(boolean append){
         log = new Log("./Data/Logs/"
                 + getUserName()
@@ -170,6 +170,22 @@ public class User {
         this.availableCards = availableCards;
     }
 
+    public int getWins() {
+        int wins = 0;
+        for (Deck deck : decks) {
+            wins += deck.getInfo().getNumberOfWins();
+        }
+        return wins;
+    }
+
+    public int getLoses() {
+        int loses = 0;
+        for (Deck deck : decks) {
+            loses += deck.getInfo().getNumberOfPlayedGames() - deck.getInfo().getNumberOfWins();
+        }
+        return loses;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -223,5 +239,9 @@ public class User {
 
     public User() {
 
+    }
+
+    public int getIndexOfDeck() {
+        return indexOfDeck;
     }
 }

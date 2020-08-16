@@ -3,9 +3,11 @@ package Game.CommandAndResponse;
 import Game.GameStructure.Game;
 import Game.GameStructure.Player;
 
+import java.util.List;
+
 public class EndOfGame extends Response {
-    public EndOfGame(Game game, Player winner) {
-        super(game, Message.endOfGame);
+    public EndOfGame(Game game, Player winner, List<Integer> list) {
+        super(game, Message.endOfGame, list);
         this.winner = winner;
     }
     private Player winner;

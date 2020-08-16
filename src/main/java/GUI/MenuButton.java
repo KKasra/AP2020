@@ -1,12 +1,9 @@
 package GUI;
 
-import DB.components.User;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MenuButton extends JButton {
     private static final Color color = new Color( 211, 84, 0 );
@@ -20,14 +17,6 @@ public class MenuButton extends JButton {
         setFont(new Font("Spicy Rice", Font.PLAIN, fontSize));
         setForeground(foreGround);
         setPreferredSize(dimension);
-
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (User.user != null)
-                    User.user.getLog().writeEvent("Button_clicked",title);
-            }
-        });
     }
 
 }

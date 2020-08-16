@@ -10,19 +10,21 @@ import Game.GameStructure.CardModels.HeroPower;
 import Game.GameStructure.Cards.MinionCard;
 import Game.GameStructure.Heroes.Hero;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
-    private Game game;
+public class Player implements Serializable {
+    transient private Game game;
     private List<Card> deck;
     private List<Card> hand;
     private List<Card> cardsOnBoard;
     private Hero hero;
     private int mana;
-    private Passive passive;
+    transient private Passive passive;
     private String name;
-    public Player(String playerName, Game game, Deck deck, GameProcessor processor) throws Exception{
+
+    public Player(String playerName, Game game, Deck deck, GameProcessor processor) {
         this.name = playerName;
         this.game = game;
 
@@ -41,18 +43,19 @@ public class Player {
     }
 
     public void playCard(PlayCommand command) throws Exception{
-        Card card = command.getCard();
+        if (command.getIndexInHand() >= hand.size())
+            throw new Exception("index in hand is greater than hands size");
+        Card card = hand.get(command.getIndexInHand());
         int index = command.getIndexOnBoard();
-        if (!hand.contains(card))
-            throw new Exception("card is not in Player's hand");
         if (mana < card.getManaCost())
             throw new Exception("insufficient mana");
-        if (cardsOnBoard.get(index) != null && card instanceof MinionCard)
+        if (card instanceof MinionCard && cardsOnBoard.get(index) != null)
             throw new Exception("occupied place");
         hand.remove(card);
         card.getCardModel().play(command);
+        command.setCard(card);
         mana -= card.getManaCost();
-        game.logs.add("card: " + card.getName() + ">>");
+        game.logs.add(card.getName() + " by " + name);
 
     }
 
@@ -113,5 +116,24 @@ public class Player {
         }
         power.usePower();
         mana -= power.getManaCost();
+    }
+
+    private Player(){}
+
+    public Player getRestrictedInfo() {
+        Player res = new Player();
+
+        res.hero = getHero();
+
+        res.hand = new ArrayList<>();
+        for (int i = 0; i < getHand().size(); ++i)
+            res.hand.add(null);
+
+        res.deck = new ArrayList<>();
+        for (int i = 0; i < getDeck().size(); ++i)
+            res.deck.add(null);
+
+        res.cardsOnBoard = getCardsOnBoard();
+        return res;
     }
 }

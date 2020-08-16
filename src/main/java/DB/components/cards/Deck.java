@@ -7,13 +7,14 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 @Entity
-public class Deck {
+public class Deck implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -57,6 +58,12 @@ public class Deck {
     }
 
     public void removeCard(Card card) {
+        for (Card card1 : cards)
+            if (card1.getName().equals(card.getName())){
+                card = card1;
+                break;
+            }
+
         cards.remove(card);
     }
 
@@ -83,14 +90,6 @@ public class Deck {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Deck(String name, Hero hero) {

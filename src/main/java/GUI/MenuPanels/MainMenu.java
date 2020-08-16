@@ -1,21 +1,23 @@
 package GUI.MenuPanels;
 
-import DB.Managment.HeroManager;
-import DB.components.cards.Deck;
 import GUI.*;
-import GUI.Frames.GameFrame;
+import GUI.Frames.DeleteAccountFrame;
 import GUI.Frames.MenuFrame;
-import GUI.Frames.WarningFrame;
-import Game.CommandAndResponse.GameProcessor;
-import Game.GameStructure.Game;
-import DB.components.User;
+import Network.Client;
+import Network.Requests.DeleteAccount;
+import Network.Requests.PlayRequest;
+import Network.Requests.State;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainMenu extends MenuPanel {
     private static MainMenu instance;
+    private MenuButton Play;
+    private  MenuButton Store;
+    private MenuButton Status;
+    private MenuButton Collection;
+    private ChatPanel chatPanel;
+    private MenuButton deleteAccount;
 
     public static MainMenu getInstance() {
         if (instance == null)
@@ -31,10 +33,12 @@ public class MainMenu extends MenuPanel {
         initStatus();
         initStore();
         initCollection();
+        initDeleteAccount();
+        chatPanel = ChatPanel.getInstance();
 
-
-        gbc.gridy= 0;
-        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridy = 1;
+        gbc.gridx = 0;
+        gbc.gridheight = 1;
 
         gbc.gridy++;
         add(Play, gbc);
@@ -48,57 +52,48 @@ public class MainMenu extends MenuPanel {
         gbc.gridy++;
         add(Collection, gbc);
 
+        gbc.gridy++;
+        add(deleteAccount, gbc);
+
+        gbc.gridx++;
+        gbc.gridy = 0;
+        gbc.gridheight = 7;
+        add(chatPanel, gbc);
+
+
     }
 
-    private MenuButton Play;
+    private void initDeleteAccount() {
+        deleteAccount = new MenuButton("delete Account", new Dimension(300, 100), 30);
+        deleteAccount.addActionListener(a -> DeleteAccountFrame.getInstance().setVisible(true));
+    }
+
     private void initPlay() {
         Play = new MenuButton("Play", new Dimension(300, 100), 30);
-        Play.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                User.user.getLog().writeEvent("Game", "launch");
-                try {
-                    GameFrame.launch( new GameProcessor("config1"), 0);
-                    MenuFrame.getTheme().clip.stop();
-                }catch (Exception exception) {
-                    exception.printStackTrace();
-                    WarningFrame.print(exception.getMessage());
-                    MenuFrame.getInstance().setPanel(CollectionPanel.getInstance());
-                }
-            }
+        Play.addActionListener(e -> {
+            MenuFrame.getInstance().setPanel(PlayMenuPanel.getInstance());
+//          Client.getInstance().sendPlayRequest(PlayRequest.PlayMode.deckReader);
         });
     }
-    private  MenuButton Store;
     private void initStore() {
         Store = new MenuButton("Store", new Dimension(300, 100), 30);
-        Store.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                User.user.getLog().writeEvent("Navigate", "Store");
-                MenuFrame.getInstance().setPanel(StorePanel.getInstance());
-            }
+        Store.addActionListener(e -> {
+            Client.getInstance().setState(State.store);
+            MenuFrame.getInstance().setPanel(StorePanel.getInstance());
         });
     }
-    private MenuButton Status;
     private void initStatus() {
         Status = new MenuButton("Status", new Dimension(300, 100), 30);
-        Status.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                User.user.getLog().writeEvent("Navigate", "Status");
-                MenuFrame.getInstance().setPanel(StatusPanel.getInstance());
-            }
+        Status.addActionListener(e -> {
+            Client.getInstance().setState(State.status);
+            MenuFrame.getInstance().setPanel(StatusPanel.getInstance());
         });
     }
-    private MenuButton Collection;
     private void initCollection() {
         Collection = new MenuButton("Collection", new Dimension(300, 100), 30);
-        Collection.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                User.user.getLog().writeEvent("Navigate", "Collection");
-                MenuFrame.getInstance().setPanel(CollectionPanel.getInstance());
-            }
+        Collection.addActionListener(e -> {
+            Client.getInstance().setState(State.collection);
+            MenuFrame.getInstance().setPanel(CollectionPanel.getInstance());
         });
     }
 }

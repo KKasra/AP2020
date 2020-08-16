@@ -25,7 +25,7 @@ public class bookofspecters extends SpellModel {
             Card c = player.getHand().get(i);
             if (c instanceof SpellCard) {
                 player.setMana(player.getMana() + c.getManaCost());
-                player.playCard(new PlayCommand(player.getName(), c, 0));
+                player.playCard(new PlayCommand(player.getName(), player.getHand().indexOf(c), 0));
             }
         }
     }

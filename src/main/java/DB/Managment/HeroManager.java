@@ -80,10 +80,6 @@ public class HeroManager {
         update();
     }
 
-    public Image getHeroPicture(Hero hero) {
-        return Toolkit.getDefaultToolkit().getImage("./Data/images/gameComponents/heroes/" +
-                hero.getHeroName() + ".jpg");
-    }
     public void update() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();

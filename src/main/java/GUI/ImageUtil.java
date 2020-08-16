@@ -5,8 +5,13 @@ import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageFilter;
 import java.awt.image.ImageProducer;
 import java.awt.image.RGBImageFilter;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ImageUtil {
+
+    private static Map<String, Image> images = new HashMap<>();
+
     public static Image getTransparent(Image img, Color color) {
         ImageFilter filter = new RGBImageFilter() {
             public int markerRGB = color.getRGB() | 0xFF000000;
@@ -34,7 +39,9 @@ public class ImageUtil {
     }
 
     public static Image getImage(String path) {
-        return Toolkit.getDefaultToolkit().getImage("./Data/images/" + path);
+        if (!images.containsKey(path))
+            images.put(path,Toolkit.getDefaultToolkit().getImage("./Data/images/" + path));
+        return images.get(path);
     }
 
 

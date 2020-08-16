@@ -7,11 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
 import javax.persistence.MapKeyColumn;
+import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
 
 @Embeddable
-public class DeckInfo {
+public class DeckInfo implements Serializable {
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
     @Column(name = "CARD_PLAYED_CNT")

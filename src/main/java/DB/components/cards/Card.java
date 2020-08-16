@@ -3,11 +3,13 @@ package DB.components.cards;
 
 import DB.components.heroes.Hero;
 
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Card {
+public class Card implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;

@@ -3,28 +3,32 @@ package Game.CommandAndResponse;
 import Game.GameStructure.Game;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Response implements Serializable {
-    public static enum  Message{
-        reject, selectATarget, update, endTurn, endOfGame, targetIsValid
+    public enum  Message{
+        reject, selectATarget, update, endTurn, endOfGame, targetIsValid, discover
     }
     private Message message;
+    private Game game;
 
+    public Response(Game game, Message message, List<Integer> restrictedInfoList) {
+        this.message = message;
+        this.game = game;
+        for (Integer integer : restrictedInfoList) {
+            this.game = game.restrictInfoOf(integer);
+        }
+    }
 
     public Message getMessage() {
         return message;
     }
 
-    public Response(Game game, Message message) {
-        this.message = message;
+    public Game getGame() {
+        return game;
     }
 
-    public Response() {
-        super();
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
+    public void setGame(Game game) {
+        this.game = game;
     }
 }

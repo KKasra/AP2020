@@ -7,16 +7,18 @@ import Game.GameStructure.Game;
 import Game.GameStructure.Heroes.Hero;
 import Game.GameStructure.Player;
 
-public abstract class Card {
+import java.io.Serializable;
 
-    private Player player;
+public abstract class Card implements Serializable {
+
+    transient private Player player;
     private String name;
     private String description;
     private Rarity rarity;
     private int manaCost;
     private DB.components.heroes.Hero hero;
     private DB.components.cards.Card cardData;
-    private CardModel cardModel;
+    transient private CardModel cardModel;
 
     public Card (DB.components.cards.Card cardData, Player player) {
         this.cardData = cardData;

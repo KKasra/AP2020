@@ -4,18 +4,19 @@ package Game.CommandAndResponse;
 import Game.GameStructure.Cards.Card;
 
 public class PlayCommand extends Command{
-    private Card card;
+    private int indexInHand;
     private int indexOnBoard;
     private String playerName;
+    private Card card;
 
-    public PlayCommand(String playerName, Card card, int indexOnBoard) {
-        this.card = card;
+    public PlayCommand(String playerName, int indexInHand, int indexOnBoard) {
+        this.indexInHand = indexInHand;
         this.indexOnBoard = indexOnBoard;
         this.playerName = playerName;
     }
 
-    public Card getCard() {
-        return card;
+    public int getIndexInHand() {
+        return indexInHand;
     }
 
     public int getIndexOnBoard() {
@@ -24,5 +25,12 @@ public class PlayCommand extends Command{
 
     public String getPlayerName() {
         return playerName;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+    }
+    public Card getCard() {
+        return card;
     }
 }

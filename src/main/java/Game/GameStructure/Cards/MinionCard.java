@@ -48,6 +48,7 @@ public class MinionCard extends Card implements Attackable, Attacker {
         getModel().attack(target);
     }
 
+
     public int getAttack() {
         return attack;
     }

@@ -1,10 +1,9 @@
 package GUI.Frames;
 
-import DB.UserDB;
-import GUI.MenuPanels.Loginpanel;
-import GUI.MenuPanels.MenuPanel;
+import GUI.MenuPanels.*;
 import GUI.Sound;
-import DB.components.User;
+import Network.Client;
+import Network.Requests.State;
 
 import javax.sound.sampled.Clip;
 import javax.swing.*;
@@ -55,7 +54,6 @@ public class MenuFrame extends JFrame {
         setSize(new Dimension(width, height));
         setLocationRelativeTo(null);
         setResizable(false);
-        setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
@@ -65,11 +63,7 @@ public class MenuFrame extends JFrame {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                if (User.user != null) {
-                    User.user.getLog().writeEvent("sign_out", "");
-                    UserDB.saveChanges(User.user);
-                    theme.clip.stop();
-                }
+                theme.clip.stop();
             }
         });
         setTitle("HeartStroke");
@@ -81,7 +75,14 @@ public class MenuFrame extends JFrame {
         setContentPane(panel);
 
         menuStackTrace.add(panel);
-
+        if (panel.equals(MainMenu.getInstance()))
+            Client.getInstance().setState(State.neutral);
+        if (panel.equals(StorePanel.getInstance()))
+            Client.getInstance().setState(State.store);
+        if (panel.equals(CollectionPanel.getInstance()))
+            Client.getInstance().setState(State.collection);
+        if (panel.equals(StatusPanel.getInstance()))
+            Client.getInstance().setState(State.status);
     }
     public JPanel getPanel() {
         return this.panel;

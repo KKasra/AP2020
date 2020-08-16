@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AP2020" />
+        <module name="HearthStroke" />
       </profile>
     </annotationProcessing>
   </component>

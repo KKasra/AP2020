@@ -21,7 +21,7 @@ public abstract class MinionModel extends CardModel implements Attackable{
         if (player.getCardsOnBoard().get(command.getIndexOnBoard()) != null)
             throw new Exception("occupied space");
         turnPlayed = processor.getGame().getNumberOfTurns();
-        player.getCardsOnBoard().set(command.getIndexOnBoard(), command.getCard());
+        player.getCardsOnBoard().set(command.getIndexOnBoard(), getCard());
     }
 
     public void attack(Attackable target) {
@@ -39,7 +39,7 @@ public abstract class MinionModel extends CardModel implements Attackable{
     public void observeBefore(Command command) throws Exception {
         super.observeBefore(command);
         if (command instanceof AttackCommand) {
-            if (((AttackCommand) command).getAttacker() == this.card) {
+            if (((AttackCommand) command).getAttacker(processor.getGame(), (AttackCommand) command) == this.card) {
                 //first turn minions can't attack, unless they have charge
                 if (turnPlayed == processor.getGame().getNumberOfTurns() && !charge && !rush)
                     throw new Exception("not this turn");
@@ -56,7 +56,8 @@ public abstract class MinionModel extends CardModel implements Attackable{
 
         //taunts should be attacked first
         if (taunt && command instanceof SelectionCommand) {
-            Attackable target = (Attackable) ((SelectionCommand) command).getTarget();
+            Attackable target = (Attackable) ((SelectionCommand) command).getTarget(
+                    processor.getGame(), (SelectionCommand)command);
             if (target.getPlayer() == player) {
                 if (!(target instanceof MinionCard))
                     throw new Exception("Taunt");

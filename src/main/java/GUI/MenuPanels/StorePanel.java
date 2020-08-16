@@ -1,11 +1,11 @@
 package GUI.MenuPanels;
 
-import DB.components.User;
 import DB.components.cards.Card;
 import GUI.CardShape;
 import GUI.Frames.WarningFrame;
 import GUI.MenuButton;
-import DB.Managment.Market;
+import Network.Client;
+import Network.Responses.StoreData;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -23,9 +23,25 @@ public class StorePanel extends MenuPanel {
             "./Data/images/coins.jpg"
     ).getScaledInstance(70, 70, Image.SCALE_SMOOTH);
 
-     private CardDisplayPanel cardsPanel;
-    private Market market = Market.getInstance();
+    private CardDisplayPanel cardsPanel;
     private Card chosenCard;
+    private int sortStrategy;
+
+    private StoreData data;
+
+    public void update(StoreData data) {
+        this.data = data;
+        ButtonsPanel.getInstance().coins.setText(data.getUserCoins() + "");
+        initCardPanel(sortStrategy, data.getCardList());
+        if (chosenCard != null){
+            for (Card card : data.getCardList()) {
+                if (card.getName().equals(chosenCard.getName()))
+                    chosenCard = card;
+            }
+            setChosenCard(chosenCard);
+        }
+    }
+
     private static class ButtonsPanel extends JPanel{
 
         private JLabel cost;
@@ -33,6 +49,8 @@ public class StorePanel extends MenuPanel {
         private JPanel chosenCardPanel;
         private JPanel searchPanel;
         private JLabel coins;
+
+
 
         private ButtonsPanel() {
             //settings
@@ -52,24 +70,12 @@ public class StorePanel extends MenuPanel {
             chosenCardPanel.setOpaque(false);
 
             buy = new MenuButton("Buy it", new Dimension(150, 70), 20);
-            buy.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (StorePanel.getInstance().chosenCard == null) {
-                        WarningFrame.print("you didn't choose a card!");
-                        return;
-                    }
-                    try {
-                        if (User.user.hasCard(StorePanel.getInstance().chosenCard))
-                            Market.getInstance().sell(StorePanel.getInstance().chosenCard);
-                        else
-                            Market.getInstance().buy(StorePanel.getInstance().chosenCard);
-                        StorePanel.getInstance().setChosenCard(StorePanel.getInstance().chosenCard);
-                    } catch (Exception ex) {
-                        WarningFrame.print(ex.getMessage());
-                    }
-                    coins.setText(User.user.getCoins() + "");
+            buy.addActionListener(e -> {
+                if (StorePanel.getInstance().chosenCard == null) {
+                    WarningFrame.print("you didn't choose a card!");
+                    return;
                 }
+                Client.getInstance().sendBuyRequest(StorePanel.getInstance().chosenCard.getName());
             });
 
             cost = new JLabel("---");
@@ -88,7 +94,6 @@ public class StorePanel extends MenuPanel {
                 }
             };
             coins.setHorizontalAlignment(JLabel.CENTER);
-            coins.setText(User.user.getCoins() + "");
             coins.setPreferredSize(new Dimension(70, 70));
             coins.setFont(new Font("arial", Font.BOLD, 20));
         }
@@ -121,21 +126,6 @@ public class StorePanel extends MenuPanel {
             add(coins, gbc);
         }
 
-        public JLabel getCost() {
-            return cost;
-        }
-
-        public void setCost(JLabel cost) {
-            this.cost = cost;
-        }
-
-        public JPanel getChosenCardPanel() {
-            return chosenCardPanel;
-        }
-
-        public void setChosenCardPanel(JPanel chosenCardPanel) {
-            this.chosenCardPanel = chosenCardPanel;
-        }
 
         static ButtonsPanel instance;
         static ButtonsPanel getInstance(){
@@ -149,14 +139,9 @@ public class StorePanel extends MenuPanel {
 
 
             JComboBox sortStrategy = new JComboBox(strategies.toArray());
-            sortStrategy.addItemListener(new ItemListener() {
-                @Override
-                public void itemStateChanged(ItemEvent e) {
-
-                    if (e.getStateChange() == ItemEvent.SELECTED) {
-                        System.out.println(strategies.indexOf(e.getItem()));
-                        StorePanel.getInstance().initCardPanel(strategies.indexOf(e.getItem()));
-                    }
+            sortStrategy.addItemListener(e -> {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    StorePanel.getInstance().sortStrategy = strategies.indexOf(e.getItem());
                 }
             });
 
@@ -191,7 +176,6 @@ public class StorePanel extends MenuPanel {
                 setChosenCard(((CardShape)e.getSource()).card.getCardData());
             }
         });
-        initCardPanel(0);
 
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -205,9 +189,8 @@ public class StorePanel extends MenuPanel {
 
     }
 
-    private void initCardPanel(int sortType){
-        if (cardsPanel.getCards() == null || cardsPanel.getCards().size() == 0)
-            cardsPanel.setCards(market.getCardsForSale());
+    private void initCardPanel(int sortType, List<Card> cards){
+        cardsPanel.setCards(cards);
         cardsPanel.initCardPanel(sortType);
     }
 
@@ -216,7 +199,7 @@ public class StorePanel extends MenuPanel {
         ButtonsPanel.instance.chosenCardPanel.removeAll();
         ButtonsPanel.instance.chosenCardPanel.add(new CardShape(chosenCard));
         ButtonsPanel.instance.cost.setText(chosenCard.getCoinCost() + "");
-        ButtonsPanel.getInstance().buy.setText(User.user.hasCard(chosenCard) ?
+        ButtonsPanel.getInstance().buy.setText(data.hasCard(chosenCard) ?
                 "Sell it" : "Buy it");
     }
 

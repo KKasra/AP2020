@@ -2,8 +2,6 @@ package GUI.MenuPanels;
 
 import GUI.ChangingPageNotifier;
 import GUI.Frames.MenuFrame;
-import DB.components.User;
-import GUI.Frames.WarningFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +20,6 @@ public class MenuPanel extends JPanel {
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
                 MenuFrame.getInstance().setPanel(MainMenu.getInstance());
-                User.user.getLog().writeEvent("Navigate", "MainMenu");
             }
 
         }

@@ -1,129 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="test3:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2319be2f-3e78-4628-a47a-f916d8317adb" name="Default Changelist" comment="phase 3 final">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Sounds/wrong.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/config1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/box.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/divineShield.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/taunt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/images/selectionPointer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/Managment/GameConfigManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/AttackCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/EndOfGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/EndTurnCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/GameProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/HeroPowerCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/ObjectInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/ObjectOutput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/PlayCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/Response.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/SelectionCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/TargetPicker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/TargetReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Attackable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Attacker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/CardModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/HeroPower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/Loader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/MinionModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/PassiveModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/QuestAndRewardModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/SpecialPower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/SpellModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/WeaponModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/aranasibroodmother.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/arcaneamplifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/arcaneexplosion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/arcaneshot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/assassinsblade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/bladeofcthun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/blessingofmight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/bookofspecters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/caltrops.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/chaosnova.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/curiocollector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/doomsayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/dragonclaw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/dreadscale.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/freepower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/friendlysmith.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/frostwolfgrunt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/gearblade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/giftofthewild.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/gnomisharmyknife.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/goldshirefootman.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/guardbot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/healingtouch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/hunterpowermodel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/huntersmark.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/hunterspecialpowre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/labrecruiter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/learndraconic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/magepowermodel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/magespecialpower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/manajump.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/manicsoulcaster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/markofthewild.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/murlocraider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/nurse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/offcards.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/paladinpowermodel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/paladinspecialpower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/pharaohsblessing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/polymorph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/rogueheropower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/roguespecialpower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/sathrovarr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/securityrover.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/shieldbearer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/sprint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/starfire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/stonetuskboar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/strengthinnumbers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/swampkingdred.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/swarmoflocusts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/targetdummy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/tombwarden.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/twicedraw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/voidwalker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/warlockpowermodel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/warlockspecialpower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/wickedknife.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/CardFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/MinionCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/QuestAndRewardCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/SpellCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/WeaponCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Heroes/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/example/hey.java" afterDir="false" />
+    <list default="true" id="2319be2f-3e78-4628-a47a-f916d8317adb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/oneShot.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/a-747.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/a-749.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/a-751.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/a-753.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/b-775.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/c-871.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-743.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/kasra-745.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Logs/stroke-807.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/questionMark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/AddressFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/DeleteAccountFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/ChatPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/PlayMenuPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/DiscoverRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/features/goldenTime/goldenTimesTurnTimer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/features/oneShot/minionKillerCardModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/ChatRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/CollectionRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/DeleteAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/GameRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/KeyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/PlayRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/RegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/StoreRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Requests/UpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/AccountDeleted.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/ChatUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/CollectionData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/GameResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/KeyResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/OpponentFound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/RejectResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/StatusData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Responses/StoreData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Server/ClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Server/FeatureLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Network/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Logs/-575.log" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Logs/-575.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/images/gameComponents/cards/cardOnBoard.png" beforeDir="false" afterPath="$PROJECT_DIR$/Data/images/gameComponents/cards/cardOnBoard.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/tables.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data/tables.mv.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/tables.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data/tables.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DB/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/HibernateUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DB/Managment/HeroManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/Managment/HeroManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DB/Managment/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/Managment/Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DB/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/UserDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DB/components/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/components/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DB/components/cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/CardShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/CardShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DB/components/cards/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DB/components/cards/DeckInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/components/cards/DeckInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DB/components/heroes/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/components/heroes/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DB/components/heroes/HeroPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/components/heroes/HeroPower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Frames/DiscoverFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/DiscoverFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Frames/FramePainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/FramePainter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Frames/SummonFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/DiscoverFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Frames/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/MenuFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Frames/WarningFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Frames/WarningFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/CardDisplayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/CardDisplayPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/CollectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/CollectionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/Loginpanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/Loginpanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/MenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StatusPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StorePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MenuPanels/StorePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Gamestructure/HeroPower.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/AttackCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/AttackCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/EndOfGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/EndOfGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/EndTurnCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/EndTurnCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/GameProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/GameProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/ObjectInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/ObjectOutput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/PlayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/PlayCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/SelectionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/SelectionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/TargetReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/TargetReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/HeroPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/HeroPower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/MinionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/MinionModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/WeaponModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/WeaponModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/bookofspecters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/bookofspecters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/friendlysmith.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/friendlysmith.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/magepowermodel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/CardModels/models/magepowermodel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/MinionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Cards/MinionCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Heroes/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Heroes/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/GameStructure/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Gamestructure/HeroPower.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/AP2020.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/frame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test3.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +148,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="vmOptionsForImporter" value="-Xmx768m" />
@@ -165,20 +174,21 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/classes/Game/GameStructure/features/oneShot" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="project.propGUI" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="GUI" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
-      <recent name="Game.Gamestructure" />
       <recent name="" />
+      <recent name="Network.Server.Requests" />
+      <recent name="Game.Gamestructure" />
       <recent name="GUI.Frames.game" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -188,13 +198,28 @@
       <recent name="C:\Java workspace\test3\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="CardManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DB.Managment.CardManager" />
       <module name="AP2020" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="DB.Managment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Network.Client" />
+      <module name="HearthStroke" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Network.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -215,35 +240,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HeroManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DB.Managment.HeroManager" />
-      <module name="AP2020" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DB.Managment.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="AP2020" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.Main" />
-      <module name="AP2020" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="GUI.MenuPanels.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <module name="HearthStroke" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -261,16 +260,87 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Network.Server.Server" />
+      <module name="HearthStroke" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Network.Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="HearthStroke" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="HearthStroke" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CardManager" />
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.GameConfigManager" />
+      <item itemvalue="Application.Main (1)" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Server" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.CardManager" />
-        <item itemvalue="Application.GameConfigManager" />
-        <item itemvalue="Application.HeroManager" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.GameConfigManager" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -331,11 +401,30 @@
       <option name="project" value="LOCAL" />
       <updated>1588531518324</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="phase 3 final">
+      <created>1594062828491</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1594062828491</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -347,106 +436,150 @@
     <option name="LAST_COMMIT_MESSAGE" value="phase 3 final" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592419961522">
+    <state x="648" y="267" key="#Custom_Plugin_Repositories" timestamp="1596406875012">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1592419961522" />
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1594054929212">
+    <state x="648" y="267" key="#Custom_Plugin_Repositories/0.0.1536.864@0.0.1536.864" timestamp="1596406875012" />
+    <state x="361" y="73" key="#Plugins" timestamp="1596691046125">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1594054929212" />
+    <state x="361" y="73" key="#Plugins/0.0.1536.864@0.0.1536.864" timestamp="1596691046125" />
+    <state x="249" y="6" key="#Project_Structure" timestamp="1596042374521">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="249" y="6" key="#Project_Structure/0.0.1536.864@0.0.1536.864" timestamp="1596042374521" />
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596691442597">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1596691442597" />
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1597594816478">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1597594816478" />
+    <state x="510" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1597401452100">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="510" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.864@0.0.1536.864" timestamp="1597401452100" />
     <state x="627" y="122" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1593765562559">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="627" y="122" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.864@0.0.1536.864" timestamp="1593765562559" />
-    <state x="449" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1592409880320">
+    <state x="449" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1596593486286">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="449" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.864@0.0.1536.864" timestamp="1592409880320" />
-    <state x="464" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1594026730845">
+    <state x="449" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.864@0.0.1536.864" timestamp="1596593486286" />
+    <state x="464" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1597474126200">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="464" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1594026730845" />
-    <state x="566" y="291" width="468" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593673873832">
+    <state x="464" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1597474126200" />
+    <state x="566" y="291" width="468" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597481497242">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="566" y="291" width="468" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1593673873832" />
-    <state x="551" y="276" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog" timestamp="1592885117826">
+    <state x="566" y="291" width="468" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1597481497242" />
+    <state x="551" y="276" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog" timestamp="1597474129883">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="551" y="276" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog/0.0.1536.864@0.0.1536.864" timestamp="1592885117826" />
-    <state x="452" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592134872877">
+    <state x="551" y="276" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog/0.0.1536.864@0.0.1536.864" timestamp="1597474129883" />
+    <state x="452" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597416304042">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="452" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1592134872877" />
-    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1594040558524">
+    <state x="452" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1597416304042" />
+    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1596596188418">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.864@0.0.1536.864" timestamp="1594040558524" />
-    <state x="516" y="279" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587379657713">
+    <state x="527" y="193" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.864@0.0.1536.864" timestamp="1596596188418" />
+    <state x="424" y="1" key="CommitChangelistDialog2" timestamp="1594062811689">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="516" y="279" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864@0.0.1536.864" timestamp="1587379657713" />
-    <state x="424" y="1" key="CommitChangelistDialog2" timestamp="1594062764584">
+    <state x="424" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1594062811689" />
+    <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1597500436627">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="424" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1594062764584" />
-    <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1594040626720">
+    <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1597500436627" />
+    <state width="1493" height="184" key="GridCell.Tab.0.bottom" timestamp="1597608659702">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1594040626720" />
-    <state x="647" y="330" key="Github.ShareDialog" timestamp="1588529119853">
+    <state width="1493" height="184" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1597608659702" />
+    <state width="1493" height="184" key="GridCell.Tab.0.center" timestamp="1597608659702">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="647" y="330" key="Github.ShareDialog/0.0.1536.864@0.0.1536.864" timestamp="1588529119853" />
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom" timestamp="1594062690593">
+    <state width="1493" height="184" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1597608659702" />
+    <state width="1493" height="184" key="GridCell.Tab.0.left" timestamp="1597608659702">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1594062690593" />
-    <state width="1493" height="192" key="GridCell.Tab.0.center" timestamp="1594062690592">
+    <state width="1493" height="184" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1597608659702" />
+    <state width="1493" height="184" key="GridCell.Tab.0.right" timestamp="1597608659702">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1594062690592" />
-    <state width="1493" height="192" key="GridCell.Tab.0.left" timestamp="1594062690592">
+    <state width="1493" height="184" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1597608659702" />
+    <state width="1493" height="273" key="GridCell.Tab.1.bottom" timestamp="1597608659698">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1594062690592" />
-    <state width="1493" height="192" key="GridCell.Tab.0.right" timestamp="1594062690592">
+    <state width="1493" height="273" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1597608659698" />
+    <state width="1493" height="273" key="GridCell.Tab.1.center" timestamp="1597608659698">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1594062690592" />
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1594055116769">
+    <state width="1493" height="273" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1597608659698" />
+    <state width="1493" height="273" key="GridCell.Tab.1.left" timestamp="1597608659698">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1594055116769" />
-    <state width="1493" height="277" key="GridCell.Tab.1.center" timestamp="1594055116769">
+    <state width="1493" height="273" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1597608659698" />
+    <state width="1493" height="273" key="GridCell.Tab.1.right" timestamp="1597608659698">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1594055116769" />
-    <state width="1493" height="277" key="GridCell.Tab.1.left" timestamp="1594055116769">
+    <state width="1493" height="273" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1597608659698" />
+    <state width="1493" height="277" key="GridCell.Tab.2.bottom" timestamp="1596783770731">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1594055116769" />
-    <state width="1493" height="277" key="GridCell.Tab.1.right" timestamp="1594055116769">
+    <state width="1493" height="277" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1596783770731" />
+    <state width="1493" height="277" key="GridCell.Tab.2.center" timestamp="1596783770731">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1594055116769" />
+    <state width="1493" height="277" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1596783770731" />
+    <state width="1493" height="277" key="GridCell.Tab.2.left" timestamp="1596783770731">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1596783770731" />
+    <state width="1493" height="277" key="GridCell.Tab.2.right" timestamp="1596783770731">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1596783770731" />
+    <state width="1493" height="277" key="GridCell.Tab.3.bottom" timestamp="1596783673081">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.3.bottom/0.0.1536.864@0.0.1536.864" timestamp="1596783673081" />
+    <state width="1493" height="277" key="GridCell.Tab.3.center" timestamp="1596783673081">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.3.center/0.0.1536.864@0.0.1536.864" timestamp="1596783673081" />
+    <state width="1493" height="277" key="GridCell.Tab.3.left" timestamp="1596783673081">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.3.left/0.0.1536.864@0.0.1536.864" timestamp="1596783673081" />
+    <state width="1493" height="277" key="GridCell.Tab.3.right" timestamp="1596783673081">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.3.right/0.0.1536.864@0.0.1536.864" timestamp="1596783673081" />
     <state x="349" y="175" key="IDE.errors.dialog" timestamp="1592777043969">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="349" y="175" key="IDE.errors.dialog/0.0.1536.864@0.0.1536.864" timestamp="1592777043969" />
-    <state x="277" y="13" key="SettingsEditor" timestamp="1594061476710">
+    <state x="299" y="87" key="Maven.ArtifactSearchDialog" timestamp="1596596711817">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1594061476710" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1588531524753">
+    <state x="299" y="87" key="Maven.ArtifactSearchDialog/0.0.1536.864@0.0.1536.864" timestamp="1596596711817" />
+    <state x="260" y="13" key="SettingsEditor" timestamp="1597606804877">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1588531524753" />
-    <state x="465" y="161" width="688" height="447" key="com.intellij.ide.util.TipDialog" timestamp="1586239759497">
+    <state x="260" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1597606804877" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1594062835721">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="465" y="161" width="688" height="447" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1586239759497" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1594062835721" />
+    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1596406435237">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.864@0.0.1536.864" timestamp="1596406435237" />
     <state x="526" y="332" width="540" height="223" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1593765558256">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -455,44 +588,90 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="563" y="110" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.864@0.0.1536.864" timestamp="1592638690061" />
-    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588531396461">
+    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596872965743">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1588531396461" />
-    <state x="242" y="161" width="1052" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1593693309743">
+    <state x="194" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1596872965743" />
+    <state x="242" y="161" width="1052" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1596781889264">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="242" y="161" width="1052" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.864@0.0.1536.864" timestamp="1593693309743" />
+    <state x="242" y="161" width="1052" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.864@0.0.1536.864" timestamp="1596781889264" />
     <state x="478" y="165" width="579" height="534" key="find.popup" timestamp="1592767180667">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="478" y="165" width="579" height="534" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1592767180667" />
-    <state x="209" y="127" key="new project wizard" timestamp="1592482254817">
+    <state x="209" y="105" key="new project wizard" timestamp="1595313200207">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="209" y="127" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1592482254817" />
-    <state x="832" y="288" key="refactoring.ChangeSignatureDialog" timestamp="1592883933676">
+    <state x="209" y="105" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1595313200207" />
+    <state x="832" y="288" key="refactoring.ChangeSignatureDialog" timestamp="1597485739897">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="832" y="288" key="refactoring.ChangeSignatureDialog/0.0.1536.864@0.0.1536.864" timestamp="1592883933676" />
-    <state x="425" y="197" key="run.anything.popup" timestamp="1592636306451">
+    <state x="832" y="288" key="refactoring.ChangeSignatureDialog/0.0.1536.864@0.0.1536.864" timestamp="1597485739897" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1596388455824">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1592636306451" />
-    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1594024411156">
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1596388455824" />
+    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1597590325127">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1594024411156" />
+    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1597590325127" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/DB/Managment/CardManager.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/GameProcessor.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/GameProcessor.java</url>
+          <line>445</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GUI/Frames/GameFrame.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GUI/Frames/GameFrame.java</url>
+          <line>242</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Network/Server/ClientHandler.java</url>
+          <line>114</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Network/Client.java</url>
+          <line>608</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/GUI/Frames/GameFrame.java</url>
+          <line>906</line>
+          <properties class="GUI.Frames.GameFrame.CardOnBoard" method="initComponent">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Game/CommandAndResponse/GameProcessor.java</url>
+          <line>249</line>
+          <properties class="Game.CommandAndResponse.GameProcessor" method="receiveCommand">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AP2020$Client.ic" NAME="Client Coverage Results" MODIFIED="1596873099495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Network.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="oneShot">
+    <output-path>$PROJECT_DIR$/out/artifacts/oneShot</output-path>
+    <root id="archive" name="oneShot.jar">
+      <element id="dir-copy" path="$PROJECT_DIR$/target/classes/Game/GameStructure/features/oneShot" />
+    </root>
+  </artifact>
+</component>

@@ -1,9 +1,10 @@
 package DB.components.heroes;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Embeddable
-public class HeroPower {
+public class HeroPower implements Serializable {
     @Column(name = "HERO_POWER_NAME")
     private String name;
 

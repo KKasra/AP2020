@@ -27,6 +27,7 @@ public class UserDB {
                 throw new Exception("username already taken");
 
         saveChanges(user);
+        users.add(user);
         user.initLog(false);
         user.getLog().write("USER: " + user.getUserName());
         user.getLog().write("CREATED_AT: " + new Timestamp(System.currentTimeMillis()));
@@ -45,8 +46,6 @@ public class UserDB {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.delete(user);
-        for (Hero hero : user.getHeroes())
-            session.delete(hero);
         session.getTransaction().commit();
         session.close();
         user.getLog().addDeleteHeader();
@@ -67,21 +66,8 @@ public class UserDB {
         session.close();
        }
 
-       @Deprecated
-       public static void clearUsers() {
-           Session session = HibernateUtil.getSessionFactory().openSession();
-           session.beginTransaction();
-           for (User user : users) {
-               if (user.getUserName().equals("##Defaut"))
-                   continue;
-               session.delete(user);
-           }
-           session.getTransaction().commit();
-           session.close();
 
-           session = sessionFactory.openSession();
-           session.close();
-
-
-       }
+    public static ArrayList<User> getUsers() {
+        return users;
+    }
 }

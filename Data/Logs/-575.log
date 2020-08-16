@@ -1,5 +1,6 @@
 USER: 
 CREATED_AT: 2020-04-20 15:03:17.447
+DELETED_AT: 2020-08-16 19:46:02.027
 PASSWORD: 0
 
 sign_in 2020-04-20 15:03:17.447 
@@ -2591,3 +2592,6 @@ Button_clicked 2020-07-06 21:36:43.331 end turn
 Button_clicked 2020-07-06 21:36:48.21 end turn
 Button_clicked 2020-07-06 21:36:50.669 end turn
 sign_out 2020-07-06 21:37:05.9 
+sign_in 2020-07-29 18:35:23.242 
+Button_clicked 2020-07-29 18:35:23.286 Login
+sign_out 2020-07-29 18:35:23.3 

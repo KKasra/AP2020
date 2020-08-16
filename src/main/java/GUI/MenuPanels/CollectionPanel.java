@@ -1,9 +1,6 @@
 package GUI.MenuPanels;
 
 
-import DB.Managment.HeroManager;
-import DB.Managment.Market;
-import DB.components.User;
 import DB.components.cards.Card;
 import DB.components.cards.Deck;
 import DB.components.heroes.Hero;
@@ -11,10 +8,11 @@ import GUI.CardShape;
 import GUI.Frames.MenuFrame;
 import GUI.Frames.WarningFrame;
 import GUI.MenuButton;
+import Network.Client;
+import Network.Responses.CollectionData;
 
 
 import javax.swing.*;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
@@ -24,7 +22,6 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 public class CollectionPanel extends MenuPanel{
-    //TODO why the frame freezes?!
     private CardDisplayPanel cardDisplayPanel;
     private MouseAdapter pickACard = new MouseAdapter() {
         @Override
@@ -32,6 +29,52 @@ public class CollectionPanel extends MenuPanel{
             CardInfo.getInstance().selectCard(((CardShape)e.getSource()).card.getCardData());
         }
     };
+
+    private CollectionData data;
+
+    public void update(CollectionData data) {
+        this.data = data;
+
+        if (cardDisplayPanel.getCards().size() == 0)
+            CardFilter.getInstance().filterCards();
+
+        DeckInfo.getInstance().initDeck(data.getDecks().get(data.getChosenDeck()));
+
+        DeckInfo.getInstance().refreshDeckList(data);
+
+        int selectedHero = DeckInfo.getInstance().heroText.getSelectedIndex();
+        DeckInfo.getInstance().heroText.removeAll();
+        for (Hero hero : data.getHeroes()) {
+            DeckInfo.getInstance().heroText.addItem(hero.getHeroName());
+        }
+        DeckInfo.getInstance().heroText.setSelectedIndex(selectedHero);
+
+        selectedHero = addDeck.getInstance().heroField.getSelectedIndex();
+        addDeck.getInstance().heroField.removeAll();
+        for (Hero hero : data.getHeroes()) {
+            addDeck.getInstance().heroField.addItem(hero.getHeroName());
+        }
+        addDeck.getInstance().heroField.setSelectedIndex(selectedHero);
+
+        selectedHero = CardFilter.getInstance().heroField.getSelectedIndex();
+        CardFilter.getInstance().heroField.removeAll();
+        CardFilter.getInstance().heroField.addItem("Neutral");
+        for (Hero hero : data.getHeroes()) {
+            CardFilter.getInstance().heroField.addItem(hero.getHeroName());
+        }
+        CardFilter.getInstance().heroField.setSelectedIndex(selectedHero);
+
+        if (CardInfo.getInstance().selectedCard != null) {
+            Card card = null;
+            for (Card dataCard : data.getCards()) {
+                if (dataCard.getName().equals(CardInfo.getInstance().selectedCard.getName()))
+                    card = dataCard;
+            }
+            CardInfo.getInstance().selectCard(card);
+        }
+
+    }
+
 
     private static class DeckInfo extends JPanel{
         private static final int imageWidth = 100;
@@ -51,21 +94,21 @@ public class CollectionPanel extends MenuPanel{
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    if (decksList.getItemCount() == User.user.getDecks().size())
-                        User.user.setCurrentDeck(decksList.getSelectedIndex());
-                    initDeck(User.user.getCurrentDeck());
+                    if (decksList.getItemCount() == CollectionPanel.getInstance().data.getDecks().size())
+                        Client.getInstance().setCurrentDeck(
+                                CollectionPanel.getInstance().data.getDecks().get(decksList.getSelectedIndex()));
                 }
             }
         };
 
 
-        public void refreshDeckList() {
+        public void refreshDeckList(CollectionData data) {
+            int index = decksList.getSelectedIndex();
             decksList.removeAllItems();
-            for (Deck deck : User.user.getDecks()) {
+            for (Deck deck : data.getDecks()) {
                 decksList.addItem(deck.getHero().getHeroName() + ">" + deck.getName());
             }
-
-            decksList.setSelectedIndex(User.user.getDecks().indexOf(User.user.getCurrentDeck()));
+            decksList.setSelectedIndex(index);
         }
 
 
@@ -89,54 +132,36 @@ public class CollectionPanel extends MenuPanel{
             nameText = new JTextField();
             heroLabel = new JLabel("Hero:", JLabel.RIGHT);
             heroText = new JComboBox();
-            for (Hero hero : HeroManager.getInstance().getHeroes()) {
-                heroText.addItem(hero.getHeroName());
-            }
             decksLabel = new JLabel("Decks:", JLabel.RIGHT);
             decksList = new JComboBox();
-            refreshDeckList();
             decksList.addItemListener(choseADeck);
             changeHero = new MenuButton("change", new Dimension(100, 30), 15);
-            changeHero.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Hero hero = HeroManager.getInstance().getHeroes().get(heroText.getSelectedIndex());
-                    try {
-                        User.user.getCurrentDeck().setHero(hero);
+            changeHero.addActionListener(e -> {
+                Hero hero = CollectionPanel.getInstance().data.getHeroes().get(heroText.getSelectedIndex());
+                Deck deck = CollectionPanel.getInstance().data.getDecks().get(
+                        CollectionPanel.getInstance().data.getChosenDeck()
+                );
+                Client.getInstance().changeHeroOfDeck(deck, hero);
 
-                    } catch (Exception exception) {
-                        WarningFrame.print(exception.getMessage());
-                        heroText.setSelectedIndex(HeroManager.getInstance().getHeroes()
-                                .indexOf(User.user.getCurrentDeck().getHero()));
-
-                    }
-                    initDeck(User.user.getCurrentDeck());
-                    refreshDeckList();
-
-                }
             });
 
             changeName = new MenuButton("change", new Dimension(100, 30), 15);
-            changeName.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    User.user.getCurrentDeck().setName(nameText.getText());
-                    refreshDeckList();
-                    initDeck(User.user.getCurrentDeck());
-                }
+            changeName.addActionListener(e -> {
+                Deck deck = CollectionPanel.getInstance().data.getDecks().get(
+                        CollectionPanel.getInstance().data.getChosenDeck()
+                );
+                Client.getInstance().changeDeckName(deck, nameText.getText());
             });
 
             removeDeck = new MenuButton("remove", new Dimension(100, 30), 15);
-            removeDeck.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    User.user.removeDeck(User.user.getCurrentDeck());
-                    initDeck(User.user.getCurrentDeck());
-                    refreshDeckList();
-                }
+            removeDeck.addActionListener(e -> {
+                Deck deck = CollectionPanel.getInstance().data.getDecks().get(
+                        CollectionPanel.getInstance().data.getChosenDeck()
+                );
+                Client.getInstance().removeDeck(deck);
             });
 
-            initDeck(User.user.getCurrentDeck());
+
         }
         private void alignComponents(){
             GridBagConstraints gbc = new GridBagConstraints();
@@ -200,8 +225,8 @@ public class CollectionPanel extends MenuPanel{
             imagePanel.removeAll();
             JLabel label = new JLabel();
             label.setBorder(new LineBorder(new Color(0, 0, 0)));
-            label.setIcon(new ImageIcon(HeroManager.getInstance()
-                    .getHeroPicture(deck.getHero())
+            label.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage("./Data/images/gameComponents/heroes/" +
+                        deck.getHero().getHeroName() + ".jpg")
                     .getScaledInstance(imageWidth, imageHeight, Image.SCALE_SMOOTH)));
             imagePanel.add(label);
 
@@ -234,29 +259,16 @@ public class CollectionPanel extends MenuPanel{
 
         private void initComponents(){
             nameLabel = new JLabel("Name: ", JLabel.RIGHT);
-            nameField = new JTextField();
+            nameField = new JTextField(15);
             heroLabel = new JLabel("Hero: ");
             heroField = new JComboBox();
             heroField.setPreferredSize(new Dimension(100, 25));
-            for (Hero hero : HeroManager.getInstance().getHeroes()) {
-                heroField.addItem(hero.getHeroName());
-            }
-
             addButton = new MenuButton("Add Deck", new Dimension(100, 50), 20);
-            addButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    try {
-                        User.user.addDeck(new Deck(nameField.getText(),
-                                HeroManager.getInstance().getHeroes().get(heroField.getSelectedIndex())));
-                        DeckInfo.getInstance().refreshDeckList();
-                        nameField.setText("");
+            addButton.addActionListener(e -> {
+                Hero hero = CollectionPanel.getInstance().data.getHeroes().get(heroField.getSelectedIndex());
+                Client.getInstance().addDeck(nameField.getText(), hero);
+                nameField.setText("");
 
-                    } catch (Exception exception) {
-                        WarningFrame.print(exception.getMessage());
-                        nameField.setText("");
-                    }
-                }
             });
         }
 
@@ -324,37 +336,27 @@ public class CollectionPanel extends MenuPanel{
             count = new JLabel("count: ", JLabel.RIGHT);
             hero = new JLabel("hero: ", JLabel.RIGHT);
             available = new MenuButton("", new Dimension(100, 25), 12);
-            available.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    try {
-                        User.user.getCurrentDeck().addCard(selectedCard);
-                        selectCard(selectedCard);
-                    } catch (Exception exception) {
-                        exception.printStackTrace();
-                        WarningFrame.print(exception.getMessage());
-                    }
-                }
+            available.addActionListener(e -> {
+                    Deck deck = CollectionPanel.getInstance().data.getDecks().get(
+                            CollectionPanel.getInstance().data.getChosenDeck()
+                    );
+                    Client.getInstance().addCardToDeck(deck, selectedCard);
+                    selectCard(selectedCard);
+
             });
             countField = new JTextField(10);
             heroField = new JTextField(10);
             remove = new MenuButton("remove", new Dimension(100, 25), 15);
-            remove.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (selectedCard == null)
-                        WarningFrame.print("select a card");
-                    User.user.getCurrentDeck().removeCard(selectedCard);
-                    selectCard(selectedCard);
-                }
+            remove.addActionListener(e -> {
+                if (selectedCard == null)
+                    WarningFrame.print("select a card");
+                Deck deck = CollectionPanel.getInstance().data.getDecks().get(
+                        CollectionPanel.getInstance().data.getChosenDeck()
+                );
+                Client.getInstance().removeCardFromDeck(deck, selectedCard);
             });
             storeButton = new MenuButton("store",new Dimension(100, 25), 12);
-            storeButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    MenuFrame.getInstance().setPanel(StorePanel.getInstance());
-                }
-            });
+            storeButton.addActionListener(e -> MenuFrame.getInstance().setPanel(StorePanel.getInstance()));
         }
         private void alignComponents(){
             GridBagConstraints gbc = new GridBagConstraints();
@@ -392,29 +394,18 @@ public class CollectionPanel extends MenuPanel{
         }
 
         public void selectCard(Card card){
+            Deck deck = CollectionPanel.getInstance().data.getDecks().get(
+                    CollectionPanel.getInstance().data.getChosenDeck()
+            );
             selectedCard = card;
-
             cardPanel.removeAll();
             cardPanel.add(new CardShape(card));
+            countField.setText(deck.countCardInDeck(card) + "");
+            heroField.setText(card.getHero() == null ?
+                    "Neutral" : card.getHero().getHeroName());
 
-            countField.setText(User.user.getCurrentDeck().countCardInDeck(card) + "");
-            System.out.println('o');
-            System.out.println(card);
-            System.out.println(card.getHero());
-            System.out.println(heroField);
-            try {
-                heroField.setText(card.getHero() == null ?
-                        "Neutral" : card.getHero().getHeroName());
-            }
-            catch (Exception e){
-             e.printStackTrace();
-                }
-            System.out.println('c');
 
-            available.setText(User.user.hasCard(card) ?
-                    "Add" : "not Available");
-            available.setEnabled(User.user.getCurrentDeck().countCardInDeck(card) < 2
-                    && User.user.hasCard(card));
+            available.setText("add");
 
         }
 
@@ -448,53 +439,33 @@ public class CollectionPanel extends MenuPanel{
 
         private void initComponents(){
             searchByName = new JCheckBox("search by name:", false);
-            searchByName.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    FilterCards();
-                }
-            });
+            searchByName.addActionListener(e -> filterCards());
 
             hero = new JCheckBox("Class: ", false);
-            hero.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    FilterCards();
-                }
-            });
+            hero.addActionListener(e -> filterCards());
 
             Mana = new JCheckBox("Mana: ", false);
-            Mana.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    FilterCards();
-                }
-            });
+            Mana.addActionListener(e -> filterCards());
 
             sortBy = new JLabel("sortBy", JLabel.RIGHT);
             searchField = new JTextField();
             searchField.getDocument().addDocumentListener(new DocumentListener() {
                 @Override
                 public void insertUpdate(DocumentEvent e) {
-                    FilterCards();
+                    filterCards();
                 }
 
                 @Override
                 public void removeUpdate(DocumentEvent e) {
-                    FilterCards();
+                    filterCards();
                 }
 
                 @Override
                 public void changedUpdate(DocumentEvent e) {
-                    FilterCards();
+                    filterCards();
                 }
             });
             heroField = new JComboBox();
-            heroField.addItem("Neutral");
-            for (Hero hero1 : HeroManager.getInstance().getHeroes()) {
-                heroField.addItem(hero1.getHeroName());
-            }
-
             ManaField = new JComboBox();
             for (int i = 0; i <= 10; ++i)
                 ManaField.addItem(i);
@@ -503,12 +474,8 @@ public class CollectionPanel extends MenuPanel{
             for (String strategy : CardDisplayPanel.strategies) {
                 sortByField.addItem(strategy);
             }
-            sortByField.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    FilterCards();
-                }
-            });
+            sortByField.addActionListener(e -> filterCards());
+
         }
         private void alignComponents(){
             GridBagConstraints gbc = new GridBagConstraints();
@@ -544,8 +511,8 @@ public class CollectionPanel extends MenuPanel{
             add(sortByField, gbc);
         }
 
-        private void FilterCards(){
-            List<Card> cards = Market.getInstance().getCardsForSale();
+        private void filterCards(){
+            List<Card> cards = CollectionPanel.getInstance().data.getCards();
 
             if (searchByName.isSelected()) {
                 List<Card> res = new ArrayList<Card>();
@@ -598,8 +565,6 @@ public class CollectionPanel extends MenuPanel{
 
 
         cardDisplayPanel = new CardDisplayPanel(1000, 700,pickACard);
-        cardDisplayPanel.setCards(Market.getInstance().getCardsForSale());
-        cardDisplayPanel.initCardPanel(0);
         initPanel();
         alignComponents();
 

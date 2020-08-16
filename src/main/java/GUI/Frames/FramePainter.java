@@ -12,12 +12,9 @@ public class FramePainter {
     public static void paint(JFrame frame) {
         if (timer != null)
             timer.stop();
-        timer = new Timer(delayMS, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.revalidate();
-                frame.repaint();
-            }
+        timer = new Timer(delayMS, e -> {
+            frame.revalidate();
+            frame.repaint();
         });
         timer.start();
         if (currentFrame != null)

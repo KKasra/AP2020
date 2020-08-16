@@ -5,7 +5,9 @@ import Game.CommandAndResponse.GameProcessor;
 import Game.GameStructure.Cards.Card;
 import Game.GameStructure.Player;
 
-public abstract class HeroPower extends CardModel {
+import java.io.Serializable;
+
+public abstract class HeroPower extends CardModel implements Serializable {
 
     private int manaCost;
 

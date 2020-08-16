@@ -1,15 +1,13 @@
 package GUI.Frames;
 
 //import DB.components.cards.*;
-import DB.components.cards.Passive;
 import GUI.CardShape;
 import GUI.ImageUtil;
 import GUI.MenuButton;
+import GUI.MenuPanels.MainMenu;
 import GUI.Sound;
 import Game.CommandAndResponse.*;
 import Game.GameStructure.Attacker;
-import Game.GameStructure.CardModels.CardModel;
-import Game.GameStructure.CardModels.Loader;
 import Game.GameStructure.CardModels.MinionModel;
 import Game.GameStructure.Cards.Card;
 import Game.GameStructure.CardModels.HeroPower;
@@ -27,13 +25,11 @@ import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.lang.reflect.Constructor;
+import java.io.*;
 import java.util.*;
 import java.util.List;
 
 public class GameFrame extends JFrame {
-
-    private GameProcessor gameProcessor;
     private Game game;
 
     private static Sound theme = new Sound("Antiphon");
@@ -84,9 +80,8 @@ public class GameFrame extends JFrame {
             this.game = GameFrame.getInstance().game;
         }
     }
-    private static class CommandAndResponseHandler {
+    public static class CommandAndResponseHandler {
         private Image pickedCard = null;
-        private Card pickedCardObject = null;
         private String CardSide = null;
         private static final Image selectionPointer = ImageUtil.getWhiteTransparent("selectionPointer.png").
                 getScaledInstance(50, 50, Image.SCALE_SMOOTH);
@@ -102,7 +97,11 @@ public class GameFrame extends JFrame {
         private ObjectInput responseInput;
 
         private void writeCommand(Command command) {
-            commandOutput.write(command);
+            try {
+                commandOutput.writeObject(command);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         private Timer timer  = new Timer(10, a -> {
@@ -123,37 +122,51 @@ public class GameFrame extends JFrame {
             @Override
             public void run(){
                 while (true) {
-                    Response response = (Response) responseInput.read();
-                    switch (response.getMessage()) {
-                        case reject:
-                            wrongObject.clip.setMicrosecondPosition(0);
-                            wrongObject.clip.start();
-                            break;
-                        case selectATarget:
-                            selectionMode = true;
-                            break;
-                        case endOfGame:
-                            //TODO show the winner
-                            GameFrame.getInstance().exitGame();
-                            break;
-                        case targetIsValid:
-                            selectionMode = false;
-                            break;
-
+                    Response response = null;
+                    try {
+                        response = (Response) responseInput.readObject();
+                        GameFrame.getInstance().game = response.getGame();
+                        switch (response.getMessage()) {
+                            case reject:
+                                wrongObject.clip.setMicrosecondPosition(0);
+                                wrongObject.clip.start();
+                                break;
+                            case selectATarget:
+                                selectionMode = true;
+                                break;
+                            case endOfGame:
+                                //TODO show the winner
+                                GameFrame.getInstance().exitGame();
+                                break;
+                            case targetIsValid:
+                                selectionMode = false;
+                                break;
+                            case discover:
+                                DiscoverFrame.getInstance().chooseFrom(((DiscoverRequest)response).getObjects());
+                                break;
+                            case endTurn:
+                                //TODO
+                                break;
+                        }
+                        GameFrame.getInstance().updateComponents();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                         break;
                     }
-                    GameFrame.getInstance().updateComponents();
                 }
+                //TODO disconnected from stream
             }
         };
         public static abstract class CardMouseAdapter extends MouseAdapter{
-            public abstract Card getCard();
+            public abstract int getCardIndex();
             public abstract String cardSide();
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mouseClicked(e);
                 if (CommandAndResponseHandler.getInstance().selectionMode)
                     return;
-                CommandAndResponseHandler.getInstance().pickedCardObject = getCard();
 
                 BufferedImage bi = new BufferedImage(100, 160, BufferedImage.TYPE_INT_ARGB);
                 Graphics2D g = bi.createGraphics();
@@ -163,12 +176,9 @@ public class GameFrame extends JFrame {
                 ((JComponent)e.getSource()).setVisible(false);
             }
 
-
-
             @Override
             public synchronized void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
-                Card card = getCard();
                 int index = -1;
                 String boxSide = null;
                 for (BoardPanel.Box registeredBox : CommandAndResponseHandler.getInstance().registeredBoxes)
@@ -180,34 +190,49 @@ public class GameFrame extends JFrame {
 
 
                 CommandAndResponseHandler.getInstance().pickedCard = null;
-                CommandAndResponseHandler.getInstance().pickedCardObject = null;
                 if (index != -1)
                     if (CommandAndResponseHandler.getInstance().CardSide.equals(boxSide))
-                        CommandAndResponseHandler.getInstance().commandOutput.
-                                write(new PlayCommand(CommandAndResponseHandler.getInstance().CardSide, card, index));
+                        CommandAndResponseHandler.getInstance()
+                                .writeCommand(new PlayCommand(CommandAndResponseHandler.getInstance().CardSide, getCardIndex(), index));
 
                 GameFrame.getInstance().updateComponents();
             }
         }
         public static abstract class TargetMouseAdapter extends MouseAdapter{
-            public abstract Object getTarget();
+            public abstract SelectionCommand.Section getSection();
+            public abstract int getIndexOfPlayer();
+            public abstract int getIndex();
 
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if (CommandAndResponseHandler.getInstance().selectionMode)
-                    CommandAndResponseHandler.getInstance().writeCommand(new SelectionCommand(getTarget()));
+                if (CommandAndResponseHandler.getInstance().selectionMode) {
+                    SelectionCommand command = new SelectionCommand(getSection(), getIndexOfPlayer());
+                    command.setIndex(getIndex());
+                    CommandAndResponseHandler.getInstance().writeCommand(command);
+                }
 
             }
         }
+        public static abstract class DiscoverChoiceMouseAdapter extends MouseAdapter{
+            public abstract Object object();
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                CommandAndResponseHandler.getInstance().writeCommand(new SelectionCommand(object()));
+            }
+        }
         public static abstract class AttackerMouseAdapter extends MouseAdapter{
-            public abstract Attacker getAttacker();
+            public abstract int getIndexOfPlayer();
+            public abstract int indexInSection();
+            public abstract AttackCommand.Section getSection();
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (CommandAndResponseHandler.getInstance().selectionMode)
                     return;
-                CommandAndResponseHandler.getInstance().commandOutput.write(new AttackCommand(getAttacker()));
+                CommandAndResponseHandler.getInstance().writeCommand(
+                        new AttackCommand(getIndexOfPlayer(), getSection(), indexInSection()));
             }
         }
         public static abstract class heroPowerMouserAdapter extends MouseAdapter{
@@ -235,9 +260,9 @@ public class GameFrame extends JFrame {
                 instance = new CommandAndResponseHandler();
             return instance;
         }
-        public void connectToProcessor(GameProcessor processor) {
-            commandOutput = processor.getCommandOutput();
-            responseInput = processor.getResponseInput();
+        public void connect(ObjectInput input, ObjectOutput output) {
+            commandOutput = output;
+            responseInput = input;
             timer.start();
             responseReader.start();
         }
@@ -251,14 +276,15 @@ public class GameFrame extends JFrame {
         private int height = 140;
         private int cardsShift = width / 13;
 
-        private List<Card> cards;
+        private int playerIndex;
         private String playerName;
 
         @Override
         public void update() {
             removeAll();
-            for (Card card1 : cards) {
-                alignCard(new CardInHand(card1, playerName));
+            List<Card> hand = GameFrame.getInstance().game.getPlayers().get(playerIndex).getHand();
+            for (Card card : hand) {
+                alignCard(new CardInHand(card, playerName, hand.indexOf(card)));
             }
         }
 
@@ -283,6 +309,10 @@ public class GameFrame extends JFrame {
                 CardImages.put("spell", ImageUtil
                         .getWhiteTransparent("gameComponents/cards/" + "spell" + ".png")
                         .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH));
+                CardImages.put("questionMark", ImageUtil
+                        .getWhiteTransparent("gameComponents/cards/" + "questionMark" + ".png")
+                        .getScaledInstance(width / 2, height / 2, Image.SCALE_SMOOTH));
+
 
             }
 
@@ -294,7 +324,7 @@ public class GameFrame extends JFrame {
             private JLabel manaCost;
 
 
-            public CardInHand(Card card, String playerName) {
+            public CardInHand(Card card, String playerName, int indexInHand) {
                 CardInfoPanel.getInstance().register(this, card);
 
                 this.card = card;
@@ -306,8 +336,8 @@ public class GameFrame extends JFrame {
 
                 addMouseListener(new CommandAndResponseHandler.CardMouseAdapter() {
                     @Override
-                    public Card getCard() {
-                        return card;
+                    public int getCardIndex() {
+                        return indexInHand;
                     }
 
                     @Override
@@ -317,8 +347,8 @@ public class GameFrame extends JFrame {
                 });
                 addMouseMotionListener(new CommandAndResponseHandler.CardMouseAdapter() {
                     @Override
-                    public Card getCard() {
-                        return card;
+                    public int getCardIndex() {
+                        return indexInHand;
                     }
 
                     @Override
@@ -329,7 +359,7 @@ public class GameFrame extends JFrame {
             }
 
             private void initComponent() {
-                String cardType = card.getClass().getSimpleName()
+                String cardType = card == null ? "questionMark": card.getClass().getSimpleName()
                         .substring(0, card.getClass().getSimpleName().length() - 4)
                         .toLowerCase();
                 background = new JLabel(new ImageIcon(BACKGROUND));
@@ -344,8 +374,9 @@ public class GameFrame extends JFrame {
                 health.setHorizontalAlignment(JLabel.CENTER);
                 health.setForeground(new Color(0, 255, 200));
                 health.setOpaque(false);
-               update();
+                manaCost = new JLabel();
                 manaCost.setForeground(new Color(40, 53, 147));
+                update();
             }
 
             private void alignComponents() {
@@ -388,6 +419,9 @@ public class GameFrame extends JFrame {
 
             @Override
             public void update() {
+                if (card == null) {
+                    return;
+                }
                 if (card instanceof MinionCard) {
                     attack.setText(((MinionCard) card).getAttack() + "");
                     health.setText(((MinionCard) card).getHealth() + "");
@@ -397,7 +431,7 @@ public class GameFrame extends JFrame {
                     attack.setText(((WeaponCard) card).getAttack() + "");
                     health.setText(((WeaponCard) card).getDurability() + "");
                 }
-                manaCost = new JLabel(card.getManaCost() + "");
+                manaCost.setText(card.getManaCost() + "");
             }
         }
 
@@ -408,9 +442,9 @@ public class GameFrame extends JFrame {
             add(card, getComponentCount());
         }
 
-        public HandPanel(List<Card> cards, String playerName) {
+        public HandPanel(int playerIndex, String playerName) {
             setPreferredSize(new Dimension(width, height));
-            this.cards = cards;
+            this.playerIndex = playerIndex;
             this.playerName = playerName;
             GameFrame.getInstance().registerUpdatable(this);
         }
@@ -421,14 +455,15 @@ public class GameFrame extends JFrame {
         private int height = 160;
         private int cardsShift = width / 8;
 
-        private List<Card> cards;
+        private int playerIndex;
         private List<Box> boxes;
         private String playerName;
         @Override
         public void update() {
+            List<Card> cards =GameFrame.getInstance().game.getPlayers().get(playerIndex).getCardsOnBoard();
             for (int i = 0; i < 7; ++i) {
                 if (cards.get(i) != null) {
-                    CardOnBoard card = new CardOnBoard(cards.get(i));
+                    CardOnBoard card = new CardOnBoard(cards.get(i), playerIndex);
                     boxes.get(i).setCard(card);
                     GameFrame.getInstance().registerUpdatable(card);
                 }
@@ -441,9 +476,9 @@ public class GameFrame extends JFrame {
 
 
 
-        public BoardPanel(List<Card> cards, String playerName) {
+        public BoardPanel(int playerIndex, String playerName) {
             setPreferredSize(new Dimension(width, height));
-            this.cards = cards;
+            this.playerIndex = playerIndex;
             this.playerName = playerName;
             GameFrame.getInstance().registerUpdatable(this);
 
@@ -462,16 +497,21 @@ public class GameFrame extends JFrame {
             private int index;
             private String playerName;
             private CardOnBoard card;
+            private static GridBagConstraints gbc = new GridBagConstraints();
+            static {
+                gbc.gridx = 0;
+                gbc.gridy = 0;
+            }
 
             public void setCard(CardOnBoard card) {
                 this.card = card;
                 removeAll();
-                add(card);
+                add(card, gbc);
             }
 
             public void clear() {
                 removeAll();
-                add(background);
+                add(background, gbc);
             }
 
             public CardOnBoard getCard() {
@@ -482,17 +522,16 @@ public class GameFrame extends JFrame {
                 this.index = index;
                 this.playerName = playerName;
                 setPreferredSize(new Dimension(100, 160));
+                setLayout(new GridBagLayout());
                 setOpaque(false);
                 background = new JLabel(new ImageIcon(BOX));
-                background.setBounds(0, 0, 100, 160);
-
                 CommandAndResponseHandler.getInstance().registerBox(this);
             }
         }
     }
     private static class HeroPanel extends GameFramePanel implements Updatable{
 
-        private Hero hero;
+        private int playerIndex;
         private JLabel heroImage;
         private JLabel heroPowerImage;
         private JLabel HP;
@@ -500,32 +539,31 @@ public class GameFrame extends JFrame {
 
         @Override
         public void update() {
+            Hero hero = GameFrame.getInstance().game.getPlayers().get(playerIndex).getHero();
             HP.setText(hero.getHp() + "");
-            if (hero.getWeapon() != null)
+            if (hero.getWeapon() != null && weaponImage.getMouseListeners().length == 0)
                 weaponImage.addMouseListener(new CommandAndResponseHandler.AttackerMouseAdapter() {
+
                     @Override
-                    public Attacker getAttacker() {
-                        return hero.getWeapon();
+                    public int getIndexOfPlayer() {
+                        return playerIndex;
+                    }
+
+                    @Override
+                    public int indexInSection() {
+                        return 0;
+                    }
+
+                    @Override
+                    public AttackCommand.Section getSection() {
+                        return AttackCommand.Section.weapon;
                     }
                 });
-            else {
+            if (weaponImage.getMouseListeners().length != 0 && hero.getWeapon() == null)
                 for (MouseListener a : Arrays.asList(weaponImage.getMouseListeners())) {
                     weaponImage.removeMouseListener(a);
                 }
-            }
 
-            if (hero.getPower() instanceof Attacker)
-                weaponImage.addMouseListener(new CommandAndResponseHandler.AttackerMouseAdapter() {
-                    @Override
-                    public Attacker getAttacker() {
-                        return (Attacker)hero.getPower();
-                    }
-                });
-            else {
-                for (MouseListener a : Arrays.asList(heroPowerImage.getMouseListeners())) {
-                    heroPowerImage.removeMouseListener(a);
-                }
-            }
 
         }
         private static class WeaponImage extends JPanel{
@@ -592,8 +630,9 @@ public class GameFrame extends JFrame {
         }
 
 
-        public HeroPanel(Hero hero) {
-            this.hero = hero;
+        public HeroPanel(int playerIndex) {
+            this.playerIndex = playerIndex;
+            Hero hero = GameFrame.getInstance().game.getPlayers().get(playerIndex).getHero();
 
             setLayout(new GridBagLayout());
 
@@ -619,21 +658,21 @@ public class GameFrame extends JFrame {
                    .getWhiteTransparent("gameComponents/power.png")
                    .getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
 
+
            heroPowerImage.addMouseListener(new CommandAndResponseHandler.heroPowerMouserAdapter() {
 
-               @Override
-               HeroPower getHeroPower() {
-                   return hero.getPower();
-               }
+                   @Override
+                   HeroPower getHeroPower() {
+                       return hero.getPower();
+                   }
 
-               @Override
-               Player getPlayer() {
-                   return hero.getPlayer();
-               }
-           });
+                   @Override
+                   Player getPlayer() {
+                       return hero.getPlayer();
+                   }
+               });
 
-
-            GridBagConstraints gbc = new GridBagConstraints();
+           GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridx = 0;
             gbc.gridy = 0;
             gbc.anchor = GridBagConstraints.SOUTH;
@@ -644,10 +683,20 @@ public class GameFrame extends JFrame {
              add(heroPowerImage, gbc);
 
 
-            addMouseListener(new CommandAndResponseHandler.TargetMouseAdapter() {
+            heroImage.addMouseListener(new CommandAndResponseHandler.TargetMouseAdapter() {
                 @Override
-                public Object getTarget() {
-                    return hero;
+                public SelectionCommand.Section getSection() {
+                    return SelectionCommand.Section.hero;
+                }
+
+                @Override
+                public int getIndexOfPlayer() {
+                    return playerIndex;
+                }
+
+                @Override
+                public int getIndex() {
+                    return 0;
                 }
             });
             GameFrame.getInstance().registerUpdatable(this);
@@ -685,7 +734,7 @@ public class GameFrame extends JFrame {
         @Override
         public void update() {
             logs.setText("");
-            for (String log : game.getLogs()) {
+            for (String log : GameFrame.getInstance().game.getLogs()) {
                 logs.append("\n" + log);
             }
         }
@@ -698,13 +747,13 @@ public class GameFrame extends JFrame {
                 .getWhiteTransparent("gameComponents/deck.png")
                 .getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH);
 
-        List<Card> deck;
+        private int playerIndex;
         private JLabel image;
         private JLabel count;
 
 
-        public DeckPanel(List<Card> deck) {
-            this.deck = deck;
+        public DeckPanel(int playerIndex) {
+            this.playerIndex = playerIndex;
             //settings
             setLayout(null);
             setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -727,7 +776,7 @@ public class GameFrame extends JFrame {
                 @Override
                 public void mouseEntered(MouseEvent e) {
                     super.mouseEntered(e);
-                    count.setText(deck.size() + "");
+                    count.setText(GameFrame.getInstance().game.getPlayers().get(playerIndex).getDeck().size() + "");
                 }
 
                 @Override
@@ -775,13 +824,13 @@ public class GameFrame extends JFrame {
     private static class ManaLabel extends JPanel implements Updatable{
         private int width = 30;
         private int height = 30;
-        private Player player;
+        private int playerIndex;
         private JLabel image;
         private JLabel number;
 
-        public ManaLabel(Player player) {
+        public ManaLabel(int playerIndex) {
             GameFrame.getInstance().registerUpdatable(this);
-            this.player = player;
+            this.playerIndex = playerIndex;
 
             setOpaque(false);
 //            setPreferredSize(new Dimension(width, height));
@@ -806,12 +855,12 @@ public class GameFrame extends JFrame {
 
         @Override
         public void update() {
-            number.setText(player.getMana() + "");
+            number.setText(GameFrame.getInstance().game.getPlayers().get(playerIndex).getMana() + "");
         }
     }
-    private static class CardOnBoard extends JPanel implements Updatable{
+    public static class CardOnBoard extends JPanel implements Updatable{
         protected static final int width = 100;
-        protected static final int height = (int)Math.round(1.6 * width);
+        protected static final int height = 160;
         protected static final Image BACKGROUND = ImageUtil
                 .getWhiteTransparent("gameComponents/cards/cardOnBoard.png")
                 .getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -830,8 +879,6 @@ public class GameFrame extends JFrame {
 
         }
 
-        protected int lengthOfLabels = 30;
-
 
         private Card card;
         private JLabel background;
@@ -840,8 +887,9 @@ public class GameFrame extends JFrame {
         private JLabel health;
         private JLabel divineShield;
         private JLabel tauntBackground;
+        private int indexOfPlayer;
 
-        public CardOnBoard(Card card) {
+        public CardOnBoard(Card card, int indexOfPlayer) {
 
             CardInfoPanel.getInstance().register(this, card);
             this.card = card;
@@ -850,6 +898,7 @@ public class GameFrame extends JFrame {
 
             initComponent();
             alignComponents();
+            this.indexOfPlayer = indexOfPlayer;
 
         }
 
@@ -877,14 +926,36 @@ public class GameFrame extends JFrame {
             update();
             addMouseListener(new CommandAndResponseHandler.TargetMouseAdapter() {
                 @Override
-                public Object getTarget() {
-                    return card;
+                public SelectionCommand.Section getSection() {
+                    return SelectionCommand.Section.battleGround;
+                }
+
+                @Override
+                public int getIndexOfPlayer() {
+                    return indexOfPlayer;
+                }
+
+                @Override
+                public int getIndex() {
+                    return GameFrame.getInstance().game.getPlayers().get(indexOfPlayer)
+                            .getCardsOnBoard().indexOf(card);
                 }
             });
             addMouseListener(new CommandAndResponseHandler.AttackerMouseAdapter() {
                 @Override
-                public Attacker getAttacker() {
-                    return (MinionCard)card;
+                public int getIndexOfPlayer() {
+                    return indexOfPlayer;
+                }
+
+                @Override
+                public int indexInSection() {
+                    return GameFrame.getInstance().game.getPlayers().
+                            get(indexOfPlayer).getCardsOnBoard().indexOf(card);
+                }
+
+                @Override
+                public AttackCommand.Section getSection() {
+                    return AttackCommand.Section.battleGround;
                 }
             });
 
@@ -935,7 +1006,35 @@ public class GameFrame extends JFrame {
                 health.setText(((MinionCard) card).getHealth() + "");
         }
     }
+    private static class TurnLabel extends JLabel implements Updatable{
+        private int indexOfPlayer;
+        public TurnLabel(int indexOfPlayer) {
+            this.indexOfPlayer = indexOfPlayer;
+            setPreferredSize(new Dimension(160, 100));
+            setFont(new Font("Spicy Rice", Font.PLAIN, 20));
+            setOpaque(true);
+            GameFrame.getInstance().registerUpdatable(this);
+        }
 
+        @Override
+        public void update() {
+            if (getGame().getPlayers().indexOf(getGame().getPlayerOnTurn()) == indexOfPlayer){
+                setText("YOUR TURN");
+                setBackground(Color.green);
+
+            }
+            else{
+                setText("OPPONENTS TURN");
+                setBackground(Color.red);
+            }
+        }
+
+        private Game getGame() {
+            return GameFrame.getInstance().game;
+        }
+    }
+
+    private TurnLabel turnLabel;
     private MenuButton endTurnButton;
     private HandPanel playersHandPanel;
     private HandPanel opponentsHandPanel;
@@ -947,63 +1046,25 @@ public class GameFrame extends JFrame {
     private DeckPanel opponentsDeckPanel;
     private ManaLabel playersManaLabel;
 
-    public static void launch(GameProcessor gameProcessor, int indexOfPlayer) {
-        getInstance().gameProcessor = gameProcessor;
-
-
-        getInstance().game = gameProcessor.getGame();
-
-
+    public static void launch(ObjectOutput output, ObjectInput input, int indexOfPlayer, Game game) {
         getInstance().setVisible(true);
 
         theme.clip.loop(Clip.LOOP_CONTINUOUSLY);
 
         CommandAndResponseHandler.getInstance().registeredBoxes = new ArrayList<>();
+
+        getInstance().game = game;
         getInstance().initComponent(indexOfPlayer);
         getInstance().alignComponents();
-        CommandAndResponseHandler.getInstance().connectToProcessor(gameProcessor);
-        List<Container> passives = new ArrayList<>();
-        List<Integer> indices = new ArrayList<>();
-        for (int i = 0; i < 3; ++i) {
-            int indx = new Random().nextInt(5);
-            if (indices.contains(indx))
-                --i;
-            else{
-                indices.add(indx);
-                passives.add(new Passive.PassiveShape(Passive.map.get(indx)));
-            }
-        }
+        CommandAndResponseHandler.getInstance().connect(input, output);
+
         FramePainter.paint(getInstance());
-        DiscoverFrame.getInstance().chooseFrom(passives, e -> {
-            Passive.PassiveShape res = (Passive.PassiveShape)e.getSource();
-            getInstance().game.getPlayers().get(indexOfPlayer).setPassive(res.getPassive());
-
-            try {
-
-                Player player = gameProcessor.getGame().getPlayers().get(0);
-                DB.components.cards.Card myPassive = new DB.components.cards.Card();
-                myPassive.setName(res.getPassive().name());
-                Card myPassiveCard = new Card(myPassive, player){};
-                Constructor passiveConstructor = Loader.getInstance()
-                        .getModel(myPassiveCard);
-
-                CardModel card = (CardModel)passiveConstructor
-                        .newInstance(gameProcessor, player, myPassiveCard);
-
-                card.play(new PlayCommand(player.getName(), null, 0));
-
-
-            } catch (Exception ignore) {
-                ignore.printStackTrace();
-            }
-
-        });
-
 
     }
 
     private void exitGame() {
         FramePainter.paint(MenuFrame.getInstance());
+        MenuFrame.getInstance().setPanel(MainMenu.getInstance());
         theme.clip.stop();
         MenuFrame.getTheme().clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
@@ -1040,22 +1101,23 @@ public class GameFrame extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                getInstance().gameProcessor.getCommandOutput().write(new EndTurnCommand(this));
+                CommandAndResponseHandler.getInstance().writeCommand(new EndTurnCommand());
             }
         });
 
         registeredUpdatables.clear();
 
-        playersBoardPanel = new BoardPanel(game.getPlayers().get(indexOfPlayer).getCardsOnBoard(),  game.getPlayers().get(indexOfPlayer).getName());
-        opponentsBoardPanel = new BoardPanel(game.getPlayers().get(1 - indexOfPlayer).getCardsOnBoard(), game.getPlayers().get(1 - indexOfPlayer).getName());
-        playersDeckPanel = new DeckPanel(game.getPlayers().get(indexOfPlayer).getDeck());
-        opponentsDeckPanel = new DeckPanel(game.getPlayers().get(1 - indexOfPlayer).getDeck());
-        playersHandPanel = new HandPanel(game.getPlayers().get(indexOfPlayer).getHand(), game.getPlayers().get(indexOfPlayer).getName());
-        opponentsHandPanel = new HandPanel(game.getPlayers().get(1 - indexOfPlayer).getHand(), game.getPlayers().get(1 - indexOfPlayer).getName());
-        playersHeroPanel = new HeroPanel(game.getPlayers().get(indexOfPlayer).getHero());
-        opponentsHeroPanel = new HeroPanel(game.getPlayers().get(1 - indexOfPlayer).getHero());
-        playersManaLabel = new ManaLabel(game.getPlayers().get(indexOfPlayer));
 
+        playersBoardPanel = new BoardPanel(indexOfPlayer,  game.getPlayers().get(indexOfPlayer).getName());
+        opponentsBoardPanel = new BoardPanel(1 - indexOfPlayer, game.getPlayers().get(1 - indexOfPlayer).getName());
+        playersDeckPanel = new DeckPanel(indexOfPlayer);
+        opponentsDeckPanel = new DeckPanel(1 - indexOfPlayer);
+        playersHandPanel = new HandPanel(indexOfPlayer, game.getPlayers().get(indexOfPlayer).getName());
+        opponentsHandPanel = new HandPanel(1 - indexOfPlayer, game.getPlayers().get(1 - indexOfPlayer).getName());
+        playersHeroPanel = new HeroPanel(indexOfPlayer);
+        opponentsHeroPanel = new HeroPanel(1 - indexOfPlayer);
+        playersManaLabel = new ManaLabel(indexOfPlayer);
+        turnLabel = new TurnLabel(indexOfPlayer);
 
     }
 
@@ -1077,6 +1139,10 @@ public class GameFrame extends JFrame {
         gbc.gridx = 1;
         gbc.gridy = 0;
         pane.add(opponentsHandPanel, gbc);
+
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        pane.add(turnLabel, gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 1;
@@ -1121,7 +1187,6 @@ public class GameFrame extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 5;
         pane.add(playersManaLabel, gbc);
-
 
         gbc.gridx = 1;
         gbc.gridy = 5;
